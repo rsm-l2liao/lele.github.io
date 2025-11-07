@@ -1,0 +1,147 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Lele Liao · Portfolio</title>
+  <link rel="stylesheet" href="lele.github.io/style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@600;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Sidebar -->
+  <aside class="sidebar">
+    <div class="profile">
+      <div class="avatar"></div>
+      <h1>Lele Liao</h1>
+      <p class="tagline">Hello!</p>
+      <p class="tagline">Welcome to my personal website!</p>
+    </div>
+    <nav class="nav">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#education">Education</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </aside>
+
+  <!-- Main Content -->
+  <main class="content">
+    <section id="about" class="hero">
+      <h2>Hello, I’m Lele 👋</h2>
+      <p>Graduate student in Business Analytics at UC San Diego, passionate about data visualization, ETL pipelines, and no-code prototyping. I enjoy transforming complex data into clear, actionable insights.</p>
+    </section>
+
+    <section id="projects" class="card">
+      <h3>Projects</h3>
+      <ul>
+        <li><strong>SQL/ETL Designer · UC San Diego (2025)</strong><br>
+        Built a Snowflake-based ETL pipeline for 100K+ transaction records using Python and SQL to improve data accessibility.
+        </li>
+
+        <li><strong>QA Engineer · Gym With Friends (2024)</strong><br>
+        Designed feedback system dashboards in HTML and managed Azure project storage for a 4-member team.
+        </li>
+
+        <li><strong>Web Designer · The Rolling Margarita LLC (2023)</strong><br>
+        Created a responsive restaurant website on a <$100 budget using HTML, CSS, and JavaScript.
+        </li>
+      </ul>
+    </section>
+
+    <!-- 我的作品集 -->
+<section id="portfolio" class="portfolio-section">
+  <div class="portfolio-header">
+    <h2>My Works</h2>
+    <a href="https://your-link-here.com" target="_blank" class="see-more">
+      🔗 See More
+    </a>
+  </div>
+  <p class="intro">I promise I'll add something later.</p>
+
+  <div class="portfolio-grid">
+    <div class="work-card">
+      <h4>Topic</h4>
+      <p class="work-desc">I'll put the website I write for my undergrad class's final. It's not good, but that's how I start.</p>
+      <a href="#">View Project →</a>
+    </div>
+    <div class="work-card">
+      <h4>Topic</h4>
+      <p class="work-desc">I don't know about this part, I'll put something I made now.</p>
+      <a href="#">View Project →</a>
+    </div>
+    <div class="work-card">
+      <h4>Topic</h4>
+      <p class="work-desc">Some Data Analyst Project? Maybe</p>
+      <a href="#">View Project →</a>
+    </div>
+  </div>
+</section>
+
+
+    <!-- 经验 -->
+    <section id="experience" class="card">
+      <h3>Experience</h3>
+      <ul>
+        <li><strong>Vice President · CSSA, UNR (2024–2025)</strong><br>
+        Coordinated 7 organizations and increased event attendance by 25%; managed social media (+50% reach).</li>
+        <li><strong>Team Supervisor · Egg Roll King (2018–2025)</strong><br>
+        Developed Excel dashboards for revenue tracking (+15% efficiency), maintained POS systems, and ensured compliance.</li>
+        <li><strong>Seasonal Worker · Target (2024–2025)</strong><br>
+        Supported daily operations and handled 50+ customer requests weekly with 90%+ satisfaction.</li>
+      </ul>
+    </section>
+
+    <!-- 技能 -->
+    <section id="skills" class="card">
+      <h3>Skills</h3>
+      <div class="skills-grid">
+        <div>
+          <span>SQL</span>
+          <span>Python (Pandas, NumPy, Matplotlib)</span>
+          <span>R</span>
+          <span>Snowflake</span>
+          <span>Excel (Pivot, VLOOKUP, Automation)</span>
+        </div>
+        <div>
+          <span>Tableau</span>
+          <span>ETL Pipelines</span>
+          <span>HTML / CSS / JavaScript</span>
+          <span>Visio / Access / Visual Studio</span>
+          <span>Chinese & English (Fluent)</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 学历 -->
+    <section id="education" class="card">
+      <h3>Education</h3>
+      <ul>
+        <li><strong>UC San Diego</strong> — M.S. in Business Analytics (Expected 12/2026)<br>
+        Coursework: Data Visualization, Big Data Analytics, Machine Learning, Web Mining</li>
+        <li><strong>University of Nevada, Reno</strong> — B.S. in Business Administration (05/2025)<br>
+        Major: Information Systems · Minors: Accounting, Business Analysis, Mathematics</li>
+      </ul>
+    </section>
+
+    <!-- 联系方式 -->
+    <section id="contact" class="contact-card">
+      <div class="contact-content">
+        <h3>Get in Touch</h3>
+        <p><strong>Email:</strong> <a href="mailto:leleliao02@gmail.com">leleliao02@gmail.com</a></p>
+        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lele-liao-134340/" target="_blank">linkedin.com/in/lele-liao-134340</a></p>
+      </div>
+    </section>
+
+    <footer class="copy-footer">
+      © <span id="year"></span> Designed by Lele Liao  · A good person
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
