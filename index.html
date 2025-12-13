@@ -45,27 +45,75 @@
       <p class="intro">Here are some of my academic and analytical works that reflect my growth and curiosity in data analytics and business insights.</p>
 
       <div class="portfolio-grid">
+
         <div class="work-card">
           <h4>TFT_Personal_Analysis</h4>
           <p class="work-desc">Developed a personalized data analysis project using Riot Games API to explore gameplay insights in Teamfight Tactics (TFT), identifying high-performing strategies through real-world match data and building a foundation for multi-user performance comparison.</p>
           <a href="https://github.com/rsm-l2liao/TFT_Personal_Analysis">View Project →</a>
           <span style="color: #ff6b35; font-size: 14px; margin-left: 10px;">🚧Still Working</span>
         </div>
+
         <div class="work-card">
           <h4>Gym With Friends Feedback Dashboard</h4>
           <p class="work-desc">Developed interactive dashboards using HTML and managed Azure data validation for real-time user feedback tracking.</p>
           <a href="#">Private Project →</a>
         </div>
+
         <div class="work-card">
           <h4>Financial Tax Project</h4>
           <p class="work-desc">Created Excel-based models to cross-verify client income and deductions across W-2, 1099, and Schedule D/E/A forms to ensure reporting precision.</p>
           <a href="#">Not Publicly Available →</a>
         </div>
+
         <div class="work-card">
           <h4>Restaurant Web Design (The Rolling Margarita LLC)</h4>
           <p class="work-desc">Created a responsive restaurant website on a limited budget (<$100) using HTML, CSS, and JavaScript. Focused on fast loading, clean UI, and accessibility.</p>
           <a href="https://therollingmargaritallc.wordpress.com/">View Project →</a>
         </div>
+
+        <!-- ⭐ Added: Real Estate Tableau Dashboard -->
+        <div class="work-card">
+          <h4>U.S. Housing & Rental Market Dashboard (Tableau)</h4>
+          <p class="work-desc">
+            An interactive Tableau dashboard analyzing Zillow ZHVI (Home Value Index), ZORI (Rent Index),
+            population trends, and median income. Designed to explore housing affordability, migration patterns,
+            and socioeconomic influences on real estate markets.
+          </p>
+
+          <!-- Tableau Visualization Embed -->
+          <div class='tableauPlaceholder' id='viz_housing' style='position: relative; margin-top: 12px;'>
+              <noscript>
+                  <a href='#'>
+                      <img alt=' ' src='https://public.tableau.com/static/images/JK/JKP5SP87J/1_rss.png' style='border: none' />
+                  </a>
+              </noscript>
+              <object class='tableauViz' style='display:none;'>
+                  <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+                  <param name='embed_code_version' value='3' />
+                  <param name='path' value='shared/JKP5SP87J' />
+                  <param name='toolbar' value='yes' />
+                  <param name='static_image' value='https://public.tableau.com/static/images/JK/JKP5SP87J/1.png' />
+                  <param name='animate_transition' value='yes' />
+                  <param name='display_static_image' value='yes' />
+                  <param name='display_spinner' value='yes' />
+                  <param name='display_overlay' value='yes' />
+                  <param name='display_count' value='yes' />
+                  <param name='language' value='zh-CN' />
+              </object>
+          </div>
+
+          <script type='text/javascript'>
+              var divElement = document.getElementById('viz_housing');
+              var vizElement = divElement.getElementsByTagName('object')[0];
+              vizElement.style.width = '100%';
+              vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
+              var scriptElement = document.createElement('script');
+              scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+              vizElement.parentNode.insertBefore(scriptElement, vizElement);
+          </script>
+        </div>
+        <!-- ⭐ End Added Section -->
+
       </div>
     </section>
 
@@ -122,7 +170,7 @@
       </ul>
     </section>
 
-<!-- 技能 -->
+    <!-- 技能 -->
     <section id="skills" class="card">
       <h3>Skills</h3>
       <div class="skills-grid">
@@ -177,5 +225,6 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
+
 </body>
 </html>
