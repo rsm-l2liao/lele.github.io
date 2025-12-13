@@ -7,7 +7,9 @@
   <link rel="stylesheet" type="text/css" href="style.css">
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Poppins:wght@600;900&display=swap" rel="stylesheet">
 </head>
+
 <body>
+
   <!-- Sidebar -->
   <aside class="sidebar">
     <div class="profile">
@@ -27,161 +29,206 @@
     </nav>
   </aside>
 
+
   <!-- Main Content -->
   <main class="content">
 
-    <!-- 个人介绍 -->
+    <!-- About -->
     <section id="about" class="hero">
       <h2>Hello, I’m Lele 👋</h2>
       <p>I’m a Business Analytics graduate student at UC San Diego with a strong passion for transforming data into meaningful insights and actionable strategies. I enjoy building things from the ground up — from designing efficient ETL workflows to developing intuitive dashboards that turn complex data into clear, impactful stories.</p>
     </section>
 
-    <!-- 作品集 -->
+
+    <!-- ========================================================= -->
+    <!--                  ✨ NEW MY WORKS SECTION ✨               -->
+    <!-- ========================================================= -->
     <section id="portfolio" class="portfolio-section">
-      <div class="portfolio-header">
-        <h2>My Works</h2>
-        <a href="https://github.com/rsm-l2liao" target="_blank" class="see-more">🔗 See More</a>
-      </div>
-      <p class="intro">Here are some of my academic and analytical works that reflect my growth and curiosity in data analytics and business insights.</p>
 
-      <div class="portfolio-grid">
+      <h2 class="portfolio-title">My Works</h2>
+      <p class="intro">Projects categorized into Data Visualization, Programming, and Other Work.</p>
 
-        <div class="work-card">
-          <h4>TFT_Personal_Analysis</h4>
-          <p class="work-desc">Developed a personalized data analysis project using Riot Games API to explore gameplay insights in Teamfight Tactics (TFT), identifying high-performing strategies through real-world match data and building a foundation for multi-user performance comparison.</p>
-          <a href="https://github.com/rsm-l2liao/TFT_Personal_Analysis">View Project →</a>
-          <span style="color: #ff6b35; font-size: 14px; margin-left: 10px;">🚧Still Working</span>
-        </div>
 
-        <div class="work-card">
-          <h4>Gym With Friends Feedback Dashboard</h4>
-          <p class="work-desc">Developed interactive dashboards using HTML and managed Azure data validation for real-time user feedback tracking.</p>
-          <a href="#">Private Project →</a>
-        </div>
+      <!-- ========================================================= -->
+      <!-- 1. Data Visualization -->
+      <!-- ========================================================= -->
+      <div class="work-row">
+        <h3 class="work-row-title">Data Visualization</h3>
 
-        <div class="work-card">
-          <h4>Financial Tax Project</h4>
-          <p class="work-desc">Created Excel-based models to cross-verify client income and deductions across W-2, 1099, and Schedule D/E/A forms to ensure reporting precision.</p>
-          <a href="#">Not Publicly Available →</a>
-        </div>
+        <div class="work-carousel">
+          <button class="arrow left">‹</button>
 
-        <div class="work-card">
-          <h4>Restaurant Web Design (The Rolling Margarita LLC)</h4>
-          <p class="work-desc">Created a responsive restaurant website on a limited budget (<$100) using HTML, CSS, and JavaScript. Focused on fast loading, clean UI, and accessibility.</p>
-          <a href="https://therollingmargaritallc.wordpress.com/">View Project →</a>
-        </div>
+          <div class="work-cards">
 
-        <!-- ⭐ Added: Real Estate Tableau Dashboard -->
-        <div class="work-card">
-          <h4>U.S. Housing & Rental Market Dashboard (Tableau)</h4>
-          <p class="work-desc">
-            An interactive Tableau dashboard analyzing Zillow ZHVI (Home Value Index), ZORI (Rent Index),
-            population trends, and median income. Designed to explore housing affordability, migration patterns,
-            and socioeconomic influences on real estate markets.
-          </p>
+            <div class="work-page">
 
-          <!-- Tableau Visualization Embed -->
-          <div class='tableauPlaceholder' id='viz_housing' style='position: relative; margin-top: 12px;'>
-              <noscript>
-                  <a href='#'>
-                      <img alt=' ' src='https://public.tableau.com/static/images/JK/JKP5SP87J/1_rss.png' style='border: none' />
-                  </a>
-              </noscript>
-              <object class='tableauViz' style='display:none;'>
-                  <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                  <param name='embed_code_version' value='3' />
-                  <param name='path' value='shared/JKP5SP87J' />
-                  <param name='toolbar' value='yes' />
-                  <param name='static_image' value='https://public.tableau.com/static/images/JK/JKP5SP87J/1.png' />
-                  <param name='animate_transition' value='yes' />
-                  <param name='display_static_image' value='yes' />
-                  <param name='display_spinner' value='yes' />
-                  <param name='display_overlay' value='yes' />
-                  <param name='display_count' value='yes' />
-                  <param name='language' value='zh-CN' />
-              </object>
+              <div class="work-card">
+                <h4>U.S. Housing & Rental Market Dashboard (Tableau)</h4>
+                <p class="work-desc">A Tableau dashboard analyzing housing affordability, ZHVI trends, ZORI rent index, income distribution, and migration patterns.</p>
+                <a class="project-link" href="https://public.tableau.com/shared/JKP5SP87J?:display_count=n&:origin=viz_share_link" target="_blank">View Dashboard →</a>
+              </div>
+
+              <div class="work-card">
+                <h4>TFT_Personal_Analysis</h4>
+                <p class="work-desc">Riot API analytics project identifying top-performing TFT strategies through match-level statistical computation.</p>
+                <a class="project-link" href="https://github.com/rsm-l2liao/TFT_Personal_Analysis" target="_blank">View Project →</a>
+                <span class="status-badge">🚧 Still Working</span>
+              </div>
+
+              <div class="work-card">
+                <h4>More Data Viz Coming</h4>
+                <p class="work-desc">More Tableau, Python dashboards, and Plotly projects will be added here.</p>
+              </div>
+
+            </div>
+
           </div>
 
-          <script type='text/javascript'>
-              var divElement = document.getElementById('viz_housing');
-              var vizElement = divElement.getElementsByTagName('object')[0];
-              vizElement.style.width = '100%';
-              vizElement.style.height = (divElement.offsetWidth * 0.75) + 'px';
-              var scriptElement = document.createElement('script');
-              scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
-              vizElement.parentNode.insertBefore(scriptElement, vizElement);
-          </script>
+          <button class="arrow right">›</button>
         </div>
-        <!-- ⭐ End Added Section -->
-
       </div>
+
+
+
+      <!-- ========================================================= -->
+      <!-- 2. Programming -->
+      <!-- ========================================================= -->
+      <div class="work-row">
+        <h3 class="work-row-title">Programming</h3>
+
+        <div class="work-carousel">
+          <button class="arrow left">‹</button>
+
+          <div class="work-cards">
+
+            <div class="work-page">
+
+              <div class="work-card">
+                <h4>Gym With Friends Feedback System</h4>
+                <p class="work-desc">Interactive dashboard development, HTML interface design, and Azure-based validation workflow for fitness application.</p>
+                <a class="project-link" href="#">Private Project →</a>
+              </div>
+
+              <div class="work-card">
+                <h4>Snowflake ETL Pipeline</h4>
+                <p class="work-desc">Designed ETL pipeline for 100K+ transactions using Python + SQL, ensuring 99%+ accuracy with validation checkpoints.</p>
+                <a class="project-link" href="#">View Project →</a>
+              </div>
+
+              <div class="work-card">
+                <h4>Restaurant Web Design</h4>
+                <p class="work-desc">A responsive website built using HTML/CSS/JS for a small business, optimized for mobile and accessibility.</p>
+                <a class="project-link" href="https://therollingmargaritallc.wordpress.com/" target="_blank">View Project →</a>
+              </div>
+
+            </div>
+
+          </div>
+
+          <button class="arrow right">›</button>
+        </div>
+      </div>
+
+
+
+      <!-- ========================================================= -->
+      <!-- 3. Other Work -->
+      <!-- ========================================================= -->
+      <div class="work-row">
+        <h3 class="work-row-title">Other Work</h3>
+
+        <div class="work-carousel">
+          <button class="arrow left">‹</button>
+
+          <div class="work-cards">
+            <div class="work-page">
+
+              <div class="work-card">
+                <h4>Financial Tax Project</h4>
+                <p class="work-desc">IRS form analysis (W-2, 1099, Schedule D/E/A) including manual reconciliation and Excel-based cross-verification model construction.</p>
+                <a class="project-link" href="#">Not Publicly Available →</a>
+              </div>
+
+              <div class="work-card">
+                <h4>CSSA Vice President Analytics</h4>
+                <p class="work-desc">Improved student event engagement by 25% through data-driven decision-making and social media insights.</p>
+                <a class="project-link" href="#">Internal →</a>
+              </div>
+
+              <div class="work-card">
+                <h4>Additional Work</h4>
+                <p class="work-desc">Other professional experiences and volunteer work will be added here.</p>
+              </div>
+
+            </div>
+          </div>
+
+          <button class="arrow right">›</button>
+        </div>
+      </div>
+
     </section>
 
-    <!-- 教育 -->
+
+
+
+    <!-- ========================================================= -->
+    <!-- Education -->
+    <!-- ========================================================= -->
     <section id="education" class="card">
       <h3>Education</h3>
       <ul>
-        <li><strong>University of California, San Diego</strong> — M.S. in Business Analytics (Expected 12/2026)<br>
-        Coursework: Business Intelligence, Large Data Business Analytics, Machine Learning, Web Mining</li>
-
-        <li><strong>University of Nevada, Reno</strong> — B.S. in Business Administration (05/2025)<br>
-        Major: Information Systems · Minors: Accounting, Data Analysis, Mathematics</li>
+        <li><strong>UC San Diego</strong> — M.S. in Business Analytics (Expected 12/2026)</li>
+        <li><strong>University of Nevada, Reno</strong> — B.S. in Business Administration (05/2025)</li>
       </ul>
     </section>
 
-    <!-- 经历 -->
+
+
+    <!-- ========================================================= -->
+    <!-- Experience -->
+    <!-- ========================================================= -->
     <section id="experience" class="card">
       <h3>Experience</h3>
       <ul>
-        <li><strong>Business Operations Analyst · Egg Roll King, Reno, NV (01/2018 – 04/2025)</strong><br>
-        Designed and automated Excel-based dashboards to analyze daily revenue and customer traffic patterns, identifying peak sales hours and improving staffing efficiency by 15%.<br>
-        Monitored and troubleshot POS and kitchen system performance, using data logs to diagnose issues and reduce equipment downtime by 20%, ensuring consistent operational flow.<br>
-        Enforced strict compliance with health department regulations, leading all inspections with zero critical violations.</li>
-
-        <li><strong>Seasonal Customer Experience Analyst · Target, Reno, NV (10/2024 – 01/2025)</strong><br>
-        Collaborated cross-functionally to translate insights into actionable improvements, sustaining a 90%+ customer satisfaction rate during peak seasons.<br>
-        Collected and analyzed customer wait-time data to identify operational bottlenecks and improve service flow.</li>
-
-        <li><strong>Vice President · Chinese Student & Scholar Association (CSSA), University of Nevada, Reno (2024 – 2025)</strong><br>
-        Analyzed event engagement metrics and participant feedback data to identify key drivers of student involvement, leading to a 25% increase in attendance.<br>
-        Managed CSSA social media analytics dashboard, tracking impressions and optimizing content strategy to boost post engagement by 50%.</li>
+        <li><strong>Business Operations Analyst · Egg Roll King</strong><br>Improved operations via dashboards, POS diagnostics, and compliance.</li>
+        <li><strong>Seasonal Customer Experience Analyst · Target</strong><br>Enhanced process flow and maintained 90%+ customer satisfaction.</li>
+        <li><strong>Vice President · CSSA</strong><br>Increased event participation by 25% and improved content reach by 50%.</li>
       </ul>
     </section>
 
-    <!-- 项目 -->
+
+
+    <!-- ========================================================= -->
+    <!-- Projects -->
+    <!-- ========================================================= -->
     <section id="projects" class="card">
       <h3>Projects</h3>
       <ul>
-        <li><strong>SQL / ETL Designer · University of California, San Diego (08/2025 – 09/2025)</strong><br>
-        Designed and implemented Snowflake-based ETL workflows to extract, clean, and load 100K+ transactional records from CSV files, improving data availability for analytics.<br>
-        Validated data integrity and optimized SQL/Python scripts to enhance processing efficiency and ensure 99%+ data accuracy.</li>
-
-        <li><strong>Q&A Engineer · Gym With Friends, University of Nevada, Reno (08/2024 – 12/2024)</strong><br>
-        Collaborated in a 4-member team to design and test a feedback collection and analytics system, ensuring accurate data capture and reporting.<br>
-        Developed interactive dashboards in HTML for internal users, improving transparency in user feedback tracking.<br>
-        Managed data validation and project deployment on Microsoft Azure, ensuring secure and reliable data access.</li>
-
-        <li><strong>Financial Tax Project · Federal Taxation (01/2024 – 05/2024)</strong><br>
-        Cleaned, organized, and analyzed client financial and tax data to ensure accuracy across multiple IRS forms (W-2, 1099, Schedule D/E/A, 8949).<br>
-        Built Excel-based models to cross-verify income and deduction data, improving data quality and reporting precision.</li>
-
-        <li><strong>Web Designer · The Rolling Margarita LLC (2023)</strong><br>
-        Created a responsive restaurant website on a limited budget using HTML, CSS, and JavaScript. Focused on UI design, mobile responsiveness, and brand consistency.</li>
+        <li><strong>SQL / ETL Designer</strong> — Snowflake-based pipeline processing 100K+ records.</li>
+        <li><strong>Q&A Engineer · Gym With Friends</strong> — Developed frontend dashboard + Azure validation.</li>
+        <li><strong>Financial Tax Project</strong> — IRS documentation review & Excel modeling.</li>
+        <li><strong>Web Designer</strong> — HTML/CSS/JS website for The Rolling Margarita LLC.</li>
       </ul>
     </section>
 
-    <!-- 技能 -->
+
+
+    <!-- ========================================================= -->
+    <!-- Skills -->
+    <!-- ========================================================= -->
     <section id="skills" class="card">
       <h3>Skills</h3>
+
       <div class="skills-grid">
 
         <div class="skill-category">
           <h4>Programming & Data Tools</h4>
           <div class="skill-boxes">
-            <div class="skill-box">Python (Pandas, NumPy, Matplotlib)</div>
+            <div class="skill-box">Python</div>
             <div class="skill-box">SQL</div>
             <div class="skill-box">R</div>
-            <div class="skill-box">HTML / CSS / JavaScript</div>
+            <div class="skill-box">HTML / CSS / JS</div>
             <div class="skill-box">Snowflake</div>
           </div>
         </div>
@@ -190,7 +237,7 @@
           <h4>Analytics & Visualization</h4>
           <div class="skill-boxes">
             <div class="skill-box">Tableau</div>
-            <div class="skill-box">Excel (Pivot, VLOOKUP, Automation)</div>
+            <div class="skill-box">Excel</div>
             <div class="skill-box">ETL Pipelines</div>
           </div>
         </div>
@@ -198,7 +245,7 @@
         <div class="skill-category">
           <h4>Productivity & Workflow</h4>
           <div class="skill-boxes">
-            <div class="skill-box">Microsoft Access</div>
+            <div class="skill-box">Access</div>
             <div class="skill-box">Visio</div>
             <div class="skill-box">Visual Studio</div>
           </div>
@@ -207,24 +254,64 @@
       </div>
     </section>
 
-    <!-- 联系方式 -->
+
+
+    <!-- ========================================================= -->
+    <!-- Contact -->
+    <!-- ========================================================= -->
     <section id="contact" class="contact-card">
-      <div class="contact-content">
-        <h3>Get in Touch</h3>
-        <p><strong>Email:</strong> <a href="mailto:l2liao@ucsd.edu">l2liao@ucsd.edu</a></p>
-        <p><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/lele-liao-134340/" target="_blank">linkedin.com/in/lele-liao-134340</a></p>
-        <p><strong>GitHub:</strong> <a href="https://github.com/rsm-l2liao" target="_blank">https://github.com/rsm-l2liao</a></p>
-      </div>
+      <h3>Get in Touch</h3>
+      <p>Email: <a href="mailto:l2liao@ucsd.edu">l2liao@ucsd.edu</a></p>
+      <p>LinkedIn: <a href="https://www.linkedin.com/in/lele-liao-134340/">Profile</a></p>
+      <p>GitHub: <a href="https://github.com/rsm-l2liao">rsm-l2liao</a></p>
     </section>
+
 
     <footer class="copy-footer">
       © <span id="year"></span> Designed by Lele Liao · A good person
     </footer>
+
   </main>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+
+
+
+  <!-- ========================================================= -->
+  <!-- JS：三分类 My Works 左右切换 -->
+  <!-- ========================================================= -->
+<script>
+document.querySelectorAll(".work-carousel").forEach(carousel => {
+  const pages = carousel.querySelectorAll(".work-page");
+  const left = carousel.querySelector(".arrow.left");
+  const right = carousel.querySelector(".arrow.right");
+  let index = 0;
+
+  function update() {
+    pages.forEach((page, i) => {
+      page.style.transform = `translateX(${(i - index) * 100}%)`;
+    });
+    left.classList.toggle("hidden", index === 0);
+    right.classList.toggle("hidden", index === pages.length - 1);
+  }
+
+  left.addEventListener("click", () => {
+    index = Math.max(0, index - 1);
+    update();
+  });
+
+  right.addEventListener("click", () => {
+    index = Math.min(pages.length - 1, index + 1);
+    update();
+  });
+
+  update();
+});
+</script>
+
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
 
 </body>
 </html>

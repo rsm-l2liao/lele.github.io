@@ -1,6 +1,9 @@
-﻿/* -------- 基础颜色变量 -------- */
+﻿/* =========================================================
+   基础颜色变量
+   ========================================================= */
 :root {
   --pink: #FF8F8F;
+  --pink-dark: #ff6b8b; /* View Project 深粉色 */
   --butter: #FFF1CB;
   --sky: #C2E2FA;
   --lav: #B7A3E3;
@@ -10,7 +13,9 @@
   --shadow: 0 8px 24px rgba(0,0,0,.12);
 }
 
-/* -------- 页面布局 -------- */
+/* =========================================================
+   页面布局
+   ========================================================= */
 body {
   font-family: 'Inter', sans-serif;
   color: var(--ink);
@@ -21,7 +26,9 @@ body {
   overflow-x: hidden;
 }
 
-/* -------- 左侧导航栏 -------- */
+/* =========================================================
+   Sidebar 左侧栏
+   ========================================================= */
 .sidebar {
   background: var(--blue);
   width: 280px;
@@ -32,23 +39,35 @@ body {
   border-right: 3px solid var(--lav);
   box-shadow: var(--shadow);
   position: fixed;
-  top: 0; bottom: 0; left: 0;
+  top: 0;
+  bottom: 0;
+  left: 0;
 }
 
-.profile { text-align: center; margin-bottom: 40px; }
+.profile {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
 .avatar {
-  width: 90px; height: 90px;
+  width: 90px;
+  height: 90px;
   border-radius: 50%;
   margin: 0 auto 15px;
   background: radial-gradient(circle at 30% 30%, var(--lav), var(--sky));
 }
+
 .profile h1 {
   font-family: 'Poppins', sans-serif;
   font-weight: 900;
   margin: 0;
   color: #0c1d3c;
 }
-.tagline { font-size: 14px; color: #000000b5; }
+
+.tagline {
+  font-size: 14px;
+  color: #000000b5;
+}
 
 .nav {
   display: flex;
@@ -56,6 +75,7 @@ body {
   gap: 10px;
   width: 100%;
 }
+
 .nav a {
   font-weight: 700;
   text-transform: uppercase;
@@ -66,12 +86,15 @@ body {
   background: #ffffff50;
   transition: all .2s ease;
 }
+
 .nav a:hover {
   background: #fff;
   transform: translateY(-3px);
 }
 
-/* -------- 主体内容 -------- */
+/* =========================================================
+   Main Content 主体内容
+   ========================================================= */
 .content {
   margin-left: 280px;
   padding: 50px 35px;
@@ -81,213 +104,268 @@ body {
   gap: 40px;
   box-sizing: border-box;
 }
-.hero, .card, .portfolio-section, .contact-card {
+
+.hero,
+.card,
+.portfolio-section,
+.contact-card {
   border-radius: 24px;
   box-shadow: var(--shadow);
   margin-left: 40px;
   margin-right: 15px;
 }
 
-/* -------- About -------- */
+/* =========================================================
+   About Section
+   ========================================================= */
 .hero {
   background: var(--sky);
   padding: 40px 45px;
 }
+
 .hero h2 {
   font-family: 'Poppins', sans-serif;
   font-size: 40px;
   margin: 0 0 12px;
 }
 
-/* -------- 通用卡片 -------- */
+/* =========================================================
+   Card Section (Experience / Projects)
+   ========================================================= */
 .card {
   background: var(--butter);
   padding: 40px 45px;
 }
+
 .card h3 {
   font-family: 'Poppins', sans-serif;
   color: var(--pink);
   font-size: 26px;
-  margin-top: 0;
   margin-bottom: 22px;
 }
-.card ul { padding-left: 20px; margin: 0; }
-.card li { margin-bottom: 14px; line-height: 1.6; }
 
-/* -------- Portfolio -------- */
-.portfolio-section {
-  background: var(--pink);
-  color: #1f1f1f;
-  text-align: center;
-  padding: 50px 45px;
-}
-.portfolio-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  padding: 0 15px;
-}
-.portfolio-header h2 {
-  font-family: 'Poppins', sans-serif;
-  font-size: 34px;
-  color: #fff;
+.card ul {
+  padding-left: 20px;
   margin: 0;
 }
-.see-more {
-  display: inline-flex;
+
+.card li {
+  margin-bottom: 14px;
+  line-height: 1.6;
+}
+
+/* =========================================================
+   Portfolio Section（NEW My Works）
+   ========================================================= */
+.portfolio-section {
+  background: var(--pink);
+  padding: 50px 45px;
+  color: white; /* <-- 会影响子元素，但我们等下会纠正 work-card */
+}
+
+.portfolio-title {
+  font-family: 'Poppins';
+  font-size: 34px;
+  font-weight: 900;
+  margin-bottom: 20px;
+}
+
+.intro {
+  color: #ffe6e6;
+  margin-bottom: 25px;
+}
+
+/* =========================================================
+   My Works - 三分类结构 + 每行可左右滑动
+   ========================================================= */
+.work-row {
+  margin-bottom: 60px;
+}
+
+.work-row-title {
+  font-family: 'Poppins';
+  font-size: 26px;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 15px;
+}
+
+.work-carousel {
+  position: relative;
+  display: flex;
   align-items: center;
-  gap: 6px;
-  background: #fff;
-  color: var(--pink);
-  padding: 8px 16px;
-  border-radius: 12px;
-  font-weight: 700;
-  font-size: 14px;
-  text-decoration: none;
-  box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.15);
-  transition: 0.2s;
+  gap: 10px;
 }
-.see-more:hover {
-  transform: translateY(-2px);
-  box-shadow: 6px 6px 0 var(--lav);
-  background: var(--butter);
-  color: #000;
+
+.work-cards {
+  display: flex;
+  overflow: hidden;
+  width: 100%;
 }
-.portfolio-section .intro {
-  max-width: 600px;
-  margin: 0 auto 30px;
-  color: #fff8;
-  font-size: 15px;
+
+.work-page {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+  flex-shrink: 0;
+  transition: transform .45s ease;
 }
-.portfolio-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 25px;
-  padding: 0 15px;
-}
+
 .work-card {
   background: #fff;
   border-radius: 16px;
-  padding: 28px 22px;
+  width: 280px;
+  padding: 25px 20px;
   box-shadow: 6px 6px 0 rgba(0,0,0,.1);
-  text-align: left;
   transition: 0.2s;
 }
+
+/* 修复卡片文字颜色（保持可读性）*/
+.work-card,
+.work-card h4,
+.work-card p {
+  color: var(--ink);
+}
+
 .work-card:hover {
   transform: translateY(-5px);
   box-shadow: 8px 8px 0 var(--lav);
 }
-.work-card h4 {
-  font-family: 'Poppins', sans-serif;
-  margin: 0 0 10px;
-}
-.work-desc {
-  font-size: 15px;
-  line-height: 1.6;
-  color: #555;
-  margin-bottom: 12px;
-}
-.work-card a {
-  font-weight: 700;
-  color: var(--pink);
-  text-decoration: none;
-}
-.work-card a:hover { text-decoration: underline; }
 
-/* -------- Skills 技能方块 -------- */
+/* =========================================================
+   View Project 链接 / 状态徽章
+   ========================================================= */
+.project-link {
+  font-weight: 700;
+  color: var(--pink-dark) !important;
+  text-decoration: none;
+  font-size: 15px;
+  margin-right: 10px;
+  display: inline-block;
+  margin-top: 8px;
+}
+
+.project-link:hover {
+  opacity: 0.8;
+}
+
+.status-badge {
+  font-size: 14px;
+  font-weight: 600;
+  color: #ff9933 !important;
+}
+
+/* =========================================================
+   左右箭头按钮样式
+   ========================================================= */
+.arrow {
+  background: white;
+  border: none;
+  font-size: 32px;
+  cursor: pointer;
+  padding: 5px 12px;
+  border-radius: 8px;
+  color: var(--pink-dark);
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.18);
+  transition: 0.2s;
+}
+
+.arrow:hover {
+  background: var(--butter);
+}
+
+.arrow.hidden {
+  visibility: hidden;
+}
+
+/* =========================================================
+   Skills Section（技能方块）
+   ========================================================= */
 #skills {
   background: var(--butter);
   padding: 40px 45px;
 }
+
 #skills h3 {
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Poppins';
   color: var(--pink);
   font-size: 26px;
-  margin-top: 0;
-  margin-bottom: 22px;
 }
 
-/* 外层布局 */
 .skills-grid {
   display: flex;
   flex-wrap: wrap;
   gap: 1.5rem;
 }
-/* 分类框 */
+
 .skill-category {
   flex: 1 1 300px;
-  background-color: #fff;
+  background: #fff;
   padding: 1.2rem;
   border-radius: 15px;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  transition: transform 0.2s ease;
-}
-.skill-category:hover { transform: translateY(-4px); }
-.skill-category h4 {
-  margin-bottom: 0.8rem;
-  font-weight: 700;
-  font-size: 1.1rem;
-  color: #333;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
 }
 
-/* 每个技能方块 */
 .skill-boxes {
   display: flex;
   flex-wrap: wrap;
   gap: 0.6rem;
 }
+
 .skill-box {
-  background-color: var(--sky);
-  border: 1px solid #e0e0e0;
+  background: var(--sky);
   padding: 0.6rem 1rem;
   border-radius: 10px;
-  font-size: 0.95rem;
   font-weight: 600;
-  color: #0b0635;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  transition: all 0.2s ease;
-}
-.skill-box:hover {
-  background-color: var(--lav);
-  color: #fff;
-  transform: scale(1.05);
+  transition: 0.2s;
 }
 
-/* -------- Contact -------- */
+.skill-box:hover {
+  background: var(--lav);
+  color: white;
+}
+
+/* =========================================================
+   Contact Section
+   ========================================================= */
 .contact-card {
   background: var(--lav);
-  color: #fff;
-  border-radius: 20px;
+  color: white;
   padding: 35px 45px;
-  text-align: left;
 }
-.contact-card a { color: #fff; text-decoration: underline; }
 
-/* -------- Footer -------- */
+/* =========================================================
+   Footer
+   ========================================================= */
 .copy-footer {
   text-align: center;
-  font-size: 13px;
-  margin-top: 10px;
+  font-size: 14px;
   color: #555;
 }
 
-/* -------- 响应式 -------- */
+/* =========================================================
+   Responsive
+   ========================================================= */
 @media (max-width: 900px) {
   body { flex-direction: column; }
+
   .sidebar {
-    position: relative;
     width: 100%;
     flex-direction: row;
     justify-content: space-around;
-    border: none;
+    position: relative;
   }
+
   .content {
     margin-left: 0;
-    width: 100%;
     padding: 30px 20px;
   }
-  .hero, .card, .portfolio-section, .contact-card {
-    margin: 0;
+
+  .hero,
+  .card,
+  .portfolio-section,
+  .contact-card {
+    margin-left: 0;
+    margin-right: 0;
   }
 }
