@@ -165,6 +165,60 @@ p {
   font-size: 16px;
   color: #374151;
 }
+/*
+   ABOUT SECTION HEADER
+*/
+
+.main-name {
+  font-size: 72px;
+  font-weight: 800;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
+  color: #1f2937;
+}
+
+.main-name span {
+  color: #0284c7;
+}
+
+.subheading {
+  font-size: 16px;
+  margin-bottom: 40px;
+  color: #64748b;
+  font-weight: 500;
+}
+
+.subheading a {
+  color: #0284c7;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.subheading a:hover {
+  text-decoration: underline;
+}
+
+.social-links {
+  margin-top: 40px;
+  display: flex;
+  gap: 25px;
+}
+
+.social-links a {
+  text-decoration: none;
+  font-weight: 600;
+  color: #1f2937;
+  border: 1px solid #e5e7eb;
+  padding: 8px 18px;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+}
+
+.social-links a:hover {
+  background: #0284c7;
+  color: white;
+  border-color: #0284c7;
+}
 
 /*
    RESPONSIVE
