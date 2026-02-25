@@ -55,7 +55,7 @@ body {
   background: #ffffff;
   border: 4px solid #ffffff;
 
-  background-image: url('your-photo.jpg');
+  background-image: url('Lele_Winter.jpg');
   background-size: cover;
   background-position: center;
 
@@ -102,9 +102,9 @@ body {
   transform: translateX(4px);
 }
 
-/* ===============================
+/*
    MAIN CONTENT
-================================ */
+*/
 
 .content {
   margin-left: 280px;
@@ -130,9 +130,9 @@ section + section {
   border-top: 1px solid #e5e7eb;
 }
 
-/* ===============================
+/*
    TYPOGRAPHY
-================================ */
+*/
 
 h2 {
   font-size: 42px;
@@ -166,9 +166,9 @@ p {
   color: #374151;
 }
 
-/* ===============================
+/*
    RESPONSIVE
-================================ */
+*/
 
 @media (max-width: 900px) {
 
