@@ -245,3 +245,54 @@ p {
   }
 
 }
+/*
+   MOBILE VERSION
+*/
+
+@media (max-width: 900px) {
+
+  /* 隐藏左侧导航 */
+  .sidebar {
+    display: none;
+  }
+
+  /* 内容全宽 */
+  .content {
+    margin-left: 0;
+    width: 100%;
+  }
+
+  /* section 调整 */
+  section {
+    min-height: auto;              /* 手机不用强制 100vh */
+    padding: 60px 30px;            /* 减少左右空白 */
+    justify-content: flex-start;   /* 从上往下排列 */
+  }
+
+  /* 标题缩小 */
+  h2 {
+    font-size: 28px;
+    margin-bottom: 25px;
+  }
+
+  .main-name {
+    font-size: 42px;
+  }
+
+  /* About 部分优化 */
+  .subheading {
+    font-size: 14px;
+    line-height: 1.6;
+  }
+
+  p {
+    font-size: 15px;
+  }
+
+  /* 社交按钮变成纵向 */
+  .social-links {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+}
