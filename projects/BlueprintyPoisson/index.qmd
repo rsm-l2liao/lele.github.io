@@ -4,6 +4,9 @@ subtitle: "Does Blueprinty's software help firms win more patents?"
 author: "Lele Liao"
 date: today
 jupyter: python3
+format:
+  html:
+    fig-align: center
 execute:
   echo: false
   warning: false
@@ -87,12 +90,24 @@ def show_table(table_df, caption, formats=None):
     display(styler)
 ```
 
+<style>
+.cell-output-display img.figure-img,
+.quarto-figure img,
+img.figure-img {
+  width: min(100%, 860px) !important;
+  height: auto !important;
+  display: block;
+  margin: 0 auto;
+}
+</style>
+
 ## Exploring the Data
 
 The first question is descriptive. Do customers appear to have more patents than non-customers?
 
 ```{python}
 #| label: patents-by-customer
+#| out-width: 86%
 #| fig-width: 11
 #| fig-height: 4.5
 summary_table = (
@@ -143,6 +158,7 @@ But this comparison is not enough. A higher raw mean does not automatically mean
 
 ```{python}
 #| label: region-by-customer
+#| out-width: 84%
 #| fig-width: 10
 #| fig-height: 5
 region_share = (
@@ -174,6 +190,7 @@ Region matters a lot here. About **68.2%** of Blueprinty customers are in the No
 
 ```{python}
 #| label: age-by-customer
+#| out-width: 86%
 #| fig-width: 11
 #| fig-height: 4.5
 age_bins = np.arange(8, 51, 2)
@@ -236,6 +253,7 @@ Here is the log-likelihood in code, followed by a plot over many possible values
 ```{python}
 #| label: simple-poisson-loglik
 #| echo: true
+#| out-width: 78%
 #| fig-width: 8
 #| fig-height: 5
 def poisson_loglikelihood(lam, y):
@@ -442,6 +460,7 @@ Then I predict patent counts for every firm under both scenarios and average the
 ```{python}
 #| label: counterfactual-effect
 #| echo: true
+#| out-width: 78%
 #| fig-width: 8
 #| fig-height: 5
 X0 = X.copy()
