@@ -3,17 +3,12 @@ project:
   output-dir: docs
 
 website:
-  title: "Lele Liao | Analytics Portfolio"
+  title: "Lele Liao | Data Analyst"
 
   navbar:
-    pinned: true
     left:
       - href: index.qmd
-        text: Home
-      - href: about.qmd
         text: About
-      - href: experience.qmd
-        text: Experience
       - href: projects.qmd
         text: Projects
       - href: presentation.qmd
@@ -31,13 +26,13 @@ website:
 
   page-footer:
     center: |
-      Built from a merged personal site and Quarto portfolio.
-    right: |
-      © 2026 Lele Liao
+      © 2026 Lele Liao · Portfolio
 
 format:
   html:
-    theme: cosmo
+    theme:
+      light: cosmo
+      dark: darkly
 
     css:
       - styles.css

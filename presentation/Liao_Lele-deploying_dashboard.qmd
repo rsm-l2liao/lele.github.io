@@ -1,12 +1,6 @@
 ---
 title: "Deploying Dashboards in Quarto"
 subtitle: "Tableau deployment and Plotly deployment"
-description: "A short presentation on embedding Tableau and Plotly dashboards into a Quarto-based site."
-image: ../images/Presentation2.png
-categories:
-  - Presentation
-  - Tableau
-  - Plotly
 format:
   revealjs:
     embed-resources: true

@@ -4,42 +4,280 @@
     "href": "index.html",
     "title": "Lele Liao",
     "section": "",
-    "text": "Business Intelligence Analyst · UC San Diego M.S. Business Analytics\n\n\nI build dashboards, analytical models, and business-facing stories that help teams understand performance, prioritize action, and communicate insight clearly.\nThis site combines the structure of my original single-page portfolio with the depth of my Quarto coursework site. The result is a clearer experience: who I am, what I have worked on, and how my projects connect to practical analytics work.\n\nExplore Projects View Experience\n\n\n\n\n\n\n\n\nLele Liao\n\n\n\n\nFocus\nBusiness intelligence, dashboards, and experimentation\n\n\nCore Tools\nSQL, Python, Tableau, Snowflake\n\n\nWhat This Site Covers\nBackground, experience, projects, presentations, and resume"
+    "text": "Welcome to my website!"
   },
   {
-    "objectID": "index.html#site-structure",
-    "href": "index.html#site-structure",
+    "objectID": "index.html#featured-projects",
+    "href": "index.html#featured-projects",
     "title": "Lele Liao",
-    "section": "Site Structure",
-    "text": "Site Structure\n\n\n\nAbout\nA concise profile, education background, interests, and quick links.\nOpen About\n\n\n\n\nExperience\nProfessional roles, selected analytics work, and technical capabilities in one place.\nOpen Experience\n\n\n\n\nProjects\nCase studies covering experimentation, dashboard design, econometrics, and interactive analytics.\nOpen Projects\n\n\n\n\nPresentations\nSlide-based work showing how I communicate technical material visually.\nOpen Presentations\n\n\n\n\nResume\nAn embedded PDF resume for quick review and download.\nOpen Resume"
+    "section": "Featured Projects",
+    "text": "Featured Projects\n\n\n\n\n\n🧸 A/B Testing with Chiikawa\n\n\nA simple and visual guide to frequentist statistics using an A/B test on website sign-ups.\n\nView Project →\n\n\n\n\n\n\n\n📊 Housing Market Dashboard\n\n\nExplore how income influences housing and rental prices.\n\nView Dashboard →\n\n\n\n\n\n\n\n📖 Minimum Wage Study\n\n\nReplication of Card & Krueger (1994) using DID analysis.\n\nView Project →"
   },
   {
-    "objectID": "index.html#featured-work",
-    "href": "index.html#featured-work",
-    "title": "Lele Liao",
-    "section": "Featured Work",
-    "text": "Featured Work\n\n\n\nPoisson Regression and MLE for Blueprinty\nAn econometrics-style case study on whether Blueprinty’s software is associated with stronger patent outcomes after controlling for observable firm differences.\nRead the Case Study\n\n\n\n\nHousing Market Dashboard\nAn interactive dashboard project using Python and Tableau to explore income, rent, and housing-price relationships across U.S. regions.\nOpen the Dashboard Project\n\n\n\n\nA/B Testing a Call to Action\nA visual walkthrough of sign-up experimentation, confidence intervals, p-values, and interpretation through a marketing-style CTA example.\nRead the Experiment Walkthrough"
+    "objectID": "resume.html",
+    "href": "resume.html",
+    "title": "My Resume",
+    "section": "",
+    "text": "Download PDF file."
+  },
+  {
+    "objectID": "projects/HousingMarket/index.html",
+    "href": "projects/HousingMarket/index.html",
+    "title": "Housing Market Dashboard",
+    "section": "",
+    "text": "Project Goal\nThis project investigates how income levels influence both housing prices and rental prices across U.S. regions, aiming to identify patterns, correlations, and regional disparities in the housing market.\n\n\nInterpretation\nThe analysis indicates that income is a key driver of both housing and rental prices. However, its impact varies across regions due to factors such as housing supply, population density, and local economic conditions.\nWhile higher income generally leads to higher housing costs, regional disparities highlight the complexity of housing market dynamics."
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "My Projects",
+    "section": "",
+    "text": "Chiikawa Explains A/B Testing a Call to Action\n\n\n\n\n\n\nLele Liao\n\n\nMay 27, 2026\n\n\n\n\n\n\n\n\n\n\n\nHousing Dashboard (Plotly)\n\n\nInteractive dashboard for exploring housing prices across major U.S. cities.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHousing Market Dashboard\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMaxDiff Analysis of MSBA Class Preferences\n\n\n\n\n\n\nLele Liao\n\n\nMay 27, 2026\n\n\n\n\n\n\n\n\n\n\n\nPoisson Regression and MLE for Blueprinty\n\n\n\n\n\n\nLele Liao\n\n\nMay 27, 2026\n\n\n\n\n\n\n\n\n\n\n\nReplication of Card and Krueger (1994)\n\n\n\n\n\n\nLele Liao\n\n\nMay 27, 2026\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "about.html",
+    "href": "about.html",
+    "title": "About",
+    "section": "",
+    "text": "About this site"
+  },
+  {
+    "objectID": "projects/project2/plotly.html",
+    "href": "projects/project2/plotly.html",
+    "title": "Housing Dashboard (Plotly)",
+    "section": "",
+    "text": "import pandas as pd\nimport plotly.graph_objects as go\n\ndf = pd.read_csv(\"../../data/ZHVI.csv\")\n\ndf[\"date\"] = pd.to_datetime(df[\"date\"])\n\ncities = [\"New York, NY\", \"Los Angeles, CA\", \"San Diego, CA\", \"Dallas, TX\"]\n\nfiltered = df[df[\"RegionName\"].isin(cities)]\n\nfig = go.Figure()\n\nfor i, city in enumerate(cities):\n    city_df = filtered[filtered[\"RegionName\"] == city]\n\n    fig.add_trace(\n        go.Scatter(\n            x=city_df[\"date\"],\n            y=city_df[\"value\"],\n            mode=\"lines\",\n            name=city,\n            visible=(i == 0)\n        )\n    )\n\n\nbuttons = []\n\nfor i, city in enumerate(cities):\n    visible = [False] * len(cities)\n    visible[i] = True\n\n    buttons.append(\n        dict(\n            label=city,\n            method=\"update\",\n            args=[\n                {\"visible\": visible},\n                {\"title\": f\"Housing Prices in {city}\"}\n            ]\n        )\n    )\n\n\nfig.update_layout(\n    updatemenus=[\n        dict(\n            buttons=buttons,\n            direction=\"down\",\n            showactive=True,\n        )\n    ],\n    title=f\"Housing Prices in {cities[0]}\",\n    xaxis_title=\"Date\",\n    yaxis_title=\"Price\",\n    template=\"plotly_white\"\n)\n\nfig"
+  },
+  {
+    "objectID": "projects/project2/plotly.html#housing-price-dashboard",
+    "href": "projects/project2/plotly.html#housing-price-dashboard",
+    "title": "Housing Dashboard (Plotly)",
+    "section": "",
+    "text": "import pandas as pd\nimport plotly.express as px\n\ndf = pd.read_csv(\"../../data/ZHVI.csv\")\n\n\ndf[\"date\"] = pd.to_datetime(df[\"date\"])\n\n\ncities = [\"New York, NY\", \"Los Angeles, CA\", \"San Diego, CA\", \"Dallas, TX\"]\n\nfiltered = df[df[\"RegionName\"].isin(cities)]\n\nfig = px.line(\n    filtered,\n    x=\"date\",\n    y=\"value\",\n    color=\"RegionName\",\n    title=\"Housing Prices Over Time\"\n)\n\nfig"
+  },
+  {
+    "objectID": "projects/project2/plotly.html#housing-price-by-city",
+    "href": "projects/project2/plotly.html#housing-price-by-city",
+    "title": "Housing Dashboard (Plotly)",
+    "section": "",
+    "text": "import pandas as pd\nimport plotly.graph_objects as go\n\ndf = pd.read_csv(\"../../data/ZHVI.csv\")\n\ndf[\"date\"] = pd.to_datetime(df[\"date\"])\n\ncities = [\"New York, NY\", \"Los Angeles, CA\", \"San Diego, CA\", \"Dallas, TX\"]\n\nfiltered = df[df[\"RegionName\"].isin(cities)]\n\nfig = go.Figure()\n\nfor i, city in enumerate(cities):\n    city_df = filtered[filtered[\"RegionName\"] == city]\n\n    fig.add_trace(\n        go.Scatter(\n            x=city_df[\"date\"],\n            y=city_df[\"value\"],\n            mode=\"lines\",\n            name=city,\n            visible=(i == 0)\n        )\n    )\n\n\nbuttons = []\n\nfor i, city in enumerate(cities):\n    visible = [False] * len(cities)\n    visible[i] = True\n\n    buttons.append(\n        dict(\n            label=city,\n            method=\"update\",\n            args=[\n                {\"visible\": visible},\n                {\"title\": f\"Housing Prices in {city}\"}\n            ]\n        )\n    )\n\n\nfig.update_layout(\n    updatemenus=[\n        dict(\n            buttons=buttons,\n            direction=\"down\",\n            showactive=True,\n        )\n    ],\n    title=f\"Housing Prices in {cities[0]}\",\n    xaxis_title=\"Date\",\n    yaxis_title=\"Price\",\n    template=\"plotly_white\"\n)\n\nfig"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#deploying-dashboards-in-quarto",
+    "href": "presentation/inclasspresentation.html#deploying-dashboards-in-quarto",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Deploying Dashboards in Quarto",
+    "text": "Deploying Dashboards in Quarto\n\nTableau vs Plotly"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#tableau-deployment-process",
+    "href": "presentation/inclasspresentation.html#tableau-deployment-process",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Tableau Deployment Process",
+    "text": "Tableau Deployment Process\n\nBuild dashboard in Tableau\nPublish to Tableau Public\nCopy embed code\nPaste into Quarto website"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#tableau-example",
+    "href": "presentation/inclasspresentation.html#tableau-example",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Tableau Example",
+    "text": "Tableau Example\nStep 1: Copy Embed Code"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#tableau-example-1",
+    "href": "presentation/inclasspresentation.html#tableau-example-1",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Tableau Example",
+    "text": "Tableau Example\nStep 2: Embed Code"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#tableau-example-2",
+    "href": "presentation/inclasspresentation.html#tableau-example-2",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Tableau Example",
+    "text": "Tableau Example\nStep 3: Final Dashboard"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#plotly-deployment-in-quarto",
+    "href": "presentation/inclasspresentation.html#plotly-deployment-in-quarto",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Plotly Deployment in Quarto",
+    "text": "Plotly Deployment in Quarto\n\nBuilt using Python + Plotly\nRuns directly in the browser\nNo external hosting required"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#plotly-example",
+    "href": "presentation/inclasspresentation.html#plotly-example",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Plotly Example",
+    "text": "Plotly Example\nStep 1: Quarto Code"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#plotly-example-1",
+    "href": "presentation/inclasspresentation.html#plotly-example-1",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Plotly Example",
+    "text": "Plotly Example\nStep 2: Dashboard Output"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#comparison",
+    "href": "presentation/inclasspresentation.html#comparison",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Comparison",
+    "text": "Comparison\n\n\n\nTableau\nPlotly\n\n\n\n\nEasy to use\nRequires coding\n\n\nExternal platform\nNo hosting needed\n\n\nLess flexible\nHighly customizable\n\n\n\n\nLive Demo\nhttps://rsm-l2liao.github.io/quarto_website/projects.html"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#comparison-1",
+    "href": "presentation/inclasspresentation.html#comparison-1",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Comparison",
+    "text": "Comparison\nPlotly - Requires coding - Highly customizable - Works in static websites"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#live-demo",
+    "href": "presentation/inclasspresentation.html#live-demo",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Live Demo",
+    "text": "Live Demo\nTableau Dashboard: https://your-tableau-link\nPlotly Dashboard: https://your-quarto-site"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#conclusion",
+    "href": "presentation/inclasspresentation.html#conclusion",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Conclusion",
+    "text": "Conclusion\n\nTableau is best for quick visualization\nPlotly is best for flexible deployment\n\n👉 Choose the tool based on your needs"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#tableau-deployment",
+    "href": "presentation/inclasspresentation.html#tableau-deployment",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Tableau Deployment",
+    "text": "Tableau Deployment\n\nPublish to Tableau Public\nCopy embed code\nPaste into Quarto"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#plotly-dashboard-in-quarto",
+    "href": "presentation/inclasspresentation.html#plotly-dashboard-in-quarto",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Plotly Dashboard in Quarto",
+    "text": "Plotly Dashboard in Quarto\n\n::: column width=“45%”Key Features\n\nBuilt with Python\nRuns in browser\nNo external hosting\n\nCore Code\n```python fig = go.Figure() fig.add_trace(go.Scatter(…)) fig.update_layout(updatemenus=[…])\nComparison\n\n\n\nTableau\nPlotly\n\n\n\n\nEasy to use\nRequires coding\n\n\nExternal platform\nNo hosting needed\n\n\nLess flexible\nHighly customizable\n\n\n\n\nLive Demo\nhttps://rsm-l2liao.github.io/quarto_website/projects.html"
+  },
+  {
+    "objectID": "presentation/inclasspresentation.html#plotly-dashboard-example",
+    "href": "presentation/inclasspresentation.html#plotly-dashboard-example",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Plotly Dashboard Example",
+    "text": "Plotly Dashboard Example\n\n\n\n\nBuilt with Python\nRuns in browser\nNo external hosting\n\n\n\n\nCore Code\nfig = go.Figure()\nfig.add_trace(go.Scatter(...))\nfig.update_layout(updatemenus=[...])"
+  },
+  {
+    "objectID": "presentation/Liao_Lele-plotly_dashboard.html#tableau-deployment",
+    "href": "presentation/Liao_Lele-plotly_dashboard.html#tableau-deployment",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Tableau Deployment",
+    "text": "Tableau Deployment\n\nPublish to Tableau Public\nCopy embed code\nPaste into Quarto"
+  },
+  {
+    "objectID": "presentation/Liao_Lele-plotly_dashboard.html#comparison",
+    "href": "presentation/Liao_Lele-plotly_dashboard.html#comparison",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "Comparison",
+    "text": "Comparison\n\n\n\nTableau\nPlotly\n\n\n\n\nEasy to use\nRequires coding\n\n\nExternal platform\nNo hosting needed\n\n\nLess flexible\nHighly customizable\n\n\n\n\nLive Demo\nhttps://rsm-l2liao.github.io/quarto_website/projects.html"
   },
   {
     "objectID": "presentation/Liao_Lele-deploying_dashboard.html#tableau-deployment",
     "href": "presentation/Liao_Lele-deploying_dashboard.html#tableau-deployment",
     "title": "Deploying Dashboards in Quarto",
-    "section": "Tableau Deployment",
-    "text": "Tableau Deployment\n\nPublish to Tableau Public\nCopy embed code\nPaste into Quarto"
+    "section": "",
+    "text": "Publish to Tableau Public\nCopy embed code\nPaste into Quarto"
   },
   {
     "objectID": "presentation/Liao_Lele-deploying_dashboard.html#comparison",
     "href": "presentation/Liao_Lele-deploying_dashboard.html#comparison",
     "title": "Deploying Dashboards in Quarto",
     "section": "Comparison",
-    "text": "Comparison\n\n\n\nTableau\nPlotly\n\n\n\n\nEasy to use\nRequires coding\n\n\nExternal platform\nNo hosting needed\n\n\nLess flexible\nHighly customizable\n\n\n\n\nLive Demo\nhttps://rsm-l2liao.github.io/quarto_website/projects.html"
+    "text": "Comparison\n\n\n\nTableau\nPlotly\n\n\n\n\nEasy to use\nRequires coding\n\n\nExternal platform\nNo hosting needed\n\n\nLess flexible\nHighly customizable\n\n\n\n\n\nLive Demo\nhttps://rsm-l2liao.github.io/quarto_website/projects.html"
   },
   {
-    "objectID": "projects.html",
-    "href": "projects.html",
-    "title": "Projects",
+    "objectID": "projects/ABTest/hw1_questions.html",
+    "href": "projects/ABTest/hw1_questions.html",
+    "title": "Chiikawa Explains A/B Testing a Call to Action",
     "section": "",
-    "text": "This library brings together the project depth of the Quarto site and the clearer personal framing of the original portfolio. The grid below is organized as a central project hub for dashboards, experiments, statistical analysis, and interactive reporting.\n\nEach page is meant to be more than a screenshot. I aim to explain the problem, the method, and the interpretation in a way that feels usable to both technical and non-technical readers.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nA/B Testing a Call to Action\n\n\nA simple experiment-focused explainer covering sign-up rates, confidence intervals, p-values, and peeking bias.\n\n\n\nLele Liao\n\n\nMay 27, 2026\n\n\n\n\n\n\n\n\n\n\n\nHousing Dashboard (Plotly)\n\n\nInteractive dashboard for exploring housing prices across major U.S. cities.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nHousing Market Dashboard\n\n\nAn interactive Tableau story exploring how income, housing prices, and rents vary across U.S. regions.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMaxDiff Analysis of MSBA Class Preferences\n\n\n\n\n\n\nLele Liao\n\n\nMay 27, 2026\n\n\n\n\n\n\n\n\n\n\n\nPoisson Regression and MLE for Blueprinty\n\n\nA count-model case study using Poisson regression and maximum likelihood estimation to evaluate a patent-software marketing claim.\n\n\n\nLele Liao\n\n\nMay 27, 2026\n\n\n\n\n\n\n\n\n\n\n\n\n\nReplication of Card and Krueger (1994)\n\n\nA difference-in-differences replication studying how a minimum wage change affected employment, wages, and prices.\n\n\n\nLele Liao\n\n\nMay 27, 2026\n\n\n\n\n\n\nNo matching items"
+    "text": "This diagram shows the full idea of the A/B test and the main statistical concepts we will explore."
+  },
+  {
+    "objectID": "projects/ABTest/hw1_questions.html#introduction",
+    "href": "projects/ABTest/hw1_questions.html#introduction",
+    "title": "Chiikawa Explains A/B Testing a Call to Action",
+    "section": "Introduction",
+    "text": "Introduction\nWe have a website where users can sign up for a newsletter.\nWe want to test which message works better:\n\nCTA A\nCTA B\n\nWe run an A/B test by randomly showing different messages to users.\nThen we compare which one gets more sign-ups."
+  },
+  {
+    "objectID": "projects/ABTest/hw1_questions.html#the-ab-test-as-a-statistical-problem",
+    "href": "projects/ABTest/hw1_questions.html#the-ab-test-as-a-statistical-problem",
+    "title": "Chiikawa Explains A/B Testing a Call to Action",
+    "section": "The A/B Test as a Statistical Problem",
+    "text": "The A/B Test as a Statistical Problem\nEach user either signs up (1) or not (0).\nSo we use a simple model:\n\nπ_A = sign-up rate for A\nπ_B = sign-up rate for B\n\nWe care about the difference:\nθ = π_A - π_B\n\n\n\nWe are just comparing two probabilities."
+  },
+  {
+    "objectID": "projects/ABTest/hw1_questions.html#simulating-data",
+    "href": "projects/ABTest/hw1_questions.html#simulating-data",
+    "title": "Chiikawa Explains A/B Testing a Call to Action",
+    "section": "Simulating Data",
+    "text": "Simulating Data\nIn real life, we don’t know the true rates.\nSo we choose:\nπ_A = 0.22 π_B = 0.18\nThen we simulate users.\n\n\n\nSimulation helps us understand how methods work."
+  },
+  {
+    "objectID": "projects/ABTest/hw1_questions.html#the-law-of-large-numbers",
+    "href": "projects/ABTest/hw1_questions.html#the-law-of-large-numbers",
+    "title": "Chiikawa Explains A/B Testing a Call to Action",
+    "section": "The Law of Large Numbers",
+    "text": "The Law of Large Numbers\nAs we collect more data, our estimate becomes stable.\nSmall data → noisy Large data → stable\n\n\n\nMore data = more reliable results."
+  },
+  {
+    "objectID": "projects/ABTest/hw1_questions.html#bootstrap-standard-errors",
+    "href": "projects/ABTest/hw1_questions.html#bootstrap-standard-errors",
+    "title": "Chiikawa Explains A/B Testing a Call to Action",
+    "section": "Bootstrap Standard Errors",
+    "text": "Bootstrap Standard Errors\nWe resample our data many times.\nEach time we compute the estimate.\nThis tells us how accurate our result is.\n\n\n\nBootstrap measures uncertainty."
+  },
+  {
+    "objectID": "projects/ABTest/hw1_questions.html#the-central-limit-theorem",
+    "href": "projects/ABTest/hw1_questions.html#the-central-limit-theorem",
+    "title": "Chiikawa Explains A/B Testing a Call to Action",
+    "section": "The Central Limit Theorem",
+    "text": "The Central Limit Theorem\nWith small samples, results look messy.\nWith large samples, results look normal (bell-shaped).\n\n\n\nBig samples make things look normal."
+  },
+  {
+    "objectID": "projects/ABTest/hw1_questions.html#hypothesis-testing",
+    "href": "projects/ABTest/hw1_questions.html#hypothesis-testing",
+    "title": "Chiikawa Explains A/B Testing a Call to Action",
+    "section": "Hypothesis Testing",
+    "text": "Hypothesis Testing\nWe test:\nH0: no difference H1: there is a difference\nIf p-value &lt; 0.05 → we reject H0\n\n\n\nSmall p-value = unlikely to be random."
+  },
+  {
+    "objectID": "projects/ABTest/hw1_questions.html#the-t-test-as-a-regression",
+    "href": "projects/ABTest/hw1_questions.html#the-t-test-as-a-regression",
+    "title": "Chiikawa Explains A/B Testing a Call to Action",
+    "section": "The T-Test as a Regression",
+    "text": "The T-Test as a Regression\nWe can also use regression.\nIt gives the same answer as our test.\n\n\n\nDifferent tools, same result."
+  },
+  {
+    "objectID": "projects/ABTest/hw1_questions.html#the-problem-with-peeking",
+    "href": "projects/ABTest/hw1_questions.html#the-problem-with-peeking",
+    "title": "Chiikawa Explains A/B Testing a Call to Action",
+    "section": "The Problem with Peeking",
+    "text": "The Problem with Peeking\nChecking results too often is risky.\nIt increases false positives.\n\n\n\nDon’t check too early!"
+  },
+  {
+    "objectID": "presentation/Liao_Lele-deploying_dashboard.html",
+    "href": "presentation/Liao_Lele-deploying_dashboard.html",
+    "title": "Deploying Dashboards in Quarto",
+    "section": "",
+    "text": "Publish to Tableau Public\nCopy embed code\nPaste into Quarto"
+  },
+  {
+    "objectID": "presentation.html",
+    "href": "presentation.html",
+    "title": "My Presentation Slides",
+    "section": "",
+    "text": "Deploying Dashboards in Quarto\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   },
   {
     "objectID": "projects/HousingMarketPlotly/plotly.html",
@@ -56,123 +294,46 @@
     "text": "import pandas as pd\nimport plotly.graph_objects as go\n\ndf = pd.read_csv(\"../../data/ZHVI.csv\")\n\ndf[\"date\"] = pd.to_datetime(df[\"date\"])\n\ncities = [\"New York, NY\", \"Los Angeles, CA\", \"San Diego, CA\", \"Dallas, TX\"]\n\nfiltered = df[df[\"RegionName\"].isin(cities)]\n\nfig = go.Figure()\n\nfor i, city in enumerate(cities):\n    city_df = filtered[filtered[\"RegionName\"] == city]\n\n    fig.add_trace(\n        go.Scatter(\n            x=city_df[\"date\"],\n            y=city_df[\"value\"],\n            mode=\"lines\",\n            name=city,\n            visible=(i == 0)\n        )\n    )\n\n\nbuttons = []\n\nfor i, city in enumerate(cities):\n    visible = [False] * len(cities)\n    visible[i] = True\n\n    buttons.append(\n        dict(\n            label=city,\n            method=\"update\",\n            args=[\n                {\"visible\": visible},\n                {\"title\": f\"Housing Prices in {city}\"}\n            ]\n        )\n    )\n\n\nfig.update_layout(\n    updatemenus=[\n        dict(\n            buttons=buttons,\n            direction=\"down\",\n            showactive=True,\n        )\n    ],\n    title=f\"Housing Prices in {cities[0]}\",\n    xaxis_title=\"Date\",\n    yaxis_title=\"Price\",\n    template=\"plotly_white\"\n)\n\nfig"
   },
   {
-    "objectID": "projects/HousingMarket/index.html",
-    "href": "projects/HousingMarket/index.html",
-    "title": "Housing Market Dashboard",
-    "section": "",
-    "text": "Project Goal\nThis project investigates how income levels influence both housing prices and rental prices across U.S. regions, aiming to identify patterns, correlations, and regional disparities in the housing market.\n\n\nInterpretation\nThe analysis indicates that income is a key driver of both housing and rental prices. However, its impact varies across regions due to factors such as housing supply, population density, and local economic conditions.\nWhile higher income generally leads to higher housing costs, regional disparities highlight the complexity of housing market dynamics."
+    "objectID": "projects/Research/hw2_questions.html#introduction",
+    "href": "projects/Research/hw2_questions.html#introduction",
+    "title": "Replication of Card and Krueger (1994)",
+    "section": "Introduction",
+    "text": "Introduction\nThis blog post studies the famous paper by Card and Krueger (1994). The authors ask a simple but important question:\nDoes increasing the minimum wage reduce employment?\nTraditional economic theory says that when the minimum wage goes up, firms will hire fewer workers because labor becomes more expensive. However, Card and Krueger test this idea using real data.\nThey study a natural experiment in 1992:\n\nNew Jersey increased its minimum wage from $4.25 to $5.05\nPennsylvania did not change its minimum wage\n\nBy comparing these two states before and after the policy change, they use a method called difference-in-differences (DID) to estimate the effect of the minimum wage."
   },
   {
-    "objectID": "projects/ABTest/hw1_questions.html",
-    "href": "projects/ABTest/hw1_questions.html",
-    "title": "A/B Testing a Call to Action",
-    "section": "",
-    "text": "This diagram shows the full idea of the A/B test and the main statistical concepts we will explore."
+    "objectID": "projects/Research/hw2_questions.html#main-analysis",
+    "href": "projects/Research/hw2_questions.html#main-analysis",
+    "title": "Replication of Card and Krueger (1994)",
+    "section": "Main Analysis",
+    "text": "Main Analysis\nI replicate the main result of the paper using the original dataset of fast-food restaurants.\nFirst, I calculate employment using full-time equivalent (FTE):\n\nFTE = full-time workers + 0.5 × part-time workers\n\nThen I compare employment before and after the policy.\n\nResults\n\nNew Jersey employment change: +0.51\nPennsylvania employment change: −2.41\nDifference-in-differences (DID): +2.91\n\n\nThe figure shows that employment increased in New Jersey but decreased in Pennsylvania. This creates a positive difference-in-differences estimate.\n\n\nInterpretation\nThis result is surprising.\nAccording to standard theory, employment should decrease. However, the data shows the opposite:\n\nThe minimum wage increase did not reduce employment. It may have increased it.\n\nI also run a simple regression, and the coefficient is about 2.94, which is very close to the DID estimate. This shows the result is consistent and robust."
+  },
+  {
+    "objectID": "projects/Research/hw2_questions.html#something-additional",
+    "href": "projects/Research/hw2_questions.html#something-additional",
+    "title": "Replication of Card and Krueger (1994)",
+    "section": "Something Additional",
+    "text": "Something Additional\n\nWage Changes\nTo confirm that the policy actually worked, I look at wages:\n\nLow-wage stores increased wages by about 0.81 (around 10%)\nHigh-wage stores had almost no change\n\nThis shows that the minimum wage policy was enforced.\n\n\n\nPrice Changes\nI also analyze prices:\n\nNew Jersey prices increased by 2.60%\nPennsylvania prices decreased by 0.44%\n\nThis suggests that firms passed some of the higher labor costs to consumers.\n\n\n\nWage Distribution\nThe histogram shows a clear change:\n\n\nBefore the policy, wages were spread out\nAfter the policy, many wages are clustered at $5.05\n\nThis confirms that the minimum wage became binding.\n\n\n\nWhy DID Works\nThe DID method works because it compares two groups:\n\nNew Jersey (treatment group)\nPennsylvania (control group)\n\nIt removes:\n\nDifferences between states\nCommon time trends\n\nThe key assumption is that both states would have followed similar trends without the policy. My results support this assumption."
+  },
+  {
+    "objectID": "projects/Research/hw2_questions.html#conclusion",
+    "href": "projects/Research/hw2_questions.html#conclusion",
+    "title": "Replication of Card and Krueger (1994)",
+    "section": "Conclusion",
+    "text": "Conclusion\nMy replication confirms the main finding of Card and Krueger (1994):\n\nMinimum wage increases did not reduce employment\nWages increased for low-wage workers\nPrices increased slightly\n\nThis paper is important because it challenges traditional economic theory and shows that real-world labor markets can behave differently."
   },
   {
     "objectID": "projects/ABTest/hw1_questions.html#overview",
     "href": "projects/ABTest/hw1_questions.html#overview",
-    "title": "A/B Testing a Call to Action",
+    "title": "Chiikawa Explains A/B Testing a Call to Action",
     "section": "",
     "text": "This diagram shows the full idea of the A/B test and the main statistical concepts we will explore."
   },
   {
-    "objectID": "projects/ABTest/hw1_questions.html#introduction",
-    "href": "projects/ABTest/hw1_questions.html#introduction",
-    "title": "A/B Testing a Call to Action",
-    "section": "Introduction",
-    "text": "Introduction\nWe have a website where users can sign up for a newsletter.\nWe want to test which message works better:\n\nCTA A\nCTA B\n\nWe run an A/B test by randomly showing different messages to users.\nThen we compare which one gets more sign-ups."
-  },
-  {
-    "objectID": "projects/ABTest/hw1_questions.html#the-ab-test-as-a-statistical-problem",
-    "href": "projects/ABTest/hw1_questions.html#the-ab-test-as-a-statistical-problem",
-    "title": "A/B Testing a Call to Action",
-    "section": "The A/B Test as a Statistical Problem",
-    "text": "The A/B Test as a Statistical Problem\nEach user either signs up (1) or not (0).\nSo we use a simple model:\n\nπ_A = sign-up rate for A\nπ_B = sign-up rate for B\n\nWe care about the difference:\nθ = π_A - π_B\n\n\n\nWe are just comparing two probabilities."
-  },
-  {
-    "objectID": "projects/ABTest/hw1_questions.html#simulating-data",
-    "href": "projects/ABTest/hw1_questions.html#simulating-data",
-    "title": "A/B Testing a Call to Action",
-    "section": "Simulating Data",
-    "text": "Simulating Data\nIn real life, we don’t know the true rates.\nSo we choose:\nπ_A = 0.22 π_B = 0.18\nThen we simulate users.\n\n\n\nSimulation helps us understand how methods work."
-  },
-  {
-    "objectID": "projects/ABTest/hw1_questions.html#the-law-of-large-numbers",
-    "href": "projects/ABTest/hw1_questions.html#the-law-of-large-numbers",
-    "title": "A/B Testing a Call to Action",
-    "section": "The Law of Large Numbers",
-    "text": "The Law of Large Numbers\nAs we collect more data, our estimate becomes stable.\nSmall data → noisy Large data → stable\n\n\n\nMore data = more reliable results."
-  },
-  {
-    "objectID": "projects/ABTest/hw1_questions.html#bootstrap-standard-errors",
-    "href": "projects/ABTest/hw1_questions.html#bootstrap-standard-errors",
-    "title": "A/B Testing a Call to Action",
-    "section": "Bootstrap Standard Errors",
-    "text": "Bootstrap Standard Errors\nWe resample our data many times.\nEach time we compute the estimate.\nThis tells us how accurate our result is.\n\n\n\nBootstrap measures uncertainty."
-  },
-  {
-    "objectID": "projects/ABTest/hw1_questions.html#the-central-limit-theorem",
-    "href": "projects/ABTest/hw1_questions.html#the-central-limit-theorem",
-    "title": "A/B Testing a Call to Action",
-    "section": "The Central Limit Theorem",
-    "text": "The Central Limit Theorem\nWith small samples, results look messy.\nWith large samples, results look normal (bell-shaped).\n\n\n\nBig samples make things look normal."
-  },
-  {
-    "objectID": "projects/ABTest/hw1_questions.html#hypothesis-testing",
-    "href": "projects/ABTest/hw1_questions.html#hypothesis-testing",
-    "title": "A/B Testing a Call to Action",
-    "section": "Hypothesis Testing",
-    "text": "Hypothesis Testing\nWe test:\nH0: no difference H1: there is a difference\nIf p-value &lt; 0.05 → we reject H0\n\n\n\nSmall p-value = unlikely to be random."
-  },
-  {
-    "objectID": "projects/ABTest/hw1_questions.html#the-t-test-as-a-regression",
-    "href": "projects/ABTest/hw1_questions.html#the-t-test-as-a-regression",
-    "title": "A/B Testing a Call to Action",
-    "section": "The T-Test as a Regression",
-    "text": "The T-Test as a Regression\nWe can also use regression.\nIt gives the same answer as our test.\n\n\n\nDifferent tools, same result."
-  },
-  {
-    "objectID": "projects/ABTest/hw1_questions.html#the-problem-with-peeking",
-    "href": "projects/ABTest/hw1_questions.html#the-problem-with-peeking",
-    "title": "A/B Testing a Call to Action",
-    "section": "The Problem with Peeking",
-    "text": "The Problem with Peeking\nChecking results too often is risky.\nIt increases false positives.\n\n\n\nDon’t check too early!"
-  },
-  {
     "objectID": "projects/ABTest/hw1_questions.html#end",
     "href": "projects/ABTest/hw1_questions.html#end",
-    "title": "A/B Testing a Call to Action",
+    "title": "Chiikawa Explains A/B Testing a Call to Action",
     "section": "END",
     "text": "END\n\n\n\nThank you"
-  },
-  {
-    "objectID": "experience.html",
-    "href": "experience.html",
-    "title": "Experience",
-    "section": "",
-    "text": "This page merges the sectioned resume structure of the original single-page site with the longer-form project portfolio from Quarto. It is meant to show both applied work experience and the types of analytical problems I have been solving."
-  },
-  {
-    "objectID": "experience.html#professional-experience",
-    "href": "experience.html#professional-experience",
-    "title": "Experience",
-    "section": "Professional Experience",
-    "text": "Professional Experience\n\n\nBusiness Analyst · Egg Roll King\n\nJan 2023 - Apr 2025\n\nLed revenue and traffic performance analysis in a high-volume restaurant environment. Built KPI dashboards to track peak-hour demand, staffing allocation, and daily revenue movement, which improved staffing efficiency and made cost-control discussions more measurable.\n\n\nCustomer Service Analyst · Target\n\nOct 2024 - Jan 2025\n\nAnalyzed customer wait-time and service-flow metrics during the holiday season to identify operational bottlenecks. Produced reporting that helped monitor queue efficiency and support process adjustments while maintaining strong customer satisfaction."
-  },
-  {
-    "objectID": "experience.html#selected-analytics-work",
-    "href": "experience.html#selected-analytics-work",
-    "title": "Experience",
-    "section": "Selected Analytics Work",
-    "text": "Selected Analytics Work\n\n\nData Analyst · Snowflake Project · UC San Diego\n\nAug 2025 - Sep 2025\n\nDesigned SQL and Python workflows to consolidate multi-source transactional data, built financial variance metrics for procurement visibility, and created reporting views to improve data reliability for downstream business intelligence use.\n\n\nData Analyst · Marketing Analytics Project · UC San Diego\n\nJan 2026 - Mar 2026\n\nDeveloped predictive models to identify high-probability customer upgrade segments and translated the model outputs into more actionable campaign targeting recommendations.\n\n\nBusiness Intelligence Engineer · Housing and Rental Dashboard · UC San Diego\n\nNov 2025 - Dec 2025\n\nUsed Python and Tableau to analyze Zillow housing and rental data, then turned the results into interactive dashboards focused on regional pricing dynamics, affordability, and market movement."
-  },
-  {
-    "objectID": "experience.html#technical-capabilities",
-    "href": "experience.html#technical-capabilities",
-    "title": "Experience",
-    "section": "Technical Capabilities",
-    "text": "Technical Capabilities\n\n\n\nData Engineering\n\nSQL Snowflake ETL Pipelines Data Modeling\n\n\n\n\n\nBusiness Intelligence\n\nTableau Dashboard Design KPI Development Performance Reporting\n\n\n\n\n\nAnalytics\n\nPython Pandas EDA Predictive Modeling A/B Testing"
   },
   {
     "objectID": "projects/BlueprintyPoisson/index.html",
@@ -224,88 +385,67 @@
     "text": "Conclusion\nThis assignment shows the full MLE workflow in a simple but useful setting.\nFirst, I wrote down the Poisson likelihood and showed that the simple MLE for \\(\\lambda\\) is the sample mean. Then I extended the model to a Poisson regression, estimated it by maximum likelihood, checked the result against statsmodels, and translated the customer coefficient into a more intuitive counterfactual effect.\nThe final result is encouraging for Blueprinty: after controlling for observable firm differences, customers are predicted to have about 23% higher patent rates, or about 0.79 more patents over five years. That is consistent with the idea that the software helps. But because the data are not from a randomized experiment, the most careful conclusion is this: the evidence supports Blueprinty’s claim, but it does not fully prove causality."
   },
   {
-    "objectID": "projects/Research/hw2_questions.html",
-    "href": "projects/Research/hw2_questions.html",
-    "title": "Replication of Card and Krueger (1994)",
+    "objectID": "projects/HW4/hw4_questions.html",
+    "href": "projects/HW4/hw4_questions.html",
+    "title": "MaxDiff Analysis of MSBA Class Preferences",
     "section": "",
-    "text": "This blog post studies the famous paper by Card and Krueger (1994). The authors ask a simple but important question:\nDoes increasing the minimum wage reduce employment?\nTraditional economic theory says that when the minimum wage goes up, firms will hire fewer workers because labor becomes more expensive. However, Card and Krueger test this idea using real data.\nThey study a natural experiment in 1992:\n\nNew Jersey increased its minimum wage from $4.25 to $5.05\nPennsylvania did not change its minimum wage\n\nBy comparing these two states before and after the policy change, they use a method called difference-in-differences (DID) to estimate the effect of the minimum wage."
+    "text": "Note\n\n\n\nWrite a short introduction for the reader that sets the scene. Cover the following points in your own words:\n\nMaxDiff (also called Best-Worst Scaling) is a survey methodology for measuring how strongly people prefer one item over another. On each screen of the survey, the respondent sees a small subset of items (here, 4) and selects the most-preferred and least-preferred item from that subset. They repeat this over many screens.\nWhy MaxDiff (and not, e.g., a 1–10 rating scale)? Humans are good at trade-offs — picking a best and a worst — but unreliable at calibrating numeric scales. MaxDiff forces real differentiation between items and avoids scale-use bias. (See the week-4 “MaxDiff” deck for more.)\nIn this assignment, the 10 items are the 10 core MSBA classes at UCSD Rady. The goal is to estimate students’ relative preference for each class using three different methods, and to compare what each tells us:\n\nA simple counts analysis — % times each class was picked best, minus % times picked worst\nThe multinomial logit (MNL) model fit by maximum likelihood (see week-5 conjoint/MNL deck for derivation and optim() recipe)\nThe same MNL model fit by Bayesian methods via Metropolis-Hastings (see the week-7 deck on Bayesian inference and MCMC)\n\nBriefly preview what you expect: the three methods should agree on the broad ranking of classes; they will differ in how they quantify the strength of preference and in how they communicate uncertainty."
   },
   {
-    "objectID": "projects/Research/hw2_questions.html#introduction",
-    "href": "projects/Research/hw2_questions.html#introduction",
-    "title": "Replication of Card and Krueger (1994)",
+    "objectID": "projects/HW4/hw4_questions.html#introduction",
+    "href": "projects/HW4/hw4_questions.html#introduction",
+    "title": "MaxDiff Analysis of MSBA Class Preferences",
     "section": "",
-    "text": "This blog post studies the famous paper by Card and Krueger (1994). The authors ask a simple but important question:\nDoes increasing the minimum wage reduce employment?\nTraditional economic theory says that when the minimum wage goes up, firms will hire fewer workers because labor becomes more expensive. However, Card and Krueger test this idea using real data.\nThey study a natural experiment in 1992:\n\nNew Jersey increased its minimum wage from $4.25 to $5.05\nPennsylvania did not change its minimum wage\n\nBy comparing these two states before and after the policy change, they use a method called difference-in-differences (DID) to estimate the effect of the minimum wage."
+    "text": "Note\n\n\n\nWrite a short introduction for the reader that sets the scene. Cover the following points in your own words:\n\nMaxDiff (also called Best-Worst Scaling) is a survey methodology for measuring how strongly people prefer one item over another. On each screen of the survey, the respondent sees a small subset of items (here, 4) and selects the most-preferred and least-preferred item from that subset. They repeat this over many screens.\nWhy MaxDiff (and not, e.g., a 1–10 rating scale)? Humans are good at trade-offs — picking a best and a worst — but unreliable at calibrating numeric scales. MaxDiff forces real differentiation between items and avoids scale-use bias. (See the week-4 “MaxDiff” deck for more.)\nIn this assignment, the 10 items are the 10 core MSBA classes at UCSD Rady. The goal is to estimate students’ relative preference for each class using three different methods, and to compare what each tells us:\n\nA simple counts analysis — % times each class was picked best, minus % times picked worst\nThe multinomial logit (MNL) model fit by maximum likelihood (see week-5 conjoint/MNL deck for derivation and optim() recipe)\nThe same MNL model fit by Bayesian methods via Metropolis-Hastings (see the week-7 deck on Bayesian inference and MCMC)\n\nBriefly preview what you expect: the three methods should agree on the broad ranking of classes; they will differ in how they quantify the strength of preference and in how they communicate uncertainty."
   },
   {
-    "objectID": "projects/Research/hw2_questions.html#main-analysis",
-    "href": "projects/Research/hw2_questions.html#main-analysis",
-    "title": "Replication of Card and Krueger (1994)",
-    "section": "Main Analysis",
-    "text": "Main Analysis\nI replicate the main result of the paper using the original dataset of fast-food restaurants.\nFirst, I calculate employment using full-time equivalent (FTE):\n\nFTE = full-time workers + 0.5 × part-time workers\n\nThen I compare employment before and after the policy.\n\nResults\n\nNew Jersey employment change: +0.51\nPennsylvania employment change: −2.41\nDifference-in-differences (DID): +2.91\n\n\nThe figure shows that employment increased in New Jersey but decreased in Pennsylvania. This creates a positive difference-in-differences estimate.\n\n\nInterpretation\nThis result is surprising.\nAccording to standard theory, employment should decrease. However, the data shows the opposite:\n\nThe minimum wage increase did not reduce employment. It may have increased it.\n\nI also run a simple regression, and the coefficient is about 2.94, which is very close to the DID estimate. This shows the result is consistent and robust."
+    "objectID": "projects/HW4/hw4_questions.html#the-data",
+    "href": "projects/HW4/hw4_questions.html#the-data",
+    "title": "MaxDiff Analysis of MSBA Class Preferences",
+    "section": "The Data",
+    "text": "The Data\n\n\n\n\n\n\nNote\n\n\n\n\nRead in maxdiff_design_and_choices.csv. The columns are:\n\nRecord ID — anonymized respondent identifier\nTask — screen number for that respondent\nPosition — slot (1–4) on the screen\nItem — which of the 10 classes is in that slot\nResponse — 1 if this item was picked best, -1 if picked worst, 0 otherwise\n\nRead in maxdiff_item_labels.csv to map item numbers to class names.\nReport basic descriptives: number of respondents (\\(N\\)), tasks per respondent (\\(T\\)), items per task (\\(J\\) — should be 4), and total items in the study (should be 10).\nVerify the data structure with a sanity check: every task should have exactly one row with Response = 1 (the “best” pick), exactly one row with Response = -1 (the “worst” pick), and the remaining rows with Response = 0. Code this check.\nAlso report how many times each of the 10 items was shown across the entire study. Because MaxDiff designs balance exposure, these counts should all be roughly equal."
   },
   {
-    "objectID": "projects/Research/hw2_questions.html#something-additional",
-    "href": "projects/Research/hw2_questions.html#something-additional",
-    "title": "Replication of Card and Krueger (1994)",
-    "section": "Something Additional",
-    "text": "Something Additional\n\nWage Changes\nTo confirm that the policy actually worked, I look at wages:\n\nLow-wage stores increased wages by about 0.81 (around 10%)\nHigh-wage stores had almost no change\n\nThis shows that the minimum wage policy was enforced.\n\n\n\nPrice Changes\nI also analyze prices:\n\nNew Jersey prices increased by 2.60%\nPennsylvania prices decreased by 0.44%\n\nThis suggests that firms passed some of the higher labor costs to consumers.\n\n\n\nWage Distribution\nThe histogram shows a clear change:\n\n\nBefore the policy, wages were spread out\nAfter the policy, many wages are clustered at $5.05\n\nThis confirms that the minimum wage became binding.\n\n\n\nWhy DID Works\nThe DID method works because it compares two groups:\n\nNew Jersey (treatment group)\nPennsylvania (control group)\n\nIt removes:\n\nDifferences between states\nCommon time trends\n\nThe key assumption is that both states would have followed similar trends without the policy. My results support this assumption."
+    "objectID": "projects/HW4/hw4_questions.html#counts-analysis",
+    "href": "projects/HW4/hw4_questions.html#counts-analysis",
+    "title": "MaxDiff Analysis of MSBA Class Preferences",
+    "section": "Counts Analysis",
+    "text": "Counts Analysis\n\n\n\n\n\n\nNote\n\n\n\n\nWrite a short paragraph explaining the counts analysis to the reader. The idea: for each item \\(j\\), compute the percentage of times it was picked as best (out of the number of times it was shown), and the percentage of times it was picked as worst. The difference is a simple score:\n\n\\[\n\\text{score}_j \\;=\\; \\%\\text{best}_j \\;-\\; \\%\\text{worst}_j\n\\]\nA score near +1 means an item is almost always picked as best when shown; near -1 means it’s almost always picked as worst; near 0 means it’s polarizing or middle-of-the-pack.\n\nCompute the counts score for each of the 10 items. Display a ranked table with columns: item, item label, times shown, times best, times worst, % best, % worst, score.\nPlot the scores in a horizontal bar chart, sorted from highest to lowest. Label each bar with the class name (or its abbreviated form).\nOptional but recommended: add 95% bootstrap confidence intervals to the scores. Resample respondents (with replacement), recompute the score for each item, repeat ~1,000 times, and take the 2.5th and 97.5th percentiles. Overlay these CIs on your bar chart.\nAfter the plot, write a few sentences describing what you observe. Which classes are most preferred? Which are least? Any surprises?"
   },
   {
-    "objectID": "projects/Research/hw2_questions.html#conclusion",
-    "href": "projects/Research/hw2_questions.html#conclusion",
-    "title": "Replication of Card and Krueger (1994)",
-    "section": "Conclusion",
-    "text": "Conclusion\nMy replication confirms the main finding of Card and Krueger (1994):\n\nMinimum wage increases did not reduce employment\nWages increased for low-wage workers\nPrices increased slightly\n\nThis paper is important because it challenges traditional economic theory and shows that real-world labor markets can behave differently."
+    "objectID": "projects/HW4/hw4_questions.html#from-maxdiff-data-to-mnl-choices",
+    "href": "projects/HW4/hw4_questions.html#from-maxdiff-data-to-mnl-choices",
+    "title": "MaxDiff Analysis of MSBA Class Preferences",
+    "section": "From MaxDiff Data to MNL Choices",
+    "text": "From MaxDiff Data to MNL Choices\n\n\n\n\n\n\nNote\n\n\n\n\nBefore fitting an MNL, explain to the reader how the MaxDiff survey data converts into MNL choice observations. Reference the conjoint/MNL slides from week 5.\nThe MNL model assigns each item \\(j\\) a utility coefficient \\(\\beta_j\\). On a task showing items \\(\\{a, b, c, d\\}\\), the probability that item \\(b\\) is picked best is the soft-max:\n\n\\[\nP(\\text{best} = b) \\;=\\; \\frac{\\exp(\\beta_b)}{\\exp(\\beta_a) + \\exp(\\beta_b) + \\exp(\\beta_c) + \\exp(\\beta_d)}\n\\]\n\nThe probability that item \\(c\\) is then picked worst — from the remaining 3 items, with utilities flipped — is:\n\n\\[\nP(\\text{worst} = c \\mid \\text{best} = b) \\;=\\; \\frac{\\exp(-\\beta_c)}{\\exp(-\\beta_a) + \\exp(-\\beta_c) + \\exp(-\\beta_d)}\n\\]\nSo each task gives two MNL observations: the best-pick from the full set, and the worst-pick from the remaining set.\n\nIdentifiability: the soft-max is invariant to adding a constant to every \\(\\beta\\), so only \\(J - 1 = 9\\) of the 10 coefficients are identified. Fix one as the reference — for example, set \\(\\beta_1 = 0\\) and estimate \\(\\beta_2, \\ldots, \\beta_{10}\\). Mention this normalization to the reader.\nReshape the data into a form convenient for the likelihood. One workable structure: for each task, store the 4 item numbers, which one was picked best, and which one was picked worst. You’ll iterate over tasks in the likelihood function."
   },
   {
-    "objectID": "presentation.html",
-    "href": "presentation.html",
-    "title": "Presentations",
-    "section": "",
-    "text": "This section collects slide-based work that complements the written project pages. It is where I focus on delivery, structure, and how analytical ideas can be presented clearly in a shorter format.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDeploying Dashboards in Quarto\n\n\nA short presentation on embedding Tableau and Plotly dashboards into a Quarto-based site.\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+    "objectID": "projects/HW4/hw4_questions.html#mnl-via-maximum-likelihood",
+    "href": "projects/HW4/hw4_questions.html#mnl-via-maximum-likelihood",
+    "title": "MaxDiff Analysis of MSBA Class Preferences",
+    "section": "MNL via Maximum Likelihood",
+    "text": "MNL via Maximum Likelihood\n\n\n\n\n\n\nNote\n\n\n\n\nWrite down the log-likelihood. Summing over \\(N \\cdot T\\) tasks:\n\n\\[\n\\ell(\\boldsymbol{\\beta}) \\;=\\; \\sum_{\\text{tasks}} \\Big[\\, \\beta_{j^*_b} \\;-\\; \\log \\!\\!\\!\\sum_{j \\in \\text{shown}}\\!\\!\\! \\exp(\\beta_j) \\;-\\; \\beta_{j^*_w} \\;-\\; \\log \\!\\!\\!\\!\\!\\sum_{j \\in \\text{shown} \\setminus \\{j^*_b\\}}\\!\\!\\!\\! \\exp(-\\beta_j) \\,\\Big]\n\\]\nwhere \\(j^*_b\\) is the item picked best in that task and \\(j^*_w\\) is the item picked worst.\n\nCode the log-likelihood as a function ll(beta, ...) where beta is a vector of length 9 (or 10, with \\(\\beta_1\\) pinned to 0 inside the function). Use log-sum-exp form (v - log(rowSums(exp(v)))) for numerical stability — see the week-5 slides on fitting MNL by hand.\nMaximize the log-likelihood. In R:\n\nout &lt;- optim(par = rep(0, 9), fn = ll, ...,\n             method = \"BFGS\", hessian = TRUE,\n             control = list(fnscale = -1))\n\nReport the estimated \\(\\hat{\\boldsymbol{\\beta}}\\) and standard errors. SEs come from the inverse of the negative Hessian:\n\nse &lt;- sqrt(diag(solve(-out$hessian)))\n\nConvert the \\(\\hat\\beta\\)’s into shares of preference for interpretability:\n\n\\[\n\\hat s_j \\;=\\; \\frac{\\exp(\\hat\\beta_j)}{\\sum_{k=1}^{10} \\exp(\\hat\\beta_k)}\n\\]\nThese shares are easier to read than raw \\(\\beta\\)’s — they sum to 1 across items and answer the question, “if all 10 classes were on a single screen, what fraction of choices would each one get?”\n\nDisplay a table of items with \\(\\hat\\beta_j\\), \\(SE(\\hat\\beta_j)\\), and \\(\\hat s_j\\). Plot the shares in a horizontal bar chart, sorted from highest to lowest.\nCompare the MLE ranking to the counts ranking from the previous section. Are they identical? Where do they differ? Write a few sentences explaining."
   },
   {
-    "objectID": "resume.html",
-    "href": "resume.html",
-    "title": "Resume",
-    "section": "",
-    "text": "This page keeps the resume easy to access from anywhere in the site while still fitting into the broader portfolio structure.\nOpen PDF directly\n\nDownload PDF file."
+    "objectID": "projects/HW4/hw4_questions.html#mnl-via-bayesian-estimation",
+    "href": "projects/HW4/hw4_questions.html#mnl-via-bayesian-estimation",
+    "title": "MaxDiff Analysis of MSBA Class Preferences",
+    "section": "MNL via Bayesian Estimation",
+    "text": "MNL via Bayesian Estimation\n\n\n\n\n\n\nNote\n\n\n\n\nNow fit the same MNL model by Bayesian methods. Reference the week-7 slides on Bayes’ rule and the random-walk Metropolis-Hastings sampler.\nThe posterior over \\(\\boldsymbol{\\beta}\\) is\n\n\\[\n\\pi(\\boldsymbol{\\beta} \\mid \\boldsymbol{y}) \\;\\propto\\; L(\\boldsymbol{\\beta}) \\cdot \\pi(\\boldsymbol{\\beta})\n\\]\nUse a weakly informative multivariate normal prior: \\(\\boldsymbol{\\beta} \\sim N(\\boldsymbol{0},\\; 10 \\cdot I)\\). (SD \\(\\approx 3.2\\) on each \\(\\beta\\) is plenty diffuse without being absurd.)\n\nCode a random-walk Metropolis sampler. The skeleton is:\n\nlog_post &lt;- function(beta) ll(beta, ...) + sum(dnorm(beta, 0, sqrt(10), log = TRUE))\n\nmh &lt;- function(beta0, n_iter, step) {\n  K &lt;- length(beta0)\n  draws &lt;- matrix(NA, n_iter, K)\n  beta  &lt;- beta0\n  lp    &lt;- log_post(beta)\n  accept &lt;- 0\n  for (t in 1:n_iter) {\n    beta_star &lt;- beta + rnorm(K, 0, step)\n    lp_star   &lt;- log_post(beta_star)\n    if (log(runif(1)) &lt; lp_star - lp) {\n      beta &lt;- beta_star; lp &lt;- lp_star; accept &lt;- accept + 1\n    }\n    draws[t, ] &lt;- beta\n  }\n  list(draws = draws, accept_rate = accept / n_iter)\n}\n\nRun the sampler for ~20,000 iterations (or more if you have patience). Discard the first 25% as burn-in.\nTune the step size to land at an acceptance rate of roughly 25–40%. If acceptance is too low, halve the step; too high, double it. (See week-7 “Tuning the Step Size” slide.)\nRun diagnostics: report the final acceptance rate, plot the trace for at least 2–3 of the \\(\\beta\\) parameters (you should see a “fuzzy caterpillar,” not a slow drift), and confirm that the chain has stabilized after burn-in.\nCompute and report:\n\nPosterior mean \\(\\hat\\beta_j\\) for each item\n95% credible interval \\([2.5\\%,\\, 97.5\\%]\\) percentiles of the post-burn-in draws\nPosterior shares of preference: for each MCMC draw, compute \\(\\hat s_j^{(s)} = \\exp(\\hat\\beta_j^{(s)}) / \\sum_k \\exp(\\hat\\beta_k^{(s)})\\), then take the posterior mean of the \\(\\hat s_j^{(s)}\\) across draws.\n\nDisplay a table with item, posterior mean \\(\\beta\\), 95% CI, posterior mean share. Plot the shares with the credible interval as error bars.\nCompare to the MLE results: posterior means should be close to the MLE point estimates; posterior SDs should be close to the MLE standard errors. Where do they differ noticeably? Why?"
   },
   {
-    "objectID": "about.html",
-    "href": "about.html",
-    "title": "About",
-    "section": "",
-    "text": "This section carries over the concise personal introduction from my original portfolio and places it inside a fuller site structure, so visitors can quickly understand who I am, what I work on, and how to navigate the rest of the portfolio."
+    "objectID": "projects/HW4/hw4_questions.html#comparing-the-three-methods",
+    "href": "projects/HW4/hw4_questions.html#comparing-the-three-methods",
+    "title": "MaxDiff Analysis of MSBA Class Preferences",
+    "section": "Comparing the Three Methods",
+    "text": "Comparing the Three Methods\n\n\n\n\n\n\nNote\n\n\n\n\nCreate a single side-by-side comparison of all three analyses. Suggested format: a table with columns\n\nItem / class label\nCounts score (% best − % worst)\nCounts rank\nMLE share of preference, MLE rank\nBayes posterior-mean share, Bayes rank\n\nSorted by one of the rankings (e.g., MLE rank).\nAlso create a visual comparison: three horizontal bar charts side-by-side, one per method, each showing items sorted by that method’s score/share. Color-code consistently so the reader can trace a single class across all three panels.\nWrite a paragraph discussing the comparison:\n\nWhere do the three methods agree? Almost always at the top and bottom of the ranking.\nWhere do they disagree — and why? Often in the middle, where items have similar utility and small noise can flip rankings.\nWhat does the MNL add over the counts analysis? (Hint: it models the choice process explicitly — every “shown” item contributes information about not* being picked, not just the picks themselves.)*\nWhat does Bayes add over MLE? (Hint: credible intervals on derived quantities like shares of preference are easy — just push every MCMC draw through the soft-max and take quantiles. Doing this from an MLE requires the delta method.)"
   },
   {
-    "objectID": "about.html#profile",
-    "href": "about.html#profile",
-    "title": "About",
-    "section": "Profile",
-    "text": "Profile\nI am a business intelligence and data analyst with a strong interest in turning raw operational data into clear performance metrics, dashboards, and decision-ready reporting.\nMy work sits at the intersection of business questions and analytical execution. I enjoy designing KPI frameworks, exploring performance drivers, and building lightweight data products that make trends easier to understand for non-technical audiences.\nThe structure of this website reflects that same goal. The homepage introduces my professional story, the experience page shows how I have applied analytics in work and coursework, and the project pages go deeper into methods such as experimentation, dashboard design, econometrics, and interactive reporting."
-  },
-  {
-    "objectID": "about.html#what-i-like-working-on",
-    "href": "about.html#what-i-like-working-on",
-    "title": "About",
-    "section": "What I Like Working On",
-    "text": "What I Like Working On\n\nKPI and business performance analysis\nDashboard design for decision support\nSQL and Python workflows for repeatable reporting\nTranslating technical results into simple business language"
-  },
-  {
-    "objectID": "about.html#education",
-    "href": "about.html#education",
-    "title": "About",
-    "section": "Education",
-    "text": "Education\n\n\n\nUniversity of California, San Diego\nM.S. in Business Analytics\nExpected December 2026\n\n\n\n\nUniversity of Nevada, Reno\nB.S. in Information Systems\nMinor in Accounting, Business Analytics, and Mathematics\nGraduated May 2025"
-  },
-  {
-    "objectID": "about.html#interests",
-    "href": "about.html#interests",
-    "title": "About",
-    "section": "Interests",
-    "text": "Interests\nOutside of analytics, I enjoy strategy and casual games, exploring emerging AI tools, and traveling to experience different cultures. Those interests keep my work curious, adaptable, and grounded in learning."
+    "objectID": "projects/HW4/hw4_questions.html#discussion",
+    "href": "projects/HW4/hw4_questions.html#discussion",
+    "title": "MaxDiff Analysis of MSBA Class Preferences",
+    "section": "Discussion",
+    "text": "Discussion\n\n\n\n\n\n\nNote\n\n\n\n\nClose with a short discussion section that synthesizes the analysis for a non-technical reader (think: an academic advisor or a student deciding which classes to take). Cover:\n\nThe substantive finding — which MSBA classes do students prefer most? Are there any surprises?\nThe methodological finding — for what kind of question would you reach for each of the three methods?\n\nCounts: quick descriptive summary, useful for an executive dashboard\nMLE MNL: rigorous point estimates with classical standard errors; good when you need a single number to report\nBayesian MNL: when you want uncertainty on derived quantities (shares, market simulations, “what if we added a new class?” scenarios), or when you want to extend the model hierarchically to estimate individual-level preferences\n\nCaveats: the survey was on a self-selected sample of MSBA students; preferences may not generalize beyond this group. Item presentation order, prior coursework, and current standing in the program may all affect responses.\n\nEnd with one or two sentences on what you would do differently or explore next if you had more time."
   },
   {
     "objectID": "projects/MaxDiffMNL/index.html",

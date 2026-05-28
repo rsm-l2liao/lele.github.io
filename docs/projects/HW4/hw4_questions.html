@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Your Name">
+<meta name="dcterms.date" content="2026-05-27">
 
-<title>My Projects – Lele Liao | Data Analyst</title>
+<title>MaxDiff Analysis of MSBA Class Preferences – Lele Liao | Data Analyst</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,33 +22,66 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-ea00d30dd9b950c7ecb6e17bc6ca0835.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3b988793beeeeab0265599ed392226a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-3b2d492bae908366fb1621f3f5d11d0a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-3b988793beeeeab0265599ed392226a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-ea00d30dd9b950c7ecb6e17bc6ca0835.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-3b988793beeeeab0265599ed392226a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-3b2d492bae908366fb1621f3f5d11d0a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-3b988793beeeeab0265599ed392226a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,35 +109,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
@@ -135,7 +141,7 @@ window.Quarto = {
 };
 </script>
 
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -307,7 +313,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Lele Liao | Data Analyst</span>
     </a>
   </div>
@@ -318,19 +324,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./projects.html" aria-current="page"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./presentation.html"> 
+    <a class="nav-link" href="../../presentation.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resume.html"> 
+    <a class="nav-link" href="../../resume.html"> 
 <span class="menu-text">Resume</span></a>
   </li>  
 </ul>
@@ -369,14 +375,27 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">My Projects</h1>
+<h1 class="title">MaxDiff Analysis of MSBA Class Preferences</h1>
+<p class="subtitle lead">Counts, MLE, and Bayesian estimation of the MNL model</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Your Name </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">May 27, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -386,141 +405,291 @@ window.Quarto = {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Write a short introduction for the reader that sets the scene. Cover the following points in your own words:</p>
+<ul>
+<li><p><span class="text-magenta"><strong>MaxDiff</strong></span> (also called <em>Best-Worst Scaling</em>) is a survey methodology for measuring how strongly people prefer one item over another. On each screen of the survey, the respondent sees a small subset of items (here, 4) and selects the <em>most-preferred</em> and <em>least-preferred</em> item from that subset. They repeat this over many screens.</p></li>
+<li><p>Why MaxDiff (and not, e.g., a 1–10 rating scale)? Humans are good at <em>trade-offs</em> — picking a best and a worst — but unreliable at calibrating numeric scales. MaxDiff forces real differentiation between items and avoids scale-use bias. <em>(See the week-4 “MaxDiff” deck for more.)</em></p></li>
+<li><p>In this assignment, the 10 items are the 10 core MSBA classes at UCSD Rady. The goal is to estimate students’ relative preference for each class using three different methods, and to compare what each tells us:</p>
+<ol type="1">
+<li>A simple <span class="text-magenta"><strong>counts analysis</strong></span> — % times each class was picked best, minus % times picked worst</li>
+<li>The <span class="text-magenta"><strong>multinomial logit (MNL)</strong></span> model fit by <span class="text-magenta"><strong>maximum likelihood</strong></span> <em>(see week-5 conjoint/MNL deck for derivation and <code>optim()</code> recipe)</em></li>
+<li>The same MNL model fit by <span class="text-magenta"><strong>Bayesian methods</strong></span> via Metropolis-Hastings <em>(see the week-7 deck on Bayesian inference and MCMC)</em></li>
+</ol></li>
+<li><p>Briefly preview what you expect: the three methods should agree on the broad ranking of classes; they will differ in how they quantify the strength of preference and in how they communicate uncertainty.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="the-data" class="level2">
+<h2 class="anchored" data-anchor-id="the-data">The Data</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Read in <code>maxdiff_design_and_choices.csv</code>. The columns are:</p>
+<ul>
+<li><code>Record ID</code> — anonymized respondent identifier</li>
+<li><code>Task</code> — screen number for that respondent</li>
+<li><code>Position</code> — slot (1–4) on the screen</li>
+<li><code>Item</code> — which of the 10 classes is in that slot</li>
+<li><code>Response</code> — <code>1</code> if this item was picked <em>best</em>, <code>-1</code> if picked <em>worst</em>, <code>0</code> otherwise</li>
+</ul></li>
+<li><p>Read in <code>maxdiff_item_labels.csv</code> to map item numbers to class names.</p></li>
+<li><p>Report basic descriptives: number of respondents (<span class="math inline">\(N\)</span>), tasks per respondent (<span class="math inline">\(T\)</span>), items per task (<span class="math inline">\(J\)</span> — should be 4), and total items in the study (should be 10).</p></li>
+<li><p>Verify the data structure with a sanity check: every task should have exactly one row with <code>Response = 1</code> (the “best” pick), exactly one row with <code>Response = -1</code> (the “worst” pick), and the remaining rows with <code>Response = 0</code>. Code this check.</p></li>
+<li><p>Also report how many times each of the 10 items was <em>shown</em> across the entire study. Because MaxDiff designs balance exposure, these counts should all be roughly equal.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="counts-analysis" class="level2">
+<h2 class="anchored" data-anchor-id="counts-analysis">Counts Analysis</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Write a short paragraph explaining the <em>counts analysis</em> to the reader. The idea: for each item <span class="math inline">\(j\)</span>, compute the percentage of times it was picked as <em>best</em> (out of the number of times it was shown), and the percentage of times it was picked as <em>worst</em>. The difference is a simple score:</li>
+</ul>
+<p><span class="math display">\[
+\text{score}_j \;=\; \%\text{best}_j \;-\; \%\text{worst}_j
+\]</span></p>
+<p>A score near +1 means an item is almost always picked as best when shown; near -1 means it’s almost always picked as worst; near 0 means it’s polarizing or middle-of-the-pack.</p>
+<ul>
+<li><p>Compute the counts score for each of the 10 items. Display a <span class="text-blue"><strong>ranked table</strong></span> with columns: item, item label, times shown, times best, times worst, % best, % worst, score.</p></li>
+<li><p>Plot the scores in a horizontal bar chart, sorted from highest to lowest. Label each bar with the class name (or its abbreviated form).</p></li>
+<li><p>Optional but recommended: add 95% bootstrap confidence intervals to the scores. Resample respondents (with replacement), recompute the score for each item, repeat ~1,000 times, and take the 2.5th and 97.5th percentiles. Overlay these CIs on your bar chart.</p></li>
+<li><p>After the plot, write a few sentences describing what you observe. Which classes are most preferred? Which are least? Any surprises?</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="from-maxdiff-data-to-mnl-choices" class="level2">
+<h2 class="anchored" data-anchor-id="from-maxdiff-data-to-mnl-choices">From MaxDiff Data to MNL Choices</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Before fitting an MNL, explain to the reader how the MaxDiff survey data converts into <span class="text-magenta"><strong>MNL choice observations</strong></span>. Reference the conjoint/MNL slides from week 5.</p></li>
+<li><p>The MNL model assigns each item <span class="math inline">\(j\)</span> a utility coefficient <span class="math inline">\(\beta_j\)</span>. On a task showing items <span class="math inline">\(\{a, b, c, d\}\)</span>, the probability that item <span class="math inline">\(b\)</span> is picked <em>best</em> is the soft-max:</p></li>
+</ul>
+<p><span class="math display">\[
+P(\text{best} = b) \;=\; \frac{\exp(\beta_b)}{\exp(\beta_a) + \exp(\beta_b) + \exp(\beta_c) + \exp(\beta_d)}
+\]</span></p>
+<ul>
+<li>The probability that item <span class="math inline">\(c\)</span> is then picked <em>worst</em> — from the remaining 3 items, with utilities <em>flipped</em> — is:</li>
+</ul>
+<p><span class="math display">\[
+P(\text{worst} = c \mid \text{best} = b) \;=\; \frac{\exp(-\beta_c)}{\exp(-\beta_a) + \exp(-\beta_c) + \exp(-\beta_d)}
+\]</span></p>
+<p>So each task gives <span class="text-blue"><em>two</em></span> MNL observations: the best-pick from the full set, and the worst-pick from the remaining set.</p>
+<ul>
+<li><p><span class="text-magenta"><strong>Identifiability</strong></span>: the soft-max is invariant to adding a constant to every <span class="math inline">\(\beta\)</span>, so only <span class="math inline">\(J - 1 = 9\)</span> of the 10 coefficients are identified. Fix one as the reference — for example, set <span class="math inline">\(\beta_1 = 0\)</span> and estimate <span class="math inline">\(\beta_2, \ldots, \beta_{10}\)</span>. Mention this normalization to the reader.</p></li>
+<li><p>Reshape the data into a form convenient for the likelihood. One workable structure: for each task, store the 4 item numbers, which one was picked best, and which one was picked worst. You’ll iterate over tasks in the likelihood function.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="mnl-via-maximum-likelihood" class="level2">
+<h2 class="anchored" data-anchor-id="mnl-via-maximum-likelihood">MNL via Maximum Likelihood</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li>Write down the log-likelihood. Summing over <span class="math inline">\(N \cdot T\)</span> tasks:</li>
+</ul>
+<p><span class="math display">\[
+\ell(\boldsymbol{\beta}) \;=\; \sum_{\text{tasks}} \Big[\, \beta_{j^*_b} \;-\; \log \!\!\!\sum_{j \in \text{shown}}\!\!\! \exp(\beta_j) \;-\; \beta_{j^*_w} \;-\; \log \!\!\!\!\!\sum_{j \in \text{shown} \setminus \{j^*_b\}}\!\!\!\! \exp(-\beta_j) \,\Big]
+\]</span></p>
+<p>where <span class="math inline">\(j^*_b\)</span> is the item picked best in that task and <span class="math inline">\(j^*_w\)</span> is the item picked worst.</p>
+<ul>
+<li><p>Code the log-likelihood as a function <code>ll(beta, ...)</code> where <code>beta</code> is a vector of length 9 (or 10, with <span class="math inline">\(\beta_1\)</span> pinned to 0 inside the function). Use log-sum-exp form (<code>v - log(rowSums(exp(v)))</code>) for numerical stability — see the week-5 slides on fitting MNL by hand.</p></li>
+<li><p>Maximize the log-likelihood. In R:</p></li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>out <span class="ot">&lt;-</span> <span class="fu">optim</span>(<span class="at">par =</span> <span class="fu">rep</span>(<span class="dv">0</span>, <span class="dv">9</span>), <span class="at">fn =</span> ll, ...,</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">method =</span> <span class="st">"BFGS"</span>, <span class="at">hessian =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">control =</span> <span class="fu">list</span>(<span class="at">fnscale =</span> <span class="sc">-</span><span class="dv">1</span>))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Report the estimated <span class="math inline">\(\hat{\boldsymbol{\beta}}\)</span> and standard errors. SEs come from the inverse of the negative Hessian:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(<span class="fu">diag</span>(<span class="fu">solve</span>(<span class="sc">-</span>out<span class="sc">$</span>hessian)))</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li>Convert the <span class="math inline">\(\hat\beta\)</span>’s into <span class="text-blue"><strong>shares of preference</strong></span> for interpretability:</li>
+</ul>
+<p><span class="math display">\[
+\hat s_j \;=\; \frac{\exp(\hat\beta_j)}{\sum_{k=1}^{10} \exp(\hat\beta_k)}
+\]</span></p>
+<p>These shares are easier to read than raw <span class="math inline">\(\beta\)</span>’s — they sum to 1 across items and answer the question, <em>“if all 10 classes were on a single screen, what fraction of choices would each one get?”</em></p>
+<ul>
+<li><p>Display a table of items with <span class="math inline">\(\hat\beta_j\)</span>, <span class="math inline">\(SE(\hat\beta_j)\)</span>, and <span class="math inline">\(\hat s_j\)</span>. Plot the shares in a horizontal bar chart, sorted from highest to lowest.</p></li>
+<li><p>Compare the MLE ranking to the counts ranking from the previous section. Are they identical? Where do they differ? Write a few sentences explaining.</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="mnl-via-bayesian-estimation" class="level2">
+<h2 class="anchored" data-anchor-id="mnl-via-bayesian-estimation">MNL via Bayesian Estimation</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Now fit the same MNL model by <span class="text-magenta"><strong>Bayesian methods</strong></span>. Reference the week-7 slides on Bayes’ rule and the random-walk Metropolis-Hastings sampler.</p></li>
+<li><p>The posterior over <span class="math inline">\(\boldsymbol{\beta}\)</span> is</p></li>
+</ul>
+<p><span class="math display">\[
+\pi(\boldsymbol{\beta} \mid \boldsymbol{y}) \;\propto\; L(\boldsymbol{\beta}) \cdot \pi(\boldsymbol{\beta})
+\]</span></p>
+<p>Use a weakly informative multivariate normal prior: <span class="math inline">\(\boldsymbol{\beta} \sim N(\boldsymbol{0},\; 10 \cdot I)\)</span>. (SD <span class="math inline">\(\approx 3.2\)</span> on each <span class="math inline">\(\beta\)</span> is plenty diffuse without being absurd.)</p>
+<ul>
+<li>Code a random-walk Metropolis sampler. The skeleton is:</li>
+</ul>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>log_post <span class="ot">&lt;-</span> <span class="cf">function</span>(beta) <span class="fu">ll</span>(beta, ...) <span class="sc">+</span> <span class="fu">sum</span>(<span class="fu">dnorm</span>(beta, <span class="dv">0</span>, <span class="fu">sqrt</span>(<span class="dv">10</span>), <span class="at">log =</span> <span class="cn">TRUE</span>))</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>mh <span class="ot">&lt;-</span> <span class="cf">function</span>(beta0, n_iter, step) {</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>  K <span class="ot">&lt;-</span> <span class="fu">length</span>(beta0)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>  draws <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="cn">NA</span>, n_iter, K)</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>  beta  <span class="ot">&lt;-</span> beta0</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a>  lp    <span class="ot">&lt;-</span> <span class="fu">log_post</span>(beta)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a>  accept <span class="ot">&lt;-</span> <span class="dv">0</span></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span> (t <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>n_iter) {</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a>    beta_star <span class="ot">&lt;-</span> beta <span class="sc">+</span> <span class="fu">rnorm</span>(K, <span class="dv">0</span>, step)</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a>    lp_star   <span class="ot">&lt;-</span> <span class="fu">log_post</span>(beta_star)</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (<span class="fu">log</span>(<span class="fu">runif</span>(<span class="dv">1</span>)) <span class="sc">&lt;</span> lp_star <span class="sc">-</span> lp) {</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>      beta <span class="ot">&lt;-</span> beta_star; lp <span class="ot">&lt;-</span> lp_star; accept <span class="ot">&lt;-</span> accept <span class="sc">+</span> <span class="dv">1</span></span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>    }</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>    draws[t, ] <span class="ot">&lt;-</span> beta</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>  }</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">list</span>(<span class="at">draws =</span> draws, <span class="at">accept_rate =</span> accept <span class="sc">/</span> n_iter)</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
+<ul>
+<li><p>Run the sampler for ~20,000 iterations (or more if you have patience). Discard the first 25% as burn-in.</p></li>
+<li><p><span class="text-blue"><strong>Tune the step size</strong></span> to land at an acceptance rate of roughly 25–40%. If acceptance is too low, halve the step; too high, double it. <em>(See week-7 “Tuning the Step Size” slide.)</em></p></li>
+<li><p>Run diagnostics: report the final acceptance rate, plot the trace for at least 2–3 of the <span class="math inline">\(\beta\)</span> parameters (you should see a “fuzzy caterpillar,” not a slow drift), and confirm that the chain has stabilized after burn-in.</p></li>
+<li><p>Compute and report:</p>
+<ul>
+<li>Posterior <strong>mean</strong> <span class="math inline">\(\hat\beta_j\)</span> for each item</li>
+<li>95% <strong>credible interval</strong> <span class="math inline">\([2.5\%,\, 97.5\%]\)</span> percentiles of the post-burn-in draws</li>
+<li>Posterior shares of preference: for each MCMC draw, compute <span class="math inline">\(\hat s_j^{(s)} = \exp(\hat\beta_j^{(s)}) / \sum_k \exp(\hat\beta_k^{(s)})\)</span>, then take the posterior mean of the <span class="math inline">\(\hat s_j^{(s)}\)</span> across draws.</li>
+</ul></li>
+<li><p>Display a table with item, posterior mean <span class="math inline">\(\beta\)</span>, 95% CI, posterior mean share. Plot the shares with the credible interval as error bars.</p></li>
+<li><p>Compare to the MLE results: posterior means should be close to the MLE point estimates; posterior SDs should be close to the MLE standard errors. Where do they differ noticeably? Why?</p></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="comparing-the-three-methods" class="level2">
+<h2 class="anchored" data-anchor-id="comparing-the-three-methods">Comparing the Three Methods</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Create a single side-by-side comparison of all three analyses. Suggested format: a table with columns</p>
+<ul>
+<li>Item / class label</li>
+<li>Counts score (% best − % worst)</li>
+<li>Counts rank</li>
+<li>MLE share of preference, MLE rank</li>
+<li>Bayes posterior-mean share, Bayes rank</li>
+</ul>
+<p>Sorted by one of the rankings (e.g., MLE rank).</p></li>
+<li><p>Also create a visual comparison: three horizontal bar charts side-by-side, one per method, each showing items sorted by that method’s score/share. Color-code consistently so the reader can trace a single class across all three panels.</p></li>
+<li><p>Write a paragraph discussing the comparison:</p>
+<ul>
+<li>Where do the three methods <em>agree</em>? Almost always at the top and bottom of the ranking.</li>
+<li>Where do they <em>disagree</em> — and why? Often in the middle, where items have similar utility and small noise can flip rankings.</li>
+<li>What does the MNL add over the counts analysis? <em>(Hint: it models the choice process explicitly — every “shown” item contributes information about </em>not* being picked, not just the picks themselves.)*</li>
+<li>What does Bayes add over MLE? <em>(Hint: credible intervals on derived quantities like shares of preference are easy — just push every MCMC draw through the soft-max and take quantiles. Doing this from an MLE requires the delta method.)</em></li>
+</ul></li>
+</ul>
+</div>
+</div>
+</section>
+<section id="discussion" class="level2">
+<h2 class="anchored" data-anchor-id="discussion">Discussion</h2>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<ul>
+<li><p>Close with a short discussion section that synthesizes the analysis for a non-technical reader (think: an academic advisor or a student deciding which classes to take). Cover:</p>
+<ul>
+<li><p>The substantive finding — which MSBA classes do students prefer most? Are there any surprises?</p></li>
+<li><p>The methodological finding — for what kind of question would you reach for each of the three methods?</p>
+<ul>
+<li><em>Counts</em>: quick descriptive summary, useful for an executive dashboard</li>
+<li><em>MLE MNL</em>: rigorous point estimates with classical standard errors; good when you need a single number to report</li>
+<li><em>Bayesian MNL</em>: when you want uncertainty on derived quantities (shares, market simulations, “what if we added a new class?” scenarios), or when you want to extend the model hierarchically to estimate individual-level preferences</li>
+</ul></li>
+<li><p>Caveats: the survey was on a self-selected sample of MSBA students; preferences may not generalize beyond this group. Item presentation order, prior coursework, and current standing in the program may all affect responses.</p></li>
+</ul></li>
+<li><p>End with one or two sentences on what you would do differently or explore next if you had more time.</p></li>
+</ul>
+</div>
+</div>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1779865200000" data-listing-file-modified-sort="1779933015786" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="255">
-<a href="./projects/ABTest/hw1_questions.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="images/ABTest0.png" alt="A/B Testing Overview" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Chiikawa Explains A/B Testing a Call to Action
-</h5>
-<div class="card-text listing-description delink">
- <em>This diagram shows the full idea of the A/B test and the main statistical concepts we will explore.</em>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Lele Liao
-</div>
-<div class="listing-date">
-May 27, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1779933015786" data-listing-reading-time-sort="2" data-listing-word-count-sort="333">
-<a href="./projects/HousingMarketPlotly/plotly.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Housing Dashboard (Plotly)
-</h5>
-<div class="card-text listing-description delink">
-<p>Interactive dashboard for exploring housing prices across major U.S. cities.</p>
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1779933015786" data-listing-reading-time-sort="1" data-listing-word-count-sort="180">
-<a href="./projects/HousingMarket/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Housing Market Dashboard
-</h5>
-<div class="card-text listing-description delink">
-This project investigates how income levels influence both housing prices and rental prices across U.S. regions, aiming to identify patterns, correlations, and regional…
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1779865200000" data-listing-file-modified-sort="1779933157489" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="27" data-listing-word-count-sort="5331">
-<a href="./projects/MaxDiffMNL/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="projects/MaxDiffMNL/index_files/figure-html/counts-chart-output-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-MaxDiff Analysis of MSBA Class Preferences
-</h5>
-<div class="card-text listing-description delink">
-MaxDiff, also called <strong>Best-Worst Scaling</strong>, is a survey method for measuring relative preference. On each screen, a respondent sees a small set of items and chooses the one…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Lele Liao
-</div>
-<div class="listing-date">
-May 27, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1779865200000" data-listing-file-modified-sort="1779933015786" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2855">
-<a href="./projects/BlueprintyPoisson/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="projects/BlueprintyPoisson/index_files/figure-html/patents-by-customer-output-2.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Poisson Regression and MLE for Blueprinty
-</h5>
-<div class="card-text listing-description delink">
-Blueprinty sells software that helps engineering firms prepare blueprint documents for patent applications. The marketing team wants to say something simple and attractive…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Lele Liao
-</div>
-<div class="listing-date">
-May 27, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="5" data-listing-date-sort="1779865200000" data-listing-file-modified-sort="1779933015786" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="3" data-listing-word-count-sort="413">
-<a href="./projects/Research/hw2_questions.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="images/Research1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Replication of Card and Krueger (1994)
-</h5>
-<div class="card-text listing-description delink">
-This blog post studies the famous paper by Card and Krueger (1994). The authors ask a simple but important question:
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Lele Liao
-</div>
-<div class="listing-date">
-May 27, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -957,5 +1126,5 @@ May 27, 2026
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

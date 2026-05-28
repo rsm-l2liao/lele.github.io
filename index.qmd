@@ -1,135 +1,50 @@
 ---
-title: ""
-page-layout: full
+title: "Lele Liao"
+image: "files/Lele_Winter.jpg"
+about:
+  template: jolla
 ---
 
-::: {.hero-shell .grid}
-::: {.g-col-12 .g-col-lg-7 .hero-copy}
-<span class="eyebrow">Business Intelligence Analyst · UC San Diego M.S. Business Analytics</span>
+Welcome to my website!
 
-# Lele Liao
-
-I build dashboards, analytical models, and business-facing stories that help teams understand performance, prioritize action, and communicate insight clearly.
-
-This site combines the structure of my original single-page portfolio with the depth of my Quarto coursework site. The result is a clearer experience: who I am, what I have worked on, and how my projects connect to practical analytics work.
-
-::: {.action-row}
-[Explore Projects](projects.qmd){.btn .btn-primary .btn-lg}
-[View Experience](experience.qmd){.btn .btn-outline-primary .btn-lg}
-:::
-:::
-
-::: {.g-col-12 .g-col-lg-5}
-::: {.hero-panel}
-![Lele Liao](files/Lele_Winter.jpg){.hero-portrait}
-
-::: {.fact-stack}
-::: {.fact-card}
-**Focus**
-
-Business intelligence, dashboards, and experimentation
-:::
-
-::: {.fact-card}
-**Core Tools**
-
-SQL, Python, Tableau, Snowflake
-:::
-
-::: {.fact-card}
-**What This Site Covers**
-
-Background, experience, projects, presentations, and resume
-:::
-:::
-:::
-:::
-:::
-
-## Site Structure
+## Featured Projects
 
 ::: {.grid}
-::: {.g-col-12 .g-col-md-6 .g-col-xl-4}
-::: {.section-card}
-### About
 
-A concise profile, education background, interests, and quick links.
-
-[Open About](about.qmd){.card-link}
-:::
-:::
-
-::: {.g-col-12 .g-col-md-6 .g-col-xl-4}
-::: {.section-card}
-### Experience
-
-Professional roles, selected analytics work, and technical capabilities in one place.
-
-[Open Experience](experience.qmd){.card-link}
-:::
+::: {.g-col-12 .g-col-md-4}
+<a href="./projects/ABTest/hw1_questions.html" class="feature-card-link">
+<div class="feature-card">
+<h3>🧸 A/B Testing with Chiikawa</h3>
+<p>
+A simple and visual guide to frequentist statistics using an A/B test on website sign-ups.
+</p>
+<span class="card-link">View Project →</span>
+</div>
+</a>
 :::
 
-::: {.g-col-12 .g-col-md-6 .g-col-xl-4}
-::: {.section-card}
-### Projects
-
-Case studies covering experimentation, dashboard design, econometrics, and interactive analytics.
-
-[Open Projects](projects.qmd){.card-link}
-:::
-:::
-
-::: {.g-col-12 .g-col-md-6 .g-col-xl-4}
-::: {.section-card}
-### Presentations
-
-Slide-based work showing how I communicate technical material visually.
-
-[Open Presentations](presentation.qmd){.card-link}
-:::
+::: {.g-col-12 .g-col-md-4}
+<a href="./projects/HousingMarket/" class="feature-card-link">
+<div class="feature-card">
+<h3>📊 Housing Market Dashboard</h3>
+<p>
+Explore how income influences housing and rental prices.
+</p>
+<span class="card-link">View Dashboard →</span>
+</div>
+</a>
 :::
 
-::: {.g-col-12 .g-col-md-6 .g-col-xl-4}
-::: {.section-card}
-### Resume
-
-An embedded PDF resume for quick review and download.
-
-[Open Resume](resume.qmd){.card-link}
-:::
-:::
-:::
-
-## Featured Work
-
-::: {.grid}
-::: {.g-col-12 .g-col-md-6 .g-col-xl-4}
-::: {.feature-card}
-### Poisson Regression and MLE for Blueprinty
-
-An econometrics-style case study on whether Blueprinty's software is associated with stronger patent outcomes after controlling for observable firm differences.
-
-[Read the Case Study](projects/BlueprintyPoisson/index.qmd){.card-link}
-:::
+::: {.g-col-12 .g-col-md-4}
+<a href="./projects/Research/hw2_questions.html" class="feature-card-link">
+<div class="feature-card">
+<h3>📖 Minimum Wage Study</h3>
+<p>
+Replication of Card & Krueger (1994) using DID analysis.
+</p>
+<span class="card-link">View Project →</span>
+</div>
+</a>
 :::
 
-::: {.g-col-12 .g-col-md-6 .g-col-xl-4}
-::: {.feature-card}
-### Housing Market Dashboard
-
-An interactive dashboard project using Python and Tableau to explore income, rent, and housing-price relationships across U.S. regions.
-
-[Open the Dashboard Project](projects/HousingMarket/index.qmd){.card-link}
-:::
-:::
-
-::: {.g-col-12 .g-col-md-6 .g-col-xl-4}
-::: {.feature-card}
-### A/B Testing a Call to Action
-
-A visual walkthrough of sign-up experimentation, confidence intervals, p-values, and interpretation through a marketing-style CTA example.
-
-[Read the Experiment Walkthrough](projects/ABTest/hw1_questions.qmd){.card-link}
-:::
-:::
 :::

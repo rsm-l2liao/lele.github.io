@@ -1,10 +1,6 @@
 ---
 title: "Housing Dashboard (Plotly)"
 description: "Interactive dashboard for exploring housing prices across major U.S. cities."
-categories:
-  - Plotly
-  - Dashboard
-  - Time Series
 format: html
 execute:
   enabled: true

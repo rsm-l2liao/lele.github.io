@@ -1,11 +1,6 @@
 ---
 title: "Poisson Regression and MLE for Blueprinty"
 subtitle: "Does Blueprinty's software help firms win more patents?"
-description: "A count-model case study using Poisson regression and maximum likelihood estimation to evaluate a patent-software marketing claim."
-categories:
-  - Econometrics
-  - Poisson Regression
-  - MLE
 author: "Lele Liao"
 date: today
 jupyter: python3
