@@ -1,6 +1,13 @@
 ---
-title: "My Projects"
+title: "Projects"
+page-layout: full
 listing:
   contents: projects
   type: grid
 ---
+
+::: {.page-intro}
+This library brings together the project depth of the Quarto site and the clearer personal framing of the original portfolio. The grid below is organized as a central project hub for dashboards, experiments, statistical analysis, and interactive reporting.
+:::
+
+Each page is meant to be more than a screenshot. I aim to explain the problem, the method, and the interpretation in a way that feels usable to both technical and non-technical readers.

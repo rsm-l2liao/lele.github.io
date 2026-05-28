@@ -7,9 +7,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Lele Liao">
-<meta name="dcterms.date" content="2026-05-20">
+<meta name="dcterms.date" content="2026-05-22">
+<meta name="description" content="A count-model case study using Poisson regression and maximum likelihood estimation to evaluate a patent-software marketing claim.">
 
-<title>Poisson Regression and MLE for Blueprinty – Lele Liao | Data Analyst</title>
+<title>Poisson Regression and MLE for Blueprinty – Lele Liao | Analytics Portfolio</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -61,7 +62,6 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" integrity="sha384-ZvpUoO/+PpLXR1lu4jmpXWu80pZlYUAfxl5NsBMWOEPSjUn/6Z/hRTt8+pR6L4N2" crossorigin="anonymous"></script><script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
 <script src="../../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
 <script src="../../site_libs/quarto-search/fuse.min.js"></script>
@@ -74,14 +74,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="../../site_libs/quarto-html/anchor.min.js"></script>
 <link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-ea00d30dd9b950c7ecb6e17bc6ca0835.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="../../site_libs/bootstrap/bootstrap-3b988793beeeeab0265599ed392226a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="../../site_libs/bootstrap/bootstrap-dark-3b2d492bae908366fb1621f3f5d11d0a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="../../site_libs/bootstrap/bootstrap-3b988793beeeeab0265599ed392226a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-3b988793beeeeab0265599ed392226a2.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -147,169 +143,7 @@ window.Quarto = {
 <link rel="stylesheet" href="../../styles.css">
 </head>
 
-<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
-    const toggleBodyColorMode = (bsSheetEl) => {
-      const mode = bsSheetEl.getAttribute("data-mode");
-      const bodyEl = window.document.querySelector("body");
-      if (mode === "dark") {
-        bodyEl.classList.add("quarto-dark");
-        bodyEl.classList.remove("quarto-light");
-      } else {
-        bodyEl.classList.add("quarto-light");
-        bodyEl.classList.remove("quarto-dark");
-      }
-    }
-    const toggleBodyColorPrimary = () => {
-      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
-      if (bsSheetEl) {
-        toggleBodyColorMode(bsSheetEl);
-      }
-    }
-    const setColorSchemeToggle = (alternate) => {
-      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
-      for (let i=0; i < toggles.length; i++) {
-        const toggle = toggles[i];
-        if (toggle) {
-          if (alternate) {
-            toggle.classList.add("alternate");
-          } else {
-            toggle.classList.remove("alternate");
-          }
-        }
-      }
-    };
-    const toggleColorMode = (alternate) => {
-      // Switch the stylesheets
-      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
-      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
-      manageTransitions('#quarto-margin-sidebar .nav-link', false);
-      if (alternate) {
-        // note: dark is layered on light, we don't disable primary!
-        enableStylesheet(alternateStylesheets);
-        for (const sheetNode of alternateStylesheets) {
-          if (sheetNode.id === "quarto-bootstrap") {
-            toggleBodyColorMode(sheetNode);
-          }
-        }
-      } else {
-        disableStylesheet(alternateStylesheets);
-        enableStylesheet(primaryStylesheets)
-        toggleBodyColorPrimary();
-      }
-      manageTransitions('#quarto-margin-sidebar .nav-link', true);
-      // Switch the toggles
-      setColorSchemeToggle(alternate)
-      // Hack to workaround the fact that safari doesn't
-      // properly recolor the scrollbar when toggling (#1455)
-      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
-        manageTransitions("body", false);
-        window.scrollTo(0, 1);
-        setTimeout(() => {
-          window.scrollTo(0, 0);
-          manageTransitions("body", true);
-        }, 40);
-      }
-    }
-    const disableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        stylesheet.rel = 'disabled-stylesheet';
-      }
-    }
-    const enableStylesheet = (stylesheets) => {
-      for (let i=0; i < stylesheets.length; i++) {
-        const stylesheet = stylesheets[i];
-        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
-          stylesheet.rel = 'stylesheet';
-        }
-      }
-    }
-    const manageTransitions = (selector, allowTransitions) => {
-      const els = window.document.querySelectorAll(selector);
-      for (let i=0; i < els.length; i++) {
-        const el = els[i];
-        if (allowTransitions) {
-          el.classList.remove('notransition');
-        } else {
-          el.classList.add('notransition');
-        }
-      }
-    }
-    const isFileUrl = () => {
-      return window.location.protocol === 'file:';
-    }
-    const hasAlternateSentinel = () => {
-      let styleSentinel = getColorSchemeSentinel();
-      if (styleSentinel !== null) {
-        return styleSentinel === "alternate";
-      } else {
-        return false;
-      }
-    }
-    const setStyleSentinel = (alternate) => {
-      const value = alternate ? "alternate" : "default";
-      if (!isFileUrl()) {
-        window.localStorage.setItem("quarto-color-scheme", value);
-      } else {
-        localAlternateSentinel = value;
-      }
-    }
-    const getColorSchemeSentinel = () => {
-      if (!isFileUrl()) {
-        const storageValue = window.localStorage.getItem("quarto-color-scheme");
-        return storageValue != null ? storageValue : localAlternateSentinel;
-      } else {
-        return localAlternateSentinel;
-      }
-    }
-    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
-      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
-      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
-      let newTheme = '';
-      if(authorPrefersDark) {
-        newTheme = isAlternate ? baseTheme : alternateTheme;
-      } else {
-        newTheme = isAlternate ? alternateTheme : baseTheme;
-      }
-      const changeGiscusTheme = () => {
-        // From: https://github.com/giscus/giscus/issues/336
-        const sendMessage = (message) => {
-          const iframe = document.querySelector('iframe.giscus-frame');
-          if (!iframe) return;
-          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
-        }
-        sendMessage({
-          setConfig: {
-            theme: newTheme
-          }
-        });
-      }
-      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
-      if (isGiscussLoaded) {
-        changeGiscusTheme();
-      }
-    };
-    const authorPrefersDark = false;
-    const darkModeDefault = authorPrefersDark;
-      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
-    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
-    // Dark / light mode switch
-    window.quartoToggleColorScheme = () => {
-      // Read the current dark / light value
-      let toAlternate = !hasAlternateSentinel();
-      toggleColorMode(toAlternate);
-      setStyleSentinel(toAlternate);
-      toggleGiscusIfUsed(toAlternate, darkModeDefault);
-      window.dispatchEvent(new Event('resize'));
-    };
-    // Switch to dark mode if need be
-    if (hasAlternateSentinel()) {
-      toggleColorMode(true);
-    } else {
-      toggleColorMode(false);
-    }
-  </script>
+<body class="nav-fixed fullcontent quarto-light">
 
 <div id="quarto-search-results"></div>
   <header id="quarto-header" class="headroom fixed-top">
@@ -317,7 +151,7 @@ window.Quarto = {
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
     <a class="navbar-brand" href="../../index.html">
-    <span class="navbar-title">Lele Liao | Data Analyst</span>
+    <span class="navbar-title">Lele Liao | Analytics Portfolio</span>
     </a>
   </div>
             <div id="quarto-search" class="" title="Search"></div>
@@ -328,7 +162,15 @@ window.Quarto = {
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
     <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
 <span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../experience.html"> 
+<span class="menu-text">Experience</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="../../projects.html"> 
@@ -362,7 +204,6 @@ window.Quarto = {
 </ul>
           </div> <!-- /navcollapse -->
             <div class="quarto-navbar-tools">
-  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
 </div>
       </div> <!-- /container-fluid -->
     </nav>
@@ -375,13 +216,22 @@ window.Quarto = {
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
-
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
 <h1 class="title">Poisson Regression and MLE for Blueprinty</h1>
 <p class="subtitle lead">Does Blueprinty’s software help firms win more patents?</p>
-</div>
+  <div class="quarto-categories">
+    <div class="quarto-category">Econometrics</div>
+    <div class="quarto-category">Poisson Regression</div>
+    <div class="quarto-category">MLE</div>
+  </div>
+  </div>
 
+<div>
+  <div class="description">
+    A count-model case study using Poisson regression and maximum likelihood estimation to evaluate a patent-software marketing claim.
+  </div>
+</div>
 
 
 <div class="quarto-title-meta">
@@ -396,7 +246,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 20, 2026</p>
+      <p class="date">May 22, 2026</p>
     </div>
   </div>
   
@@ -430,53 +280,53 @@ img.figure-img {
 <div id="patents-by-customer" class="cell" data-fig-height="4.5" data-fig-width="11" data-execution_count="2">
 <div id="patents-by-customer-1" class="cell-output cell-output-display">
 <style type="text/css">
-#T_99064 caption {
+#T_82f98 caption {
   caption-side: top;
   font-size: 1.05em;
   font-weight: bold;
   text-align: left;
 }
-#T_99064 th {
+#T_82f98 th {
   background-color: #EEF3F8;
   font-weight: bold;
 }
-#T_99064 td {
+#T_82f98 td {
   padding: 8px 10px;
   border: 1px solid #D8E0EA;
 }
-#T_99064  th {
+#T_82f98  th {
   padding: 8px 10px;
   border: 1px solid #D8E0EA;
 }
 </style>
 
-<div id="T_99064" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<div id="T_82f98" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_99064-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_82f98-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;1: Table 1. Customers have a higher raw patent average.
 </figcaption>
-<div aria-describedby="T_99064-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_99064" class="caption-top table table-sm table-striped small">
+<div aria-describedby="T_82f98-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_82f98" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_99064_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Group</th>
-<th id="T_99064_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Firms</th>
-<th id="T_99064_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Mean patents in 5 years</th>
-<th id="T_99064_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">Mean firm age</th>
+<th id="T_82f98_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Group</th>
+<th id="T_82f98_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Firms</th>
+<th id="T_82f98_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Mean patents in 5 years</th>
+<th id="T_82f98_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">Mean firm age</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_99064_row0_col0" class="data row0 col0">Customer</td>
-<td id="T_99064_row0_col1" class="data row0 col1">481</td>
-<td id="T_99064_row0_col2" class="data row0 col2">4.133</td>
-<td id="T_99064_row0_col3" class="data row0 col3">26.90</td>
+<td id="T_82f98_row0_col0" class="data row0 col0">Customer</td>
+<td id="T_82f98_row0_col1" class="data row0 col1">481</td>
+<td id="T_82f98_row0_col2" class="data row0 col2">4.133</td>
+<td id="T_82f98_row0_col3" class="data row0 col3">26.90</td>
 </tr>
 <tr class="even">
-<td id="T_99064_row1_col0" class="data row1 col0">Non-customer</td>
-<td id="T_99064_row1_col1" class="data row1 col1">1,019</td>
-<td id="T_99064_row1_col2" class="data row1 col2">3.473</td>
-<td id="T_99064_row1_col3" class="data row1 col3">26.10</td>
+<td id="T_82f98_row1_col0" class="data row1 col0">Non-customer</td>
+<td id="T_82f98_row1_col1" class="data row1 col1">1,019</td>
+<td id="T_82f98_row1_col2" class="data row1 col2">3.473</td>
+<td id="T_82f98_row1_col3" class="data row1 col3">26.10</td>
 </tr>
 </tbody>
 </table>
@@ -604,45 +454,45 @@ L(\lambda \mid Y_1,\ldots,Y_n)
 <span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>)</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="simple-poisson-mle" class="cell-output cell-output-display">
 <style type="text/css">
-#T_52c8c caption {
+#T_ffc96 caption {
   caption-side: top;
   font-size: 1.05em;
   font-weight: bold;
   text-align: left;
 }
-#T_52c8c th {
+#T_ffc96 th {
   background-color: #EEF3F8;
   font-weight: bold;
 }
-#T_52c8c td {
+#T_ffc96 td {
   padding: 8px 10px;
   border: 1px solid #D8E0EA;
 }
-#T_52c8c  th {
+#T_ffc96  th {
   padding: 8px 10px;
   border: 1px solid #D8E0EA;
 }
 </style>
 
-<div id="T_52c8c" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<div id="T_ffc96" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_52c8c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_ffc96-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;2: Table 2. The numerical MLE and the sample mean are the same up to rounding.
 </figcaption>
-<div aria-describedby="T_52c8c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_52c8c" class="caption-top table table-sm table-striped small">
+<div aria-describedby="T_ffc96-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_ffc96" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_52c8c_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Numerical MLE</th>
-<th id="T_52c8c_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Sample mean</th>
-<th id="T_52c8c_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Absolute difference</th>
+<th id="T_ffc96_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Numerical MLE</th>
+<th id="T_ffc96_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Sample mean</th>
+<th id="T_ffc96_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">Absolute difference</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_52c8c_row0_col0" class="data row0 col0">3.684666</td>
-<td id="T_52c8c_row0_col1" class="data row0 col1">3.684667</td>
-<td id="T_52c8c_row0_col2" class="data row0 col2">0.00000066</td>
+<td id="T_ffc96_row0_col0" class="data row0 col0">3.684666</td>
+<td id="T_ffc96_row0_col1" class="data row0 col1">3.684667</td>
+<td id="T_ffc96_row0_col2" class="data row0 col2">0.00000066</td>
 </tr>
 </tbody>
 </table>
@@ -729,98 +579,98 @@ Y_i \sim \text{Poisson}(\lambda_i)
 <div id="cell-poisson-regression-results" class="cell" data-execution_count="9">
 <div id="poisson-regression-results" class="cell-output cell-output-display">
 <style type="text/css">
-#T_18aa8 caption {
+#T_c116c caption {
   caption-side: top;
   font-size: 1.05em;
   font-weight: bold;
   text-align: left;
 }
-#T_18aa8 th {
+#T_c116c th {
   background-color: #EEF3F8;
   font-weight: bold;
 }
-#T_18aa8 td {
+#T_c116c td {
   padding: 8px 10px;
   border: 1px solid #D8E0EA;
 }
-#T_18aa8  th {
+#T_c116c  th {
   padding: 8px 10px;
   border: 1px solid #D8E0EA;
 }
 </style>
 
-<div id="T_18aa8" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<div id="T_c116c" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_18aa8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_c116c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;3: Table 3. Custom MLE and statsmodels GLM give the same estimates.
 </figcaption>
-<div aria-describedby="T_18aa8-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_18aa8" class="caption-top table table-sm table-striped small">
+<div aria-describedby="T_c116c-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_c116c" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_18aa8_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Variable</th>
-<th id="T_18aa8_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Custom MLE</th>
-<th id="T_18aa8_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">SE (Custom)</th>
-<th id="T_18aa8_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">GLM</th>
-<th id="T_18aa8_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">SE (GLM)</th>
+<th id="T_c116c_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Variable</th>
+<th id="T_c116c_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Custom MLE</th>
+<th id="T_c116c_level0_col2" class="col_heading level0 col2" data-quarto-table-cell-role="th">SE (Custom)</th>
+<th id="T_c116c_level0_col3" class="col_heading level0 col3" data-quarto-table-cell-role="th">GLM</th>
+<th id="T_c116c_level0_col4" class="col_heading level0 col4" data-quarto-table-cell-role="th">SE (GLM)</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_18aa8_row0_col0" class="data row0 col0">const</td>
-<td id="T_18aa8_row0_col1" class="data row0 col1">-0.5089</td>
-<td id="T_18aa8_row0_col2" class="data row0 col2">0.1832</td>
-<td id="T_18aa8_row0_col3" class="data row0 col3">-0.5089</td>
-<td id="T_18aa8_row0_col4" class="data row0 col4">0.1832</td>
+<td id="T_c116c_row0_col0" class="data row0 col0">const</td>
+<td id="T_c116c_row0_col1" class="data row0 col1">-0.5089</td>
+<td id="T_c116c_row0_col2" class="data row0 col2">0.1832</td>
+<td id="T_c116c_row0_col3" class="data row0 col3">-0.5089</td>
+<td id="T_c116c_row0_col4" class="data row0 col4">0.1832</td>
 </tr>
 <tr class="even">
-<td id="T_18aa8_row1_col0" class="data row1 col0">age</td>
-<td id="T_18aa8_row1_col1" class="data row1 col1">0.1486</td>
-<td id="T_18aa8_row1_col2" class="data row1 col2">0.0139</td>
-<td id="T_18aa8_row1_col3" class="data row1 col3">0.1486</td>
-<td id="T_18aa8_row1_col4" class="data row1 col4">0.0139</td>
+<td id="T_c116c_row1_col0" class="data row1 col0">age</td>
+<td id="T_c116c_row1_col1" class="data row1 col1">0.1486</td>
+<td id="T_c116c_row1_col2" class="data row1 col2">0.0139</td>
+<td id="T_c116c_row1_col3" class="data row1 col3">0.1486</td>
+<td id="T_c116c_row1_col4" class="data row1 col4">0.0139</td>
 </tr>
 <tr class="odd">
-<td id="T_18aa8_row2_col0" class="data row2 col0">age_sq</td>
-<td id="T_18aa8_row2_col1" class="data row2 col1">-0.0030</td>
-<td id="T_18aa8_row2_col2" class="data row2 col2">0.0003</td>
-<td id="T_18aa8_row2_col3" class="data row2 col3">-0.0030</td>
-<td id="T_18aa8_row2_col4" class="data row2 col4">0.0003</td>
+<td id="T_c116c_row2_col0" class="data row2 col0">age_sq</td>
+<td id="T_c116c_row2_col1" class="data row2 col1">-0.0030</td>
+<td id="T_c116c_row2_col2" class="data row2 col2">0.0003</td>
+<td id="T_c116c_row2_col3" class="data row2 col3">-0.0030</td>
+<td id="T_c116c_row2_col4" class="data row2 col4">0.0003</td>
 </tr>
 <tr class="even">
-<td id="T_18aa8_row3_col0" class="data row3 col0">region_Northeast</td>
-<td id="T_18aa8_row3_col1" class="data row3 col1">0.0292</td>
-<td id="T_18aa8_row3_col2" class="data row3 col2">0.0436</td>
-<td id="T_18aa8_row3_col3" class="data row3 col3">0.0292</td>
-<td id="T_18aa8_row3_col4" class="data row3 col4">0.0436</td>
+<td id="T_c116c_row3_col0" class="data row3 col0">region_Northeast</td>
+<td id="T_c116c_row3_col1" class="data row3 col1">0.0292</td>
+<td id="T_c116c_row3_col2" class="data row3 col2">0.0436</td>
+<td id="T_c116c_row3_col3" class="data row3 col3">0.0292</td>
+<td id="T_c116c_row3_col4" class="data row3 col4">0.0436</td>
 </tr>
 <tr class="odd">
-<td id="T_18aa8_row4_col0" class="data row4 col0">region_Northwest</td>
-<td id="T_18aa8_row4_col1" class="data row4 col1">-0.0176</td>
-<td id="T_18aa8_row4_col2" class="data row4 col2">0.0538</td>
-<td id="T_18aa8_row4_col3" class="data row4 col3">-0.0176</td>
-<td id="T_18aa8_row4_col4" class="data row4 col4">0.0538</td>
+<td id="T_c116c_row4_col0" class="data row4 col0">region_Northwest</td>
+<td id="T_c116c_row4_col1" class="data row4 col1">-0.0176</td>
+<td id="T_c116c_row4_col2" class="data row4 col2">0.0538</td>
+<td id="T_c116c_row4_col3" class="data row4 col3">-0.0176</td>
+<td id="T_c116c_row4_col4" class="data row4 col4">0.0538</td>
 </tr>
 <tr class="even">
-<td id="T_18aa8_row5_col0" class="data row5 col0">region_South</td>
-<td id="T_18aa8_row5_col1" class="data row5 col1">0.0566</td>
-<td id="T_18aa8_row5_col2" class="data row5 col2">0.0527</td>
-<td id="T_18aa8_row5_col3" class="data row5 col3">0.0566</td>
-<td id="T_18aa8_row5_col4" class="data row5 col4">0.0527</td>
+<td id="T_c116c_row5_col0" class="data row5 col0">region_South</td>
+<td id="T_c116c_row5_col1" class="data row5 col1">0.0566</td>
+<td id="T_c116c_row5_col2" class="data row5 col2">0.0527</td>
+<td id="T_c116c_row5_col3" class="data row5 col3">0.0566</td>
+<td id="T_c116c_row5_col4" class="data row5 col4">0.0527</td>
 </tr>
 <tr class="odd">
-<td id="T_18aa8_row6_col0" class="data row6 col0">region_Southwest</td>
-<td id="T_18aa8_row6_col1" class="data row6 col1">0.0506</td>
-<td id="T_18aa8_row6_col2" class="data row6 col2">0.0472</td>
-<td id="T_18aa8_row6_col3" class="data row6 col3">0.0506</td>
-<td id="T_18aa8_row6_col4" class="data row6 col4">0.0472</td>
+<td id="T_c116c_row6_col0" class="data row6 col0">region_Southwest</td>
+<td id="T_c116c_row6_col1" class="data row6 col1">0.0506</td>
+<td id="T_c116c_row6_col2" class="data row6 col2">0.0472</td>
+<td id="T_c116c_row6_col3" class="data row6 col3">0.0506</td>
+<td id="T_c116c_row6_col4" class="data row6 col4">0.0472</td>
 </tr>
 <tr class="even">
-<td id="T_18aa8_row7_col0" class="data row7 col0">iscustomer</td>
-<td id="T_18aa8_row7_col1" class="data row7 col1">0.2076</td>
-<td id="T_18aa8_row7_col2" class="data row7 col2">0.0309</td>
-<td id="T_18aa8_row7_col3" class="data row7 col3">0.2076</td>
-<td id="T_18aa8_row7_col4" class="data row7 col4">0.0309</td>
+<td id="T_c116c_row7_col0" class="data row7 col0">iscustomer</td>
+<td id="T_c116c_row7_col1" class="data row7 col1">0.2076</td>
+<td id="T_c116c_row7_col2" class="data row7 col2">0.0309</td>
+<td id="T_c116c_row7_col3" class="data row7 col3">0.2076</td>
+<td id="T_c116c_row7_col4" class="data row7 col4">0.0309</td>
 </tr>
 </tbody>
 </table>
@@ -895,47 +745,47 @@ Table&nbsp;3: Table 3. Custom MLE and statsmodels GLM give the same estimates.
 <span id="cb5-45"><a href="#cb5-45" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code></pre></div><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></div>
 <div id="counterfactual-effect-1" class="cell-output cell-output-display">
 <style type="text/css">
-#T_ddeda caption {
+#T_583c3 caption {
   caption-side: top;
   font-size: 1.05em;
   font-weight: bold;
   text-align: left;
 }
-#T_ddeda th {
+#T_583c3 th {
   background-color: #EEF3F8;
   font-weight: bold;
 }
-#T_ddeda td {
+#T_583c3 td {
   padding: 8px 10px;
   border: 1px solid #D8E0EA;
 }
-#T_ddeda  th {
+#T_583c3  th {
   padding: 8px 10px;
   border: 1px solid #D8E0EA;
 }
 </style>
 
-<div id="T_ddeda" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
+<div id="T_583c3" class="quarto-float quarto-figure quarto-figure-center anchored" data-quarto-postprocess="true">
 <figure class="quarto-float quarto-float-tbl figure">
-<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_ddeda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<figcaption class="quarto-float-caption-top quarto-float-caption quarto-float-tbl" id="T_583c3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
 Table&nbsp;4: Table 4. Counterfactual predictions from the fitted Poisson model.
 </figcaption>
-<div aria-describedby="T_ddeda-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
-<table id="T_ddeda" class="caption-top table table-sm table-striped small">
+<div aria-describedby="T_583c3-caption-0ceaefa1-69ba-4598-a22c-09a6ac19f8ca">
+<table id="T_583c3" class="caption-top table table-sm table-striped small">
 <thead>
 <tr class="header">
-<th id="T_ddeda_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Scenario</th>
-<th id="T_ddeda_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Predicted mean patents</th>
+<th id="T_583c3_level0_col0" class="col_heading level0 col0" data-quarto-table-cell-role="th">Scenario</th>
+<th id="T_583c3_level0_col1" class="col_heading level0 col1" data-quarto-table-cell-role="th">Predicted mean patents</th>
 </tr>
 </thead>
 <tbody>
 <tr class="odd">
-<td id="T_ddeda_row0_col0" class="data row0 col0">All firms set to non-customer</td>
-<td id="T_ddeda_row0_col1" class="data row0 col1">3.436</td>
+<td id="T_583c3_row0_col0" class="data row0 col0">All firms set to non-customer</td>
+<td id="T_583c3_row0_col1" class="data row0 col1">3.436</td>
 </tr>
 <tr class="even">
-<td id="T_ddeda_row1_col0" class="data row1 col0">All firms set to customer</td>
-<td id="T_ddeda_row1_col1" class="data row1 col1">4.229</td>
+<td id="T_583c3_row1_col0" class="data row1 col0">All firms set to customer</td>
+<td id="T_583c3_row1_col1" class="data row1 col1">4.229</td>
 </tr>
 </tbody>
 </table>
@@ -967,19 +817,6 @@ Table&nbsp;4: Table 4. Counterfactual predictions from the fitted Poisson model.
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
-    // Ensure there is a toggle, if there isn't float one in the top right
-    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
-      const a = window.document.createElement('a');
-      a.classList.add('top-right');
-      a.classList.add('quarto-color-scheme-toggle');
-      a.href = "";
-      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
-      const i = window.document.createElement("i");
-      i.classList.add('bi');
-      a.appendChild(i);
-      window.document.body.appendChild(a);
-    }
-    setColorSchemeToggle(hasAlternateSentinel())
     const icon = "";
     const anchorJS = new window.AnchorJS();
     anchorJS.options = {
@@ -1390,11 +1227,11 @@ Table&nbsp;4: Table 4. Counterfactual predictions from the fitted Poisson model.
       &nbsp;
     </div>   
     <div class="nav-footer-center">
-<p>© 2026 Lele Liao · Portfolio</p>
+<p>Built from a merged personal site and Quarto portfolio.</p>
 </div>
     <div class="nav-footer-right">
-      &nbsp;
-    </div>
+<p>© 2026 Lele Liao</p>
+</div>
   </div>
 </footer>
 

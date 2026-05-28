@@ -1,0 +1,110 @@
+---
+title: "Experience"
+page-layout: full
+---
+
+::: {.page-intro}
+This page merges the sectioned resume structure of the original single-page site with the longer-form project portfolio from Quarto. It is meant to show both applied work experience and the types of analytical problems I have been solving.
+:::
+
+## Professional Experience
+
+::: {.timeline-list}
+::: {.timeline-item}
+### Business Analyst · Egg Roll King
+
+::: {.timeline-date}
+Jan 2023 - Apr 2025
+:::
+
+Led revenue and traffic performance analysis in a high-volume restaurant environment. Built KPI dashboards to track peak-hour demand, staffing allocation, and daily revenue movement, which improved staffing efficiency and made cost-control discussions more measurable.
+:::
+
+::: {.timeline-item}
+### Customer Service Analyst · Target
+
+::: {.timeline-date}
+Oct 2024 - Jan 2025
+:::
+
+Analyzed customer wait-time and service-flow metrics during the holiday season to identify operational bottlenecks. Produced reporting that helped monitor queue efficiency and support process adjustments while maintaining strong customer satisfaction.
+:::
+:::
+
+## Selected Analytics Work
+
+::: {.timeline-list}
+::: {.timeline-item}
+### Data Analyst · Snowflake Project · UC San Diego
+
+::: {.timeline-date}
+Aug 2025 - Sep 2025
+:::
+
+Designed SQL and Python workflows to consolidate multi-source transactional data, built financial variance metrics for procurement visibility, and created reporting views to improve data reliability for downstream business intelligence use.
+:::
+
+::: {.timeline-item}
+### Data Analyst · Marketing Analytics Project · UC San Diego
+
+::: {.timeline-date}
+Jan 2026 - Mar 2026
+:::
+
+Developed predictive models to identify high-probability customer upgrade segments and translated the model outputs into more actionable campaign targeting recommendations.
+:::
+
+::: {.timeline-item}
+### Business Intelligence Engineer · Housing and Rental Dashboard · UC San Diego
+
+::: {.timeline-date}
+Nov 2025 - Dec 2025
+:::
+
+Used Python and Tableau to analyze Zillow housing and rental data, then turned the results into interactive dashboards focused on regional pricing dynamics, affordability, and market movement.
+:::
+:::
+
+## Technical Capabilities
+
+::: {.grid .skill-cluster}
+::: {.g-col-12 .g-col-md-4}
+::: {.skill-panel}
+### Data Engineering
+
+::: {.skill-pills}
+<span class="skill-pill">SQL</span>
+<span class="skill-pill">Snowflake</span>
+<span class="skill-pill">ETL Pipelines</span>
+<span class="skill-pill">Data Modeling</span>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.skill-panel}
+### Business Intelligence
+
+::: {.skill-pills}
+<span class="skill-pill">Tableau</span>
+<span class="skill-pill">Dashboard Design</span>
+<span class="skill-pill">KPI Development</span>
+<span class="skill-pill">Performance Reporting</span>
+:::
+:::
+:::
+
+::: {.g-col-12 .g-col-md-4}
+::: {.skill-panel}
+### Analytics
+
+::: {.skill-pills}
+<span class="skill-pill">Python</span>
+<span class="skill-pill">Pandas</span>
+<span class="skill-pill">EDA</span>
+<span class="skill-pill">Predictive Modeling</span>
+<span class="skill-pill">A/B Testing</span>
+:::
+:::
+:::
+:::

@@ -1,5 +1,10 @@
 ---
 title: "Housing Market Dashboard"
+description: "An interactive Tableau story exploring how income, housing prices, and rents vary across U.S. regions."
+categories:
+  - Dashboard
+  - Tableau
+  - Housing Analytics
 toc: false
 ---
 

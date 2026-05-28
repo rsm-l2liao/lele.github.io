@@ -1,6 +1,11 @@
 ---
-title: "My Presentation Slides"
+title: "Presentations"
+page-layout: full
 listing:
   contents: presentation
   type: grid
 ---
+
+::: {.page-intro}
+This section collects slide-based work that complements the written project pages. It is where I focus on delivery, structure, and how analytical ideas can be presented clearly in a shorter format.
+:::

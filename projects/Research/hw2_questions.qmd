@@ -1,9 +1,14 @@
 ---
 title: "Replication of Card and Krueger (1994)"
 subtitle: "Minimum Wages and Employment"
+description: "A difference-in-differences replication studying how a minimum wage change affected employment, wages, and prices."
+image: ../../images/Research1.png
+categories:
+  - Econometrics
+  - Difference-in-Differences
+  - Labor Economics
 author: "Lele Liao"
 date: today
----
 ---
 
 ## Introduction
@@ -39,7 +44,7 @@ Then I compare employment before and after the policy.
 * Pennsylvania employment change: **−2.41**
 * Difference-in-differences (DID): **+2.91**
 
-![](/images/Research1.png)
+![](../../images/Research1.png)
 
 The figure shows that employment increased in New Jersey but decreased in Pennsylvania.
 This creates a positive difference-in-differences estimate.
@@ -84,7 +89,7 @@ This suggests that firms passed some of the higher labor costs to consumers.
 
 The histogram shows a clear change:
 
-![](/images/Research2.png)
+![](../../images/Research2.png)
 
 * Before the policy, wages were spread out
 * After the policy, many wages are clustered at **$5.05**
