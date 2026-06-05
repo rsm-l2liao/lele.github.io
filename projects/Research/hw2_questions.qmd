@@ -1,120 +1,213 @@
 ---
 title: "Replication of Card and Krueger (1994)"
-subtitle: "Minimum Wages and Employment"
+subtitle: "Minimum Wages, Fast-Food Jobs, and a Simple Difference-in-Differences Story"
 author: "Lele Liao"
 date: today
----
 ---
 
 ## Introduction
 
-This blog post studies the famous paper by Card and Krueger (1994). The authors ask a simple but important question:
+For homework 2, I chose **Card and Krueger (1994)**.
 
-**Does increasing the minimum wage reduce employment?**
+This is one of the most famous papers in labor economics. The paper studies a very simple question:
 
-Traditional economic theory says that when the minimum wage goes up, firms will hire fewer workers because labor becomes more expensive. However, Card and Krueger test this idea using real data.
+**If the minimum wage goes up, will firms cut jobs?**
 
-They study a natural experiment in 1992:
+This question matters because the usual textbook story is clear. If labor becomes more expensive, firms should want fewer workers. So many people expect employment to fall after a minimum wage increase.
 
-* New Jersey increased its minimum wage from $4.25 to $5.05
-* Pennsylvania did not change its minimum wage
+But Card and Krueger show that real life is not always that simple.
 
-By comparing these two states before and after the policy change, they use a method called **difference-in-differences (DID)** to estimate the effect of the minimum wage.
+They study fast-food restaurants in two nearby states in 1992:
 
----
+- New Jersey raised its minimum wage from **$4.25** to **$5.05**.
+- Pennsylvania did **not** raise its minimum wage at that time.
 
-## Main Analysis
+This gives the authors a good comparison. They can look at restaurants in New Jersey before and after the policy change, and compare that change to restaurants in Pennsylvania over the same period.
 
-I replicate the main result of the paper using the original dataset of fast-food restaurants.
+In this post, I do three things:
 
-First, I calculate employment using full-time equivalent (FTE):
+1. I explain what the paper is studying and why the question is important.
+2. I replicate the paper's main statistical finding about employment.
+3. I do one extra thing by discussing wages, prices, and why the difference-in-differences method helps the authors make a causal argument.
 
-* FTE = full-time workers + 0.5 × part-time workers
+## What The Authors Study
 
-Then I compare employment before and after the policy.
+The paper looks at fast-food restaurants such as Burger King, KFC, Roy Rogers, and Wendy's. These stores employ many low-wage workers, so they are a natural place to study minimum wage policy.
 
-### Results
+The data come from surveys of restaurants in both states. The stores were contacted before the New Jersey policy change and again after the policy change. This means the authors can track how employment changed over time.
 
-* New Jersey employment change: **+0.51**
-* Pennsylvania employment change: **−2.41**
-* Difference-in-differences (DID): **+2.91**
+The main outcome in the paper is **employment**, measured as **full-time equivalent employment (FTE)**. This is a useful measure because restaurants use both full-time and part-time workers.
+
+The FTE measure is:
+
+- `FTE = full-time workers + 0.5 x part-time workers`
+
+This is not perfect, but it gives a simple way to put full-time and part-time labor on one scale.
+
+What makes the paper interesting is that the authors are not just asking whether New Jersey restaurants had more or fewer workers than Pennsylvania restaurants. That would be too simple, because the two states may already be different. Instead, they ask:
+
+**Did employment change differently in New Jersey than in Pennsylvania after the wage increase?**
+
+That is the key idea behind the method they use.
+
+## Replicating The Main Finding
+
+The main method in the paper is **difference-in-differences (DID)**.
+
+The logic is easy to explain.
+
+First, calculate the employment change in New Jersey.
+Then, calculate the employment change in Pennsylvania.
+Finally, subtract the second change from the first one.
+
+Using the paper's fast-food employment setup, I replicate the main result:
+
+- New Jersey employment change: **+0.51** FTE workers
+- Pennsylvania employment change: **-2.41** FTE workers
+- Difference-in-differences estimate: **+2.91** FTE workers
 
 ![](/images/Research1.png)
 
-The figure shows that employment increased in New Jersey but decreased in Pennsylvania.
-This creates a positive difference-in-differences estimate.
+This figure shows the same story in a visual way. Employment goes up a little in New Jersey, but it goes down in Pennsylvania. When we compare those two changes, the estimated effect of the New Jersey policy is positive.
 
-### Interpretation
+I also checked the result with a simple regression version of DID. The estimated coefficient is about **2.94**, which is almost the same as the hand-calculated DID number. That is a good sign because it shows the result is internally consistent.
 
-This result is surprising.
+## Why This Result Matters
 
-According to standard theory, employment should decrease. However, the data shows the opposite:
+This result matters because it goes against the very basic prediction many people expect.
 
-> **The minimum wage increase did not reduce employment. It may have increased it.**
+A common argument is:
 
-I also run a simple regression, and the coefficient is about **2.94**, which is very close to the DID estimate. This shows the result is consistent and robust.
+- higher minimum wage
+- higher labor cost
+- fewer workers hired
 
----
+But that is **not** what this paper finds in this case.
 
-## Something Additional
+Instead, the data suggest that employment in New Jersey fast-food restaurants did **not** fall relative to Pennsylvania after the wage increase. If anything, the estimate is slightly positive.
 
-### Wage Changes
+That does **not** mean minimum wages always increase employment. It also does **not** mean theory is useless. It just means that in this setting, with this policy change, and in this industry, the simple negative-employment story does not fit the data very well.
 
-To confirm that the policy actually worked, I look at wages:
+I think this is one reason the paper became so famous. It challenged a strong and widely repeated belief with real evidence.
 
-* Low-wage stores increased wages by about **0.81 (around 10%)**
-* High-wage stores had almost no change
+## One Extra Finding: Wages Really Did Increase
 
-This shows that the minimum wage policy was enforced.
+A good replication should do more than report one number. So I also look at one extra part of the story.
 
----
+If the minimum wage law really mattered, then wages should actually go up in New Jersey after the policy change. If wages did not move, then the employment result would be less convincing.
 
-### Price Changes
+The paper's data show that wages did rise.
 
-I also analyze prices:
+For low-wage stores:
 
-* New Jersey prices increased by **2.60%**
-* Pennsylvania prices decreased by **0.44%**
+- average wages increased by about **0.81 dollars**, or about **10%**
 
-This suggests that firms passed some of the higher labor costs to consumers.
+For higher-wage stores:
 
----
+- wage changes were much smaller
 
-### Wage Distribution
+This is important because it shows the policy was real, not just a law written on paper.
 
-The histogram shows a clear change:
+In other words, the treatment actually happened.
+
+## One Extra Finding: Prices Changed Too
+
+I also look at prices.
+
+This part is interesting because it helps us think about **why** employment may not have fallen.
+
+If wages go up, firms do not have only one response. They do not always need to fire workers. They may also:
+
+- raise prices a little
+- accept lower profit margins
+- change scheduling
+- improve productivity
+
+In this dataset, prices moved like this:
+
+- New Jersey prices increased by about **2.60%**
+- Pennsylvania prices decreased by about **0.44%**
+
+This suggests that some of the higher labor cost may have been passed on to customers.
+
+That is a useful reminder that firms have several margins of adjustment. Employment is only one of them.
+
+## A Visual Check: The Wage Distribution
+
+The wage distribution also helps tell the story.
 
 ![](/images/Research2.png)
 
-* Before the policy, wages were spread out
-* After the policy, many wages are clustered at **$5.05**
+Before the policy change, wages were spread out more widely. After the policy change, many wages are packed close to **$5.05**.
 
-This confirms that the minimum wage became binding.
+This is exactly what we would expect if the new minimum wage became binding for many stores. It gives extra support to the idea that the policy really changed the labor market environment.
 
----
+## Why Difference-in-Differences Helps
 
-### Why DID Works
+I think the DID method is one of the best parts of this paper because it is easy to understand and very useful.
 
-The DID method works because it compares two groups:
+The method compares:
 
-* New Jersey (treatment group)
-* Pennsylvania (control group)
+- a **treatment group**: New Jersey
+- a **control group**: Pennsylvania
+- a **before period**
+- an **after period**
 
-It removes:
+This helps remove two simple problems.
 
-* Differences between states
-* Common time trends
+First, New Jersey and Pennsylvania may be different even before the policy. Maybe wages, restaurant size, or local demand are not exactly the same. DID differences out those fixed cross-state gaps.
 
-The key assumption is that both states would have followed similar trends without the policy. My results support this assumption.
+Second, the whole fast-food industry may change over time for reasons unrelated to minimum wage policy. DID also removes common time changes that affect both states.
 
----
+So the key DID comparison is not just "New Jersey versus Pennsylvania." It is:
+
+**How much did New Jersey change, compared with how much Pennsylvania changed?**
+
+That is why the method gives a stronger causal argument than a simple before-and-after comparison in one state.
+
+Of course, DID still needs an assumption. The big one is the **parallel trends assumption**. This means that without the policy change, New Jersey and Pennsylvania would have moved in a similar way over time.
+
+We can never prove that assumption perfectly, but in this case it feels more believable because:
+
+- the states are geographically close
+- the restaurants are in the same industry
+- the policy timing creates a natural comparison
+
+So while this is not a lab experiment, it is a strong research design.
+
+## What Changed From The Naive Story
+
+A useful way to think about this paper is to compare two stories.
+
+The naive story says:
+
+- labor became more expensive
+- therefore employment should fall
+
+The empirical story in the paper says:
+
+- wages went up
+- prices also moved
+- employment did not fall relative to the comparison group
+
+That is a big difference.
+
+The paper shows why careful empirical work matters. If we only trusted a simple theory or only looked at one state before and after the law, we could easily reach the wrong conclusion.
 
 ## Conclusion
 
-My replication confirms the main finding of Card and Krueger (1994):
+My replication supports the main result of Card and Krueger (1994).
 
-* Minimum wage increases did not reduce employment
-* Wages increased for low-wage workers
-* Prices increased slightly
+The central finding is clear:
 
-This paper is important because it challenges traditional economic theory and shows that real-world labor markets can behave differently.
+- New Jersey employment changed by **+0.51** FTE
+- Pennsylvania employment changed by **-2.41** FTE
+- the DID estimate is about **+2.91** FTE
+
+So in this case, the minimum wage increase did **not** reduce fast-food employment.
+
+The extra evidence on wages and prices also helps the story make sense. Wages clearly rose, and prices moved too, which suggests that firms adjusted in more than one way.
+
+What I like most about this paper is that it is simple but powerful. The question is easy to understand. The method is easy to explain. But the result is important because it changed how many people think about minimum wage policy.
+
+If I continued this project, I would want to look more closely at sample choices, store closures, and alternative employment measures. But even this simple replication already shows why this paper is still so influential.

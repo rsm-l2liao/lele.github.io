@@ -297,8 +297,8 @@
     "objectID": "projects/Research/hw2_questions.html#introduction",
     "href": "projects/Research/hw2_questions.html#introduction",
     "title": "Replication of Card and Krueger (1994)",
-    "section": "Introduction",
-    "text": "Introduction\nThis blog post studies the famous paper by Card and Krueger (1994). The authors ask a simple but important question:\nDoes increasing the minimum wage reduce employment?\nTraditional economic theory says that when the minimum wage goes up, firms will hire fewer workers because labor becomes more expensive. However, Card and Krueger test this idea using real data.\nThey study a natural experiment in 1992:\n\nNew Jersey increased its minimum wage from $4.25 to $5.05\nPennsylvania did not change its minimum wage\n\nBy comparing these two states before and after the policy change, they use a method called difference-in-differences (DID) to estimate the effect of the minimum wage."
+    "section": "",
+    "text": "For homework 2, I chose Card and Krueger (1994).\nThis is one of the most famous papers in labor economics. The paper studies a very simple question:\nIf the minimum wage goes up, will firms cut jobs?\nThis question matters because the usual textbook story is clear. If labor becomes more expensive, firms should want fewer workers. So many people expect employment to fall after a minimum wage increase.\nBut Card and Krueger show that real life is not always that simple.\nThey study fast-food restaurants in two nearby states in 1992:\n\nNew Jersey raised its minimum wage from $4.25 to $5.05.\nPennsylvania did not raise its minimum wage at that time.\n\nThis gives the authors a good comparison. They can look at restaurants in New Jersey before and after the policy change, and compare that change to restaurants in Pennsylvania over the same period.\nIn this post, I do three things:\n\nI explain what the paper is studying and why the question is important.\nI replicate the paper’s main statistical finding about employment.\nI do one extra thing by discussing wages, prices, and why the difference-in-differences method helps the authors make a causal argument."
   },
   {
     "objectID": "projects/Research/hw2_questions.html#main-analysis",
@@ -319,7 +319,7 @@
     "href": "projects/Research/hw2_questions.html#conclusion",
     "title": "Replication of Card and Krueger (1994)",
     "section": "Conclusion",
-    "text": "Conclusion\nMy replication confirms the main finding of Card and Krueger (1994):\n\nMinimum wage increases did not reduce employment\nWages increased for low-wage workers\nPrices increased slightly\n\nThis paper is important because it challenges traditional economic theory and shows that real-world labor markets can behave differently."
+    "text": "Conclusion\nMy replication supports the main result of Card and Krueger (1994).\nThe central finding is clear:\n\nNew Jersey employment changed by +0.51 FTE\nPennsylvania employment changed by -2.41 FTE\nthe DID estimate is about +2.91 FTE\n\nSo in this case, the minimum wage increase did not reduce fast-food employment.\nThe extra evidence on wages and prices also helps the story make sense. Wages clearly rose, and prices moved too, which suggests that firms adjusted in more than one way.\nWhat I like most about this paper is that it is simple but powerful. The question is easy to understand. The method is easy to explain. But the result is important because it changed how many people think about minimum wage policy.\nIf I continued this project, I would want to look more closely at sample choices, store closures, and alternative employment measures. But even this simple replication already shows why this paper is still so influential."
   },
   {
     "objectID": "projects/ABTest/hw1_questions.html#overview",
@@ -509,5 +509,68 @@
     "title": "MaxDiff Analysis of MSBA Class Preferences",
     "section": "Discussion",
     "text": "Discussion\nFor a non-technical reader, the main substantive result is simple: students in this sample most prefer Marketing Analytics, and they also like Business Analytics, Customer Analytics, and Large Data. The least preferred classes are Analytics Consulting, Marketing/Finance/Operations, and AI Math.\nMethodologically, the three tools are useful for slightly different jobs.\n\nCounts is great for a quick descriptive dashboard.\nMLE MNL is a good choice when I want a model-based ranking and a single classical estimate to report.\nBayesian MNL is best when I care about uncertainty on simulated outcomes, preference shares, or future extensions like individual-level preference models.\n\nThere are also a few caveats. This was a self-selected sample of MSBA students, so the results may not generalize to all students. Preferences may also depend on timing, past coursework, concentration interests, and where a student is in the program.\nIf I had more time, I would do two next steps. First, I would estimate a hierarchical Bayes version to recover respondent-level heterogeneity. Second, I would explore whether first-year and second-year students rank these classes differently."
+  },
+  {
+    "objectID": "projects/Research/hw2_questions.html",
+    "href": "projects/Research/hw2_questions.html",
+    "title": "Replication of Card and Krueger (1994)",
+    "section": "",
+    "text": "For homework 2, I chose Card and Krueger (1994).\nThis is one of the most famous papers in labor economics. The paper studies a very simple question:\nIf the minimum wage goes up, will firms cut jobs?\nThis question matters because the usual textbook story is clear. If labor becomes more expensive, firms should want fewer workers. So many people expect employment to fall after a minimum wage increase.\nBut Card and Krueger show that real life is not always that simple.\nThey study fast-food restaurants in two nearby states in 1992:\n\nNew Jersey raised its minimum wage from $4.25 to $5.05.\nPennsylvania did not raise its minimum wage at that time.\n\nThis gives the authors a good comparison. They can look at restaurants in New Jersey before and after the policy change, and compare that change to restaurants in Pennsylvania over the same period.\nIn this post, I do three things:\n\nI explain what the paper is studying and why the question is important.\nI replicate the paper’s main statistical finding about employment.\nI do one extra thing by discussing wages, prices, and why the difference-in-differences method helps the authors make a causal argument."
+  },
+  {
+    "objectID": "projects/Research/hw2_questions.html#what-the-authors-study",
+    "href": "projects/Research/hw2_questions.html#what-the-authors-study",
+    "title": "Replication of Card and Krueger (1994)",
+    "section": "What The Authors Study",
+    "text": "What The Authors Study\nThe paper looks at fast-food restaurants such as Burger King, KFC, Roy Rogers, and Wendy’s. These stores employ many low-wage workers, so they are a natural place to study minimum wage policy.\nThe data come from surveys of restaurants in both states. The stores were contacted before the New Jersey policy change and again after the policy change. This means the authors can track how employment changed over time.\nThe main outcome in the paper is employment, measured as full-time equivalent employment (FTE). This is a useful measure because restaurants use both full-time and part-time workers.\nThe FTE measure is:\n\nFTE = full-time workers + 0.5 x part-time workers\n\nThis is not perfect, but it gives a simple way to put full-time and part-time labor on one scale.\nWhat makes the paper interesting is that the authors are not just asking whether New Jersey restaurants had more or fewer workers than Pennsylvania restaurants. That would be too simple, because the two states may already be different. Instead, they ask:\nDid employment change differently in New Jersey than in Pennsylvania after the wage increase?\nThat is the key idea behind the method they use."
+  },
+  {
+    "objectID": "projects/Research/hw2_questions.html#replicating-the-main-finding",
+    "href": "projects/Research/hw2_questions.html#replicating-the-main-finding",
+    "title": "Replication of Card and Krueger (1994)",
+    "section": "Replicating The Main Finding",
+    "text": "Replicating The Main Finding\nThe main method in the paper is difference-in-differences (DID).\nThe logic is easy to explain.\nFirst, calculate the employment change in New Jersey. Then, calculate the employment change in Pennsylvania. Finally, subtract the second change from the first one.\nUsing the paper’s fast-food employment setup, I replicate the main result:\n\nNew Jersey employment change: +0.51 FTE workers\nPennsylvania employment change: -2.41 FTE workers\nDifference-in-differences estimate: +2.91 FTE workers\n\n\nThis figure shows the same story in a visual way. Employment goes up a little in New Jersey, but it goes down in Pennsylvania. When we compare those two changes, the estimated effect of the New Jersey policy is positive.\nI also checked the result with a simple regression version of DID. The estimated coefficient is about 2.94, which is almost the same as the hand-calculated DID number. That is a good sign because it shows the result is internally consistent."
+  },
+  {
+    "objectID": "projects/Research/hw2_questions.html#why-this-result-matters",
+    "href": "projects/Research/hw2_questions.html#why-this-result-matters",
+    "title": "Replication of Card and Krueger (1994)",
+    "section": "Why This Result Matters",
+    "text": "Why This Result Matters\nThis result matters because it goes against the very basic prediction many people expect.\nA common argument is:\n\nhigher minimum wage\nhigher labor cost\nfewer workers hired\n\nBut that is not what this paper finds in this case.\nInstead, the data suggest that employment in New Jersey fast-food restaurants did not fall relative to Pennsylvania after the wage increase. If anything, the estimate is slightly positive.\nThat does not mean minimum wages always increase employment. It also does not mean theory is useless. It just means that in this setting, with this policy change, and in this industry, the simple negative-employment story does not fit the data very well.\nI think this is one reason the paper became so famous. It challenged a strong and widely repeated belief with real evidence."
+  },
+  {
+    "objectID": "projects/Research/hw2_questions.html#one-extra-finding-wages-really-did-increase",
+    "href": "projects/Research/hw2_questions.html#one-extra-finding-wages-really-did-increase",
+    "title": "Replication of Card and Krueger (1994)",
+    "section": "One Extra Finding: Wages Really Did Increase",
+    "text": "One Extra Finding: Wages Really Did Increase\nA good replication should do more than report one number. So I also look at one extra part of the story.\nIf the minimum wage law really mattered, then wages should actually go up in New Jersey after the policy change. If wages did not move, then the employment result would be less convincing.\nThe paper’s data show that wages did rise.\nFor low-wage stores:\n\naverage wages increased by about 0.81 dollars, or about 10%\n\nFor higher-wage stores:\n\nwage changes were much smaller\n\nThis is important because it shows the policy was real, not just a law written on paper.\nIn other words, the treatment actually happened."
+  },
+  {
+    "objectID": "projects/Research/hw2_questions.html#one-extra-finding-prices-changed-too",
+    "href": "projects/Research/hw2_questions.html#one-extra-finding-prices-changed-too",
+    "title": "Replication of Card and Krueger (1994)",
+    "section": "One Extra Finding: Prices Changed Too",
+    "text": "One Extra Finding: Prices Changed Too\nI also look at prices.\nThis part is interesting because it helps us think about why employment may not have fallen.\nIf wages go up, firms do not have only one response. They do not always need to fire workers. They may also:\n\nraise prices a little\naccept lower profit margins\nchange scheduling\nimprove productivity\n\nIn this dataset, prices moved like this:\n\nNew Jersey prices increased by about 2.60%\nPennsylvania prices decreased by about 0.44%\n\nThis suggests that some of the higher labor cost may have been passed on to customers.\nThat is a useful reminder that firms have several margins of adjustment. Employment is only one of them."
+  },
+  {
+    "objectID": "projects/Research/hw2_questions.html#a-visual-check-the-wage-distribution",
+    "href": "projects/Research/hw2_questions.html#a-visual-check-the-wage-distribution",
+    "title": "Replication of Card and Krueger (1994)",
+    "section": "A Visual Check: The Wage Distribution",
+    "text": "A Visual Check: The Wage Distribution\nThe wage distribution also helps tell the story.\n\nBefore the policy change, wages were spread out more widely. After the policy change, many wages are packed close to $5.05.\nThis is exactly what we would expect if the new minimum wage became binding for many stores. It gives extra support to the idea that the policy really changed the labor market environment."
+  },
+  {
+    "objectID": "projects/Research/hw2_questions.html#why-difference-in-differences-helps",
+    "href": "projects/Research/hw2_questions.html#why-difference-in-differences-helps",
+    "title": "Replication of Card and Krueger (1994)",
+    "section": "Why Difference-in-Differences Helps",
+    "text": "Why Difference-in-Differences Helps\nI think the DID method is one of the best parts of this paper because it is easy to understand and very useful.\nThe method compares:\n\na treatment group: New Jersey\na control group: Pennsylvania\na before period\nan after period\n\nThis helps remove two simple problems.\nFirst, New Jersey and Pennsylvania may be different even before the policy. Maybe wages, restaurant size, or local demand are not exactly the same. DID differences out those fixed cross-state gaps.\nSecond, the whole fast-food industry may change over time for reasons unrelated to minimum wage policy. DID also removes common time changes that affect both states.\nSo the key DID comparison is not just “New Jersey versus Pennsylvania.” It is:\nHow much did New Jersey change, compared with how much Pennsylvania changed?\nThat is why the method gives a stronger causal argument than a simple before-and-after comparison in one state.\nOf course, DID still needs an assumption. The big one is the parallel trends assumption. This means that without the policy change, New Jersey and Pennsylvania would have moved in a similar way over time.\nWe can never prove that assumption perfectly, but in this case it feels more believable because:\n\nthe states are geographically close\nthe restaurants are in the same industry\nthe policy timing creates a natural comparison\n\nSo while this is not a lab experiment, it is a strong research design."
+  },
+  {
+    "objectID": "projects/Research/hw2_questions.html#what-changed-from-the-naive-story",
+    "href": "projects/Research/hw2_questions.html#what-changed-from-the-naive-story",
+    "title": "Replication of Card and Krueger (1994)",
+    "section": "What Changed From The Naive Story",
+    "text": "What Changed From The Naive Story\nA useful way to think about this paper is to compare two stories.\nThe naive story says:\n\nlabor became more expensive\ntherefore employment should fall\n\nThe empirical story in the paper says:\n\nwages went up\nprices also moved\nemployment did not fall relative to the comparison group\n\nThat is a big difference.\nThe paper shows why careful empirical work matters. If we only trusted a simple theory or only looked at one state before and after the law, we could easily reach the wrong conclusion."
   }
 ]
