@@ -1,0 +1,473 @@
+下面是我认为最适合刷 **LeetCode SQL、DataLemur、牛客、面试** 的 **QMD（Question → Method → Demo）万能模板**。
+
+你以后每做一道 SQL 题，都可以直接复制这份模板，然后往里面填。
+
+````markdown
+# SQL 万能解题模板（QMD）
+
+---
+
+# Q（Question）—— 读题
+
+## 1. 最终输出什么？
+
+- [ ] 明细数据（每一行）
+- [ ] 统计数据（COUNT/SUM/AVG）
+- [ ] 排名（Top N）
+- [ ] 去重
+- [ ] 最新记录
+- [ ] 连续问题
+- [ ] 留存/漏斗
+- [ ] 其他
+
+输出字段：
+
+```
+____________________
+```
+
+输出行数：
+
+```
+____________________
+```
+
+---
+
+## 2. 数据来源
+
+主表：
+
+```
+FROM table
+```
+
+需要哪些表？
+
+```
+JOIN table2
+JOIN table3
+```
+
+连接键：
+
+```
+ON A.id = B.id
+```
+
+---
+
+## 3. 有没有过滤条件？
+
+先过滤还是后过滤？
+
+WHERE：
+
+```sql
+WHERE ...
+```
+
+HAVING：
+
+```sql
+HAVING ...
+```
+
+---
+
+## 4. 有没有分组？
+
+```sql
+GROUP BY ...
+```
+
+聚合函数：
+
+- COUNT()
+- SUM()
+- AVG()
+- MAX()
+- MIN()
+
+---
+
+## 5. 有没有排序？
+
+```sql
+ORDER BY ...
+```
+
+---
+
+## 6. 有没有窗口函数？
+
+是否需要：
+
+- ROW_NUMBER()
+- RANK()
+- DENSE_RANK()
+- LAG()
+- LEAD()
+- SUM() OVER()
+
+如果需要：
+
+```sql
+OVER(
+PARTITION BY ...
+ORDER BY ...
+)
+```
+
+---
+
+# M（Method）—— 选择套路
+
+根据题型直接套模板。
+
+---
+
+## 模板① 普通查询
+
+```sql
+SELECT ...
+FROM ...
+WHERE ...
+ORDER BY ...
+```
+
+---
+
+## 模板② 聚合统计
+
+```sql
+SELECT
+    col,
+    COUNT(*) AS cnt
+FROM table
+WHERE ...
+GROUP BY col
+```
+
+---
+
+## 模板③ 多表连接
+
+```sql
+SELECT ...
+FROM A
+JOIN B
+ON A.id = B.id
+```
+
+如果：
+
+保留左边
+
+```sql
+LEFT JOIN
+```
+
+全部都有
+
+```sql
+FULL JOIN
+```
+
+取交集
+
+```sql
+INNER JOIN
+```
+
+---
+
+## 模板④ 去重
+
+```sql
+SELECT DISTINCT col
+FROM table
+```
+
+或者
+
+```sql
+ROW_NUMBER()
+```
+
+保留 rn=1
+
+---
+
+## 模板⑤ 最新记录
+
+```sql
+WITH t AS (
+
+SELECT *,
+ROW_NUMBER() OVER(
+PARTITION BY id
+ORDER BY time DESC
+) rn
+
+FROM table
+
+)
+
+SELECT *
+
+FROM t
+
+WHERE rn=1;
+```
+
+---
+
+## 模板⑥ Top N
+
+```sql
+WITH t AS (
+
+SELECT *,
+ROW_NUMBER() OVER(
+PARTITION BY group_col
+ORDER BY value DESC
+) rn
+
+FROM table
+
+)
+
+SELECT *
+
+FROM t
+
+WHERE rn<=N;
+```
+
+---
+
+## 模板⑦ 排名
+
+```sql
+SELECT *,
+RANK() OVER(
+ORDER BY score DESC
+)
+```
+
+如果不能并列：
+
+```
+ROW_NUMBER()
+```
+
+允许跳名次：
+
+```
+RANK()
+```
+
+连续名次：
+
+```
+DENSE_RANK()
+```
+
+---
+
+## 模板⑧ 连续登录
+
+经典套路：
+
+```
+日期
+-
+ROW_NUMBER()
+```
+
+得到连续分组。
+
+再：
+
+```
+GROUP BY
+```
+
+统计长度。
+
+---
+
+## 模板⑨ 累计值
+
+```sql
+SUM(amount)
+
+OVER(
+ORDER BY date
+)
+```
+
+---
+
+## 模板⑩ 环比同比
+
+上一条：
+
+```sql
+LAG(value)
+```
+
+下一条：
+
+```sql
+LEAD(value)
+```
+
+---
+
+# D（Demo）—— 解题步骤
+
+第一步：
+
+画出最终结果。
+
+```
+user_id
+
+count
+```
+
+第二步：
+
+先得到中间表。
+
+```sql
+WITH tmp AS (
+
+...
+
+)
+```
+
+第三步：
+
+检查：
+
+- 行数是否正确？
+- 字段是否正确？
+
+第四步：
+
+继续加工。
+
+第五步：
+
+输出最终答案。
+
+---
+
+# SQL 工业化模板（推荐）
+
+```sql
+WITH step1 AS (
+
+-- 数据过滤
+
+),
+
+step2 AS (
+
+-- 聚合
+
+),
+
+step3 AS (
+
+-- 排名
+
+),
+
+step4 AS (
+
+-- 最终结果
+
+)
+
+SELECT *
+
+FROM step4;
+```
+
+---
+
+# SQL 解题口诀
+
+> **一读题**
+>
+> 看输出。
+
+> **二找表**
+>
+> FROM + JOIN。
+
+> **三过滤**
+>
+> WHERE。
+
+> **四统计**
+>
+> GROUP BY。
+
+> **五排名**
+>
+> WINDOW。
+
+> **六输出**
+>
+> ORDER BY。
+
+---
+
+# 高频函数速查
+
+| 功能 | 函数 |
+|------|------|
+| 去重 | DISTINCT |
+| 数量 | COUNT |
+| 求和 | SUM |
+| 平均 | AVG |
+| 最大 | MAX |
+| 最小 | MIN |
+| 排名 | ROW_NUMBER |
+| 并列排名 | RANK |
+| 连续排名 | DENSE_RANK |
+| 上一行 | LAG |
+| 下一行 | LEAD |
+| 累计 | SUM() OVER |
+| 条件判断 | CASE WHEN |
+| 空值 | COALESCE |
+| 是否存在 | EXISTS |
+
+---
+
+# 一句话万能公式
+
+> **任何 SQL 题都先问自己：**
+
+① 我要什么结果？
+
+② 从哪些表来？
+
+③ 先过滤什么？
+
+④ 要不要分组？
+
+⑤ 要不要窗口函数？
+
+⑥ 能不能拆成多个 CTE？
+
+**记住：复杂 SQL = 多个简单 SQL（CTE）串起来，而不是一条超长 SQL。**
+````
+
+我建议把这份模板命名为 **《SQL_QMD_Master_Template.md》**，以后每刷一道题都复制一份填写。坚持一段时间后，你会发现绝大多数 SQL 题都能归类到这几个固定模板中。

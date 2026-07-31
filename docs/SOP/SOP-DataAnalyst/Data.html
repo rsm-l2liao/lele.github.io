@@ -1,0 +1,2105 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.13">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>data – Lele Liao | Data Analyst</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-ea00d30dd9b950c7ecb6e17bc6ca0835.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-3b988793beeeeab0265599ed392226a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-3b2d492bae908366fb1621f3f5d11d0a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-3b988793beeeeab0265599ed392226a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+</head>
+
+<body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
+    const toggleBodyColorMode = (bsSheetEl) => {
+      const mode = bsSheetEl.getAttribute("data-mode");
+      const bodyEl = window.document.querySelector("body");
+      if (mode === "dark") {
+        bodyEl.classList.add("quarto-dark");
+        bodyEl.classList.remove("quarto-light");
+      } else {
+        bodyEl.classList.add("quarto-light");
+        bodyEl.classList.remove("quarto-dark");
+      }
+    }
+    const toggleBodyColorPrimary = () => {
+      const bsSheetEl = window.document.querySelector("link#quarto-bootstrap:not([rel=disabled-stylesheet])");
+      if (bsSheetEl) {
+        toggleBodyColorMode(bsSheetEl);
+      }
+    }
+    const setColorSchemeToggle = (alternate) => {
+      const toggles = window.document.querySelectorAll('.quarto-color-scheme-toggle');
+      for (let i=0; i < toggles.length; i++) {
+        const toggle = toggles[i];
+        if (toggle) {
+          if (alternate) {
+            toggle.classList.add("alternate");
+          } else {
+            toggle.classList.remove("alternate");
+          }
+        }
+      }
+    };
+    const toggleColorMode = (alternate) => {
+      // Switch the stylesheets
+      const primaryStylesheets = window.document.querySelectorAll('link.quarto-color-scheme:not(.quarto-color-alternate)');
+      const alternateStylesheets = window.document.querySelectorAll('link.quarto-color-scheme.quarto-color-alternate');
+      manageTransitions('#quarto-margin-sidebar .nav-link', false);
+      if (alternate) {
+        // note: dark is layered on light, we don't disable primary!
+        enableStylesheet(alternateStylesheets);
+        for (const sheetNode of alternateStylesheets) {
+          if (sheetNode.id === "quarto-bootstrap") {
+            toggleBodyColorMode(sheetNode);
+          }
+        }
+      } else {
+        disableStylesheet(alternateStylesheets);
+        enableStylesheet(primaryStylesheets)
+        toggleBodyColorPrimary();
+      }
+      manageTransitions('#quarto-margin-sidebar .nav-link', true);
+      // Switch the toggles
+      setColorSchemeToggle(alternate)
+      // Hack to workaround the fact that safari doesn't
+      // properly recolor the scrollbar when toggling (#1455)
+      if (navigator.userAgent.indexOf('Safari') > 0 && navigator.userAgent.indexOf('Chrome') == -1) {
+        manageTransitions("body", false);
+        window.scrollTo(0, 1);
+        setTimeout(() => {
+          window.scrollTo(0, 0);
+          manageTransitions("body", true);
+        }, 40);
+      }
+    }
+    const disableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        stylesheet.rel = 'disabled-stylesheet';
+      }
+    }
+    const enableStylesheet = (stylesheets) => {
+      for (let i=0; i < stylesheets.length; i++) {
+        const stylesheet = stylesheets[i];
+        if(stylesheet.rel !== 'stylesheet') { // for Chrome, which will still FOUC without this check
+          stylesheet.rel = 'stylesheet';
+        }
+      }
+    }
+    const manageTransitions = (selector, allowTransitions) => {
+      const els = window.document.querySelectorAll(selector);
+      for (let i=0; i < els.length; i++) {
+        const el = els[i];
+        if (allowTransitions) {
+          el.classList.remove('notransition');
+        } else {
+          el.classList.add('notransition');
+        }
+      }
+    }
+    const isFileUrl = () => {
+      return window.location.protocol === 'file:';
+    }
+    const hasAlternateSentinel = () => {
+      let styleSentinel = getColorSchemeSentinel();
+      if (styleSentinel !== null) {
+        return styleSentinel === "alternate";
+      } else {
+        return false;
+      }
+    }
+    const setStyleSentinel = (alternate) => {
+      const value = alternate ? "alternate" : "default";
+      if (!isFileUrl()) {
+        window.localStorage.setItem("quarto-color-scheme", value);
+      } else {
+        localAlternateSentinel = value;
+      }
+    }
+    const getColorSchemeSentinel = () => {
+      if (!isFileUrl()) {
+        const storageValue = window.localStorage.getItem("quarto-color-scheme");
+        return storageValue != null ? storageValue : localAlternateSentinel;
+      } else {
+        return localAlternateSentinel;
+      }
+    }
+    const toggleGiscusIfUsed = (isAlternate, darkModeDefault) => {
+      const baseTheme = document.querySelector('#giscus-base-theme')?.value ?? 'light';
+      const alternateTheme = document.querySelector('#giscus-alt-theme')?.value ?? 'dark';
+      let newTheme = '';
+      if(authorPrefersDark) {
+        newTheme = isAlternate ? baseTheme : alternateTheme;
+      } else {
+        newTheme = isAlternate ? alternateTheme : baseTheme;
+      }
+      const changeGiscusTheme = () => {
+        // From: https://github.com/giscus/giscus/issues/336
+        const sendMessage = (message) => {
+          const iframe = document.querySelector('iframe.giscus-frame');
+          if (!iframe) return;
+          iframe.contentWindow.postMessage({ giscus: message }, 'https://giscus.app');
+        }
+        sendMessage({
+          setConfig: {
+            theme: newTheme
+          }
+        });
+      }
+      const isGiscussLoaded = window.document.querySelector('iframe.giscus-frame') !== null;
+      if (isGiscussLoaded) {
+        changeGiscusTheme();
+      }
+    };
+    const authorPrefersDark = false;
+    const darkModeDefault = authorPrefersDark;
+      document.querySelector('link#quarto-text-highlighting-styles.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+      document.querySelector('link#quarto-bootstrap.quarto-color-scheme-extra').rel = 'disabled-stylesheet';
+    let localAlternateSentinel = darkModeDefault ? 'alternate' : 'default';
+    // Dark / light mode switch
+    window.quartoToggleColorScheme = () => {
+      // Read the current dark / light value
+      let toAlternate = !hasAlternateSentinel();
+      toggleColorMode(toAlternate);
+      setStyleSentinel(toAlternate);
+      toggleGiscusIfUsed(toAlternate, darkModeDefault);
+      window.dispatchEvent(new Event('resize'));
+    };
+    // Switch to dark mode if need be
+    if (hasAlternateSentinel()) {
+      toggleColorMode(true);
+    } else {
+      toggleColorMode(false);
+    }
+  </script>
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../../index.html">
+    <span class="navbar-title">Lele Liao | Data Analyst</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../projects.html"> 
+<span class="menu-text">Projects</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../presentation.html"> 
+<span class="menu-text">Presentations</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../../resume.html"> 
+<span class="menu-text">Resume</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/rsm-l2liao"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/lele-liao-134340/"> <i class="bi bi-linkedin" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:l2liao@ucsd.edu"> <i class="bi bi-envelope" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+  <a href="" class="quarto-color-scheme-toggle quarto-navigation-tool  px-1" onclick="window.quartoToggleColorScheme(); return false;" title="Toggle dark mode"><i class="bi"></i></a>
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    
+<!-- main -->
+<main class="content" id="quarto-document-content"><header id="title-block-header" class="quarto-title-block"></header>
+
+
+
+
+
+<section id="数据分析项目标准作业流程sop" class="level1">
+<h1>数据分析项目标准作业流程（SOP）</h1>
+<p><strong>版本：</strong> V1.0 <strong>适用范围：</strong> MGTA455 数据分析项目、商业数据分析、统计建模、机器学习建模、预测分析及数据驱动决策项目。 <strong>核心流程：</strong></p>
+<blockquote class="blockquote">
+<p>明确问题 → 检查原始数据 → 清洗数据 → 探索数据 → 构造特征 → 建立基线 → 建模 → 评估 → 解释 → 转化为商业建议 → 复核与交付</p>
+</blockquote>
+<hr>
+</section>
+<section id="一阶段一明确分析问题" class="level1">
+<h1>一、阶段一：明确分析问题</h1>
+<p>在打开数据之前，先明确项目到底要回答什么问题。</p>
+<section id="确定分析目标" class="level2">
+<h2 class="anchored" data-anchor-id="确定分析目标">1.1 确定分析目标</h2>
+<p>分析目标通常分为四类：</p>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>类型</th>
+<th>典型问题</th>
+<th>常用方法</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>描述性分析</td>
+<td>发生了什么？</td>
+<td>汇总统计、可视化</td>
+</tr>
+<tr class="even">
+<td>诊断性分析</td>
+<td>为什么发生？</td>
+<td>分组分析、相关分析、回归</td>
+</tr>
+<tr class="odd">
+<td>预测性分析</td>
+<td>接下来会发生什么？</td>
+<td>回归、分类、时间序列</td>
+</tr>
+<tr class="even">
+<td>决策性分析</td>
+<td>应该采取什么行动？</td>
+<td>情景分析、优化、实验分析</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="明确目标变量" class="level2">
+<h2 class="anchored" data-anchor-id="明确目标变量">1.2 明确目标变量</h2>
+<p>若项目涉及建模，必须明确：</p>
+<ul>
+<li>需要预测什么；</li>
+<li>目标变量是什么；</li>
+<li>目标变量是连续变量还是类别变量；</li>
+<li>预测发生在哪个时间点；</li>
+<li>模型的实际使用场景是什么。</li>
+</ul>
+<p>例如：</p>
+<ul>
+<li>预测销售额：回归问题；</li>
+<li>判断客户是否流失：二分类问题；</li>
+<li>预测客户所属类别：多分类问题；</li>
+<li>预测未来月度需求：时间序列问题。</li>
+</ul>
+</section>
+<section id="明确分析单位" class="level2">
+<h2 class="anchored" data-anchor-id="明确分析单位">1.3 明确分析单位</h2>
+<p>必须确认数据中的一行代表什么。</p>
+<p>例如：</p>
+<ul>
+<li>一个客户；</li>
+<li>一笔订单；</li>
+<li>一个产品；</li>
+<li>一家门店；</li>
+<li>一天；</li>
+<li>一次网站访问；</li>
+<li>一名员工；</li>
+<li>一次实验观察。</li>
+</ul>
+<p>如果分析单位没有确认，后续可能出现重复统计或错误聚合。</p>
+</section>
+<section id="定义成功标准" class="level2">
+<h2 class="anchored" data-anchor-id="定义成功标准">1.4 定义成功标准</h2>
+<p>在建模前确定评价标准。</p>
+<p>例如：</p>
+<ul>
+<li>回归：RMSE、MAE、R²；</li>
+<li>分类：Accuracy、Precision、Recall、F1、ROC-AUC；</li>
+<li>商业指标：收入提升、成本降低、流失率下降；</li>
+<li>实验分析：统计显著性、效果大小、置信区间。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="二阶段二分析数据的原始形态" class="level1">
+<h1>二、阶段二：分析数据的原始形态</h1>
+<p>拿到数据后，不应立即建模。第一步是理解原始数据长什么样。</p>
+<section id="检查数据文件" class="level2">
+<h2 class="anchored" data-anchor-id="检查数据文件">2.1 检查数据文件</h2>
+<p>记录以下信息：</p>
+<ul>
+<li>文件数量；</li>
+<li>文件格式；</li>
+<li>文件大小；</li>
+<li>工作表数量；</li>
+<li>数据表之间的关系；</li>
+<li>数据更新时间；</li>
+<li>数据来源；</li>
+<li>数据覆盖的时间范围。</li>
+</ul>
+<p>常见格式包括：</p>
+<ul>
+<li>CSV；</li>
+<li>Excel；</li>
+<li>JSON；</li>
+<li>SQL表；</li>
+<li>API数据；</li>
+<li>调查问卷；</li>
+<li>日志数据。</li>
+</ul>
+</section>
+<section id="检查数据维度" class="level2">
+<h2 class="anchored" data-anchor-id="检查数据维度">2.2 检查数据维度</h2>
+<p>记录：</p>
+<ul>
+<li>行数；</li>
+<li>列数；</li>
+<li>主键；</li>
+<li>重复记录数量；</li>
+<li>每列数据类型；</li>
+<li>每列非空值数量；</li>
+<li>每列唯一值数量。</li>
+</ul>
+<p>建议形成一张数据概览表：</p>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 28%">
+<col style="width: 10%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+<col style="width: 15%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>字段名</th>
+<th>数据类型</th>
+<th style="text-align: right;">非空数量</th>
+<th style="text-align: right;">唯一值</th>
+<th>示例值</th>
+<th>初步含义</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Customer_ID</td>
+<td>字符</td>
+<td style="text-align: right;">10,000</td>
+<td style="text-align: right;">10,000</td>
+<td>C1023</td>
+<td>客户编号</td>
+</tr>
+<tr class="even">
+<td>Age</td>
+<td>数值</td>
+<td style="text-align: right;">9,850</td>
+<td style="text-align: right;">62</td>
+<td>35</td>
+<td>客户年龄</td>
+</tr>
+<tr class="odd">
+<td>Revenue</td>
+<td>数值</td>
+<td style="text-align: right;">10,000</td>
+<td style="text-align: right;">7,452</td>
+<td>125.50</td>
+<td>客户收入贡献</td>
+</tr>
+<tr class="even">
+<td>Churn</td>
+<td>类别</td>
+<td style="text-align: right;">10,000</td>
+<td style="text-align: right;">2</td>
+<td>Yes</td>
+<td>是否流失</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="检查数据类型" class="level2">
+<h2 class="anchored" data-anchor-id="检查数据类型">2.3 检查数据类型</h2>
+<p>重点确认：</p>
+<ul>
+<li>数字是否被读成文本；</li>
+<li>日期是否被读成字符串；</li>
+<li>类别变量是否被错误编码成数值；</li>
+<li>百分比是否以小数或整数保存；</li>
+<li>金额字段是否包含货币符号；</li>
+<li>布尔变量是否存在多种表示。</li>
+</ul>
+<p>例如：</p>
+<ul>
+<li>Yes、YES、Y、1可能代表同一类别；</li>
+<li>2026-01-05和01/05/2026可能代表同一日期格式；</li>
+<li><code>$1,500</code>需要转为数值1500。</li>
+</ul>
+</section>
+<section id="检查数据粒度" class="level2">
+<h2 class="anchored" data-anchor-id="检查数据粒度">2.4 检查数据粒度</h2>
+<p>确认不同数据表是否具有相同粒度。</p>
+<p>例如：</p>
+<ul>
+<li>客户表：一行一个客户；</li>
+<li>订单表：一行一笔订单；</li>
+<li>产品表：一行一个产品。</li>
+</ul>
+<p>在合并数据时，如果直接将订单表与客户表连接，可能导致客户信息重复。必须根据分析目的决定是否先聚合。</p>
+</section>
+<section id="检查目标变量分布" class="level2">
+<h2 class="anchored" data-anchor-id="检查目标变量分布">2.5 检查目标变量分布</h2>
+<p>如果存在目标变量，先查看：</p>
+<ul>
+<li>是否有缺失；</li>
+<li>是否存在极端值；</li>
+<li>分类是否严重不平衡；</li>
+<li>数值目标是否偏态；</li>
+<li>是否存在不合理值。</li>
+</ul>
+<p>例如，流失数据中：</p>
+<ul>
+<li>未流失客户占95%；</li>
+<li>流失客户占5%。</li>
+</ul>
+<p>此时仅看Accuracy可能会产生误导。</p>
+<hr>
+</section>
+</section>
+<section id="三阶段三数据质量检查" class="level1">
+<h1>三、阶段三：数据质量检查</h1>
+<p>完成原始形态分析后，系统检查数据质量。</p>
+<section id="缺失值检查" class="level2">
+<h2 class="anchored" data-anchor-id="缺失值检查">3.1 缺失值检查</h2>
+<p>对每列计算：</p>
+<ul>
+<li>缺失数量；</li>
+<li>缺失比例；</li>
+<li>缺失是否集中于特定群体；</li>
+<li>缺失是否具有业务含义。</li>
+</ul>
+<p>处理方式包括：</p>
+<ul>
+<li>删除记录；</li>
+<li>删除字段；</li>
+<li>均值填补；</li>
+<li>中位数填补；</li>
+<li>众数填补；</li>
+<li>分组填补；</li>
+<li>模型填补；</li>
+<li>建立缺失指示变量；</li>
+<li>保留缺失作为独立类别。</li>
+</ul>
+<p>不能仅因为存在缺失值就直接删除。</p>
+</section>
+<section id="重复值检查" class="level2">
+<h2 class="anchored" data-anchor-id="重复值检查">3.2 重复值检查</h2>
+<p>区分：</p>
+<ul>
+<li>完全重复；</li>
+<li>主键重复；</li>
+<li>合理重复；</li>
+<li>数据录入重复；</li>
+<li>合并产生的重复。</li>
+</ul>
+<p>如果客户ID重复，需要判断：</p>
+<ul>
+<li>是同一客户多次交易；</li>
+<li>还是客户主表录入错误。</li>
+</ul>
+</section>
+<section id="异常值检查" class="level2">
+<h2 class="anchored" data-anchor-id="异常值检查">3.3 异常值检查</h2>
+<p>常用方法：</p>
+<ul>
+<li>最小值和最大值；</li>
+<li>箱线图；</li>
+<li>IQR；</li>
+<li>Z-score；</li>
+<li>分位数；</li>
+<li>业务规则；</li>
+<li>时间趋势检查。</li>
+</ul>
+<p>异常值必须先判断原因：</p>
+<ul>
+<li>真实极端观察；</li>
+<li>测量错误；</li>
+<li>输入错误；</li>
+<li>单位错误；</li>
+<li>系统错误。</li>
+</ul>
+<p>处理方式包括：</p>
+<ul>
+<li>保留；</li>
+<li>修正；</li>
+<li>截尾；</li>
+<li>对数转换；</li>
+<li>单独分组；</li>
+<li>删除。</li>
+</ul>
+</section>
+<section id="合理性检查" class="level2">
+<h2 class="anchored" data-anchor-id="合理性检查">3.4 合理性检查</h2>
+<p>根据业务规则检查：</p>
+<ul>
+<li>年龄不能为负数；</li>
+<li>折扣率不应超过100%；</li>
+<li>订单日期不能早于客户注册日期；</li>
+<li>离职日期不能早于入职日期；</li>
+<li>销售数量不能无原因地为负；</li>
+<li>客户生命周期收入不能小于单笔订单收入。</li>
+</ul>
+</section>
+<section id="一致性检查" class="level2">
+<h2 class="anchored" data-anchor-id="一致性检查">3.5 一致性检查</h2>
+<p>检查：</p>
+<ul>
+<li>单位是否一致；</li>
+<li>币种是否一致；</li>
+<li>日期格式是否一致；</li>
+<li>类别名称是否一致；</li>
+<li>不同表之间定义是否一致；</li>
+<li>同一指标在不同文件中是否采用相同口径。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="四阶段四数据清洗" class="level1">
+<h1>四、阶段四：数据清洗</h1>
+<p>数据清洗的目标是产生一个可以稳定分析的分析数据集。</p>
+<section id="保留原始数据" class="level2">
+<h2 class="anchored" data-anchor-id="保留原始数据">4.1 保留原始数据</h2>
+<p>不得直接覆盖原始文件。</p>
+<p>推荐目录：</p>
+<pre class="text"><code>data/
+├── raw
+├── interim
+├── processed
+└── output</code></pre>
+<ul>
+<li><code>raw</code>：未经修改的原始数据；</li>
+<li><code>interim</code>：清洗过程中的中间数据；</li>
+<li><code>processed</code>：可用于建模的数据；</li>
+<li><code>output</code>：图表、模型结果和导出文件。</li>
+</ul>
+</section>
+<section id="统一字段名称" class="level2">
+<h2 class="anchored" data-anchor-id="统一字段名称">4.2 统一字段名称</h2>
+<p>字段名应做到：</p>
+<ul>
+<li>简洁；</li>
+<li>含义明确；</li>
+<li>不使用无意义空格；</li>
+<li>命名风格一致；</li>
+<li>避免特殊符号。</li>
+</ul>
+<p>例如：</p>
+<pre class="text"><code>Customer Age → customer_age
+Total Revenue ($) → total_revenue
+Order Date → order_date</code></pre>
+</section>
+<section id="修正数据类型" class="level2">
+<h2 class="anchored" data-anchor-id="修正数据类型">4.3 修正数据类型</h2>
+<p>包括：</p>
+<ul>
+<li>文本转数值；</li>
+<li>文本转日期；</li>
+<li>数值转类别；</li>
+<li>布尔变量标准化；</li>
+<li>货币字段清理；</li>
+<li>百分比字段标准化。</li>
+</ul>
+</section>
+<section id="处理缺失值" class="level2">
+<h2 class="anchored" data-anchor-id="处理缺失值">4.4 处理缺失值</h2>
+<p>填补方法必须记录：</p>
+<ul>
+<li>哪一列进行了处理；</li>
+<li>使用什么方法；</li>
+<li>为什么使用该方法；</li>
+<li>是否会影响模型解释；</li>
+<li>填补参数是否仅使用训练集计算。</li>
+</ul>
+<p>严禁使用完整数据计算填补值后再拆分训练集和测试集，否则会产生数据泄漏。</p>
+</section>
+<section id="处理异常值" class="level2">
+<h2 class="anchored" data-anchor-id="处理异常值">4.5 处理异常值</h2>
+<p>处理异常值前应保留处理前后的分布对比。</p>
+<p>必须记录：</p>
+<ul>
+<li>判断异常值的规则；</li>
+<li>被影响的记录数量；</li>
+<li>是否删除；</li>
+<li>是否截尾；</li>
+<li>是否转换；</li>
+<li>处理后的业务影响。</li>
+</ul>
+</section>
+<section id="数据表合并" class="level2">
+<h2 class="anchored" data-anchor-id="数据表合并">4.6 数据表合并</h2>
+<p>合并前确认：</p>
+<ul>
+<li>连接键；</li>
+<li>一对一、一对多或多对多关系；</li>
+<li>合并前后的行数；</li>
+<li>未匹配记录数量；</li>
+<li>重复键数量；</li>
+<li>合并后缺失值变化。</li>
+</ul>
+<p>多对多连接必须特别谨慎，因为可能导致行数成倍增加。</p>
+<hr>
+</section>
+</section>
+<section id="五阶段五探索性数据分析" class="level1">
+<h1>五、阶段五：探索性数据分析</h1>
+<p>探索性数据分析的目标是理解变量分布、关系和潜在问题。</p>
+<section id="单变量分析" class="level2">
+<h2 class="anchored" data-anchor-id="单变量分析">5.1 单变量分析</h2>
+<p>对数值变量检查：</p>
+<ul>
+<li>均值；</li>
+<li>中位数；</li>
+<li>标准差；</li>
+<li>最小值；</li>
+<li>最大值；</li>
+<li>分位数；</li>
+<li>偏度；</li>
+<li>分布图；</li>
+<li>箱线图。</li>
+</ul>
+<p>对类别变量检查：</p>
+<ul>
+<li>类别数量；</li>
+<li>每类频数；</li>
+<li>每类占比；</li>
+<li>稀有类别；</li>
+<li>拼写不一致类别。</li>
+</ul>
+</section>
+<section id="双变量分析" class="level2">
+<h2 class="anchored" data-anchor-id="双变量分析">5.2 双变量分析</h2>
+<p>分析解释变量与目标变量之间的关系。</p>
+<p>数值变量与数值目标：</p>
+<ul>
+<li>散点图；</li>
+<li>相关系数；</li>
+<li>分组趋势；</li>
+<li>简单回归。</li>
+</ul>
+<p>类别变量与数值目标：</p>
+<ul>
+<li>分组均值；</li>
+<li>中位数；</li>
+<li>箱线图；</li>
+<li>方差分析。</li>
+</ul>
+<p>类别变量与类别目标：</p>
+<ul>
+<li>交叉表；</li>
+<li>条件比例；</li>
+<li>卡方检验；</li>
+<li>分组流失率或转化率。</li>
+</ul>
+</section>
+<section id="多变量分析" class="level2">
+<h2 class="anchored" data-anchor-id="多变量分析">5.3 多变量分析</h2>
+<p>检查：</p>
+<ul>
+<li>多重共线性；</li>
+<li>变量之间的交互关系；</li>
+<li>分组差异；</li>
+<li>混杂因素；</li>
+<li>Simpson’s paradox；</li>
+<li>控制变量前后的变化。</li>
+</ul>
+</section>
+<section id="时间维度分析" class="level2">
+<h2 class="anchored" data-anchor-id="时间维度分析">5.4 时间维度分析</h2>
+<p>如果数据包含时间字段，检查：</p>
+<ul>
+<li>长期趋势；</li>
+<li>季节性；</li>
+<li>周期性；</li>
+<li>节假日效应；</li>
+<li>突然断点；</li>
+<li>数据缺口；</li>
+<li>时间字段泄漏。</li>
+</ul>
+</section>
+<section id="地理维度分析" class="level2">
+<h2 class="anchored" data-anchor-id="地理维度分析">5.5 地理维度分析</h2>
+<p>如果数据包含地区字段，检查：</p>
+<ul>
+<li>不同地区规模；</li>
+<li>不同地区表现；</li>
+<li>人口规模差异；</li>
+<li>是否应使用人均指标；</li>
+<li>是否存在地区数据缺失。</li>
+</ul>
+</section>
+<section id="输出探索性发现" class="level2">
+<h2 class="anchored" data-anchor-id="输出探索性发现">5.6 输出探索性发现</h2>
+<p>EDA结束时，应形成：</p>
+<ol type="1">
+<li>数据的主要分布特征；</li>
+<li>目标变量的主要特征；</li>
+<li>可能影响目标的关键变量；</li>
+<li>数据质量风险；</li>
+<li>需要构造的新特征；</li>
+<li>建模时需要注意的问题；</li>
+<li>初步商业假设。</li>
+</ol>
+<hr>
+</section>
+</section>
+<section id="六阶段六特征工程" class="level1">
+<h1>六、阶段六：特征工程</h1>
+<p>特征工程应基于业务逻辑和探索性分析，而不是盲目增加变量。</p>
+<section id="数值变量处理" class="level2">
+<h2 class="anchored" data-anchor-id="数值变量处理">6.1 数值变量处理</h2>
+<p>常见方法：</p>
+<ul>
+<li>标准化；</li>
+<li>归一化；</li>
+<li>对数转换；</li>
+<li>平方根转换；</li>
+<li>分箱；</li>
+<li>比率计算；</li>
+<li>差值计算；</li>
+<li>增长率计算；</li>
+<li>滚动平均。</li>
+</ul>
+<p>例如：</p>
+<pre class="text"><code>average_order_value = total_revenue / number_of_orders
+customer_tenure = analysis_date - registration_date
+profit_margin = profit / revenue</code></pre>
+</section>
+<section id="类别变量处理" class="level2">
+<h2 class="anchored" data-anchor-id="类别变量处理">6.2 类别变量处理</h2>
+<p>常见方法：</p>
+<ul>
+<li>One-hot encoding；</li>
+<li>Ordinal encoding；</li>
+<li>合并稀有类别；</li>
+<li>Target encoding；</li>
+<li>Frequency encoding。</li>
+</ul>
+<p>使用Target Encoding时，必须避免使用测试集信息。</p>
+</section>
+<section id="日期变量处理" class="level2">
+<h2 class="anchored" data-anchor-id="日期变量处理">6.3 日期变量处理</h2>
+<p>可以提取：</p>
+<ul>
+<li>年；</li>
+<li>月；</li>
+<li>周；</li>
+<li>星期；</li>
+<li>季度；</li>
+<li>是否周末；</li>
+<li>是否节假日；</li>
+<li>距离某事件的天数；</li>
+<li>客户存续时间；</li>
+<li>最近一次交易间隔。</li>
+</ul>
+</section>
+<section id="文本变量处理" class="level2">
+<h2 class="anchored" data-anchor-id="文本变量处理">6.4 文本变量处理</h2>
+<p>根据项目需求使用：</p>
+<ul>
+<li>文本长度；</li>
+<li>关键词计数；</li>
+<li>情感得分；</li>
+<li>TF-IDF；</li>
+<li>主题模型；</li>
+<li>文本嵌入。</li>
+</ul>
+</section>
+<section id="交互项" class="level2">
+<h2 class="anchored" data-anchor-id="交互项">6.5 交互项</h2>
+<p>根据业务逻辑构造：</p>
+<ul>
+<li>价格 × 数量；</li>
+<li>广告支出 × 渠道；</li>
+<li>收入 × 客户年龄；</li>
+<li>促销 × 节假日；</li>
+<li>客户类型 × 服务等级。</li>
+</ul>
+</section>
+<section id="特征筛选" class="level2">
+<h2 class="anchored" data-anchor-id="特征筛选">6.6 特征筛选</h2>
+<p>删除或谨慎使用：</p>
+<ul>
+<li>ID字段；</li>
+<li>高度重复字段；</li>
+<li>单一值字段；</li>
+<li>缺失率极高字段；</li>
+<li>目标泄漏字段；</li>
+<li>预测时不可获得的字段；</li>
+<li>强共线变量；</li>
+<li>无业务意义的随机字段。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="七阶段七训练集验证集与测试集划分" class="level1">
+<h1>七、阶段七：训练集、验证集与测试集划分</h1>
+<p>数据划分必须在正式建模前完成。</p>
+<section id="常规随机划分" class="level2">
+<h2 class="anchored" data-anchor-id="常规随机划分">7.1 常规随机划分</h2>
+<p>适用于独立同分布的数据。</p>
+<p>常见比例：</p>
+<ul>
+<li>70%训练集；</li>
+<li>15%验证集；</li>
+<li>15%测试集。</li>
+</ul>
+<p>或：</p>
+<ul>
+<li>80%训练集；</li>
+<li>20%测试集；</li>
+<li>在训练集内部交叉验证。</li>
+</ul>
+</section>
+<section id="分层抽样" class="level2">
+<h2 class="anchored" data-anchor-id="分层抽样">7.2 分层抽样</h2>
+<p>分类问题中，如果类别不平衡，应使用分层抽样，使各数据集的目标变量比例接近。</p>
+</section>
+<section id="时间序列划分" class="level2">
+<h2 class="anchored" data-anchor-id="时间序列划分">7.3 时间序列划分</h2>
+<p>时间数据不得随机打乱。</p>
+<p>必须按照时间先后划分：</p>
+<ul>
+<li>较早数据用于训练；</li>
+<li>较晚数据用于验证；</li>
+<li>最新数据用于测试。</li>
+</ul>
+</section>
+<section id="分组划分" class="level2">
+<h2 class="anchored" data-anchor-id="分组划分">7.4 分组划分</h2>
+<p>如果同一客户、门店、病人或设备存在多行记录，应避免同一主体同时出现在训练集和测试集中。</p>
+<p>否则模型可能“记住”主体信息，导致测试结果虚高。</p>
+<hr>
+</section>
+</section>
+<section id="八阶段八建立基线模型" class="level1">
+<h1>八、阶段八：建立基线模型</h1>
+<p>在复杂建模前，必须建立基线。</p>
+<section id="基线的作用" class="level2">
+<h2 class="anchored" data-anchor-id="基线的作用">8.1 基线的作用</h2>
+<p>基线模型用于回答：</p>
+<blockquote class="blockquote">
+<p>复杂模型是否真的比简单方法更好？</p>
+</blockquote>
+</section>
+<section id="常见基线" class="level2">
+<h2 class="anchored" data-anchor-id="常见基线">8.2 常见基线</h2>
+<p>回归问题：</p>
+<ul>
+<li>使用平均值预测；</li>
+<li>使用中位数预测；</li>
+<li>简单线性回归。</li>
+</ul>
+<p>分类问题：</p>
+<ul>
+<li>始终预测多数类别；</li>
+<li>Logistic Regression；</li>
+<li>简单决策树。</li>
+</ul>
+<p>时间序列：</p>
+<ul>
+<li>使用上一期数值；</li>
+<li>使用历史平均值；</li>
+<li>使用同期数值；</li>
+<li>移动平均。</li>
+</ul>
+</section>
+<section id="记录基线结果" class="level2">
+<h2 class="anchored" data-anchor-id="记录基线结果">8.3 记录基线结果</h2>
+<p>基线结果应包括：</p>
+<ul>
+<li>模型名称；</li>
+<li>使用特征；</li>
+<li>评价指标；</li>
+<li>训练结果；</li>
+<li>验证结果；</li>
+<li>模型限制。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="九阶段九模型选择与训练" class="level1">
+<h1>九、阶段九：模型选择与训练</h1>
+<p>根据目标变量和业务需要选择模型。</p>
+<section id="回归模型" class="level2">
+<h2 class="anchored" data-anchor-id="回归模型">9.1 回归模型</h2>
+<p>适用于连续目标变量：</p>
+<ul>
+<li>Linear Regression；</li>
+<li>Ridge；</li>
+<li>Lasso；</li>
+<li>Elastic Net；</li>
+<li>Decision Tree Regression；</li>
+<li>Random Forest；</li>
+<li>Gradient Boosting；</li>
+<li>XGBoost；</li>
+<li>LightGBM。</li>
+</ul>
+</section>
+<section id="分类模型" class="level2">
+<h2 class="anchored" data-anchor-id="分类模型">9.2 分类模型</h2>
+<p>适用于类别目标变量：</p>
+<ul>
+<li>Logistic Regression；</li>
+<li>Decision Tree；</li>
+<li>Random Forest；</li>
+<li>Gradient Boosting；</li>
+<li>XGBoost；</li>
+<li>Support Vector Machine；</li>
+<li>K-Nearest Neighbors；</li>
+<li>Naive Bayes。</li>
+</ul>
+</section>
+<section id="聚类模型" class="level2">
+<h2 class="anchored" data-anchor-id="聚类模型">9.3 聚类模型</h2>
+<p>适用于无监督分群：</p>
+<ul>
+<li>K-means；</li>
+<li>Hierarchical Clustering；</li>
+<li>DBSCAN；</li>
+<li>Gaussian Mixture Model。</li>
+</ul>
+</section>
+<section id="时间序列模型" class="level2">
+<h2 class="anchored" data-anchor-id="时间序列模型">9.4 时间序列模型</h2>
+<p>适用于预测未来：</p>
+<ul>
+<li>Moving Average；</li>
+<li>Exponential Smoothing；</li>
+<li>ARIMA；</li>
+<li>SARIMA；</li>
+<li>Prophet；</li>
+<li>基于特征的机器学习模型。</li>
+</ul>
+</section>
+<section id="模型复杂度原则" class="level2">
+<h2 class="anchored" data-anchor-id="模型复杂度原则">9.5 模型复杂度原则</h2>
+<p>建议按以下顺序推进：</p>
+<ol type="1">
+<li>简单统计模型；</li>
+<li>可解释模型；</li>
+<li>树模型；</li>
+<li>集成模型；</li>
+<li>更复杂算法。</li>
+</ol>
+<p>复杂模型只有在明显提升效果时才应采用。</p>
+<hr>
+</section>
+</section>
+<section id="十阶段十模型调参与交叉验证" class="level1">
+<h1>十、阶段十：模型调参与交叉验证</h1>
+<section id="交叉验证" class="level2">
+<h2 class="anchored" data-anchor-id="交叉验证">10.1 交叉验证</h2>
+<p>常用方法：</p>
+<ul>
+<li>K-fold；</li>
+<li>Stratified K-fold；</li>
+<li>Group K-fold；</li>
+<li>Time Series Split。</li>
+</ul>
+<p>交叉验证必须适应数据结构。</p>
+</section>
+<section id="超参数调优" class="level2">
+<h2 class="anchored" data-anchor-id="超参数调优">10.2 超参数调优</h2>
+<p>常用方法：</p>
+<ul>
+<li>Grid Search；</li>
+<li>Random Search；</li>
+<li>Bayesian Optimization。</li>
+</ul>
+<p>调参必须仅基于训练集或验证集，不得反复查看测试集结果。</p>
+</section>
+<section id="防止过拟合" class="level2">
+<h2 class="anchored" data-anchor-id="防止过拟合">10.3 防止过拟合</h2>
+<p>重点观察：</p>
+<ul>
+<li>训练集表现很好；</li>
+<li>验证集表现明显下降；</li>
+<li>模型变量过多；</li>
+<li>模型结构过于复杂；</li>
+<li>交叉验证波动较大。</li>
+</ul>
+<p>处理方法：</p>
+<ul>
+<li>正则化；</li>
+<li>降低模型复杂度；</li>
+<li>删除无效特征；</li>
+<li>增加数据；</li>
+<li>交叉验证；</li>
+<li>提前停止；</li>
+<li>限制树深度。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="十一阶段十一模型评估" class="level1">
+<h1>十一、阶段十一：模型评估</h1>
+<section id="回归模型指标" class="level2">
+<h2 class="anchored" data-anchor-id="回归模型指标">11.1 回归模型指标</h2>
+<section id="mae" class="level3">
+<h3 class="anchored" data-anchor-id="mae">MAE</h3>
+<p>平均绝对误差，容易解释。</p>
+</section>
+<section id="rmse" class="level3">
+<h3 class="anchored" data-anchor-id="rmse">RMSE</h3>
+<p>对较大误差更加敏感。</p>
+</section>
+<section id="r²" class="level3">
+<h3 class="anchored" data-anchor-id="r²">R²</h3>
+<p>衡量模型解释目标变量变化的程度。</p>
+</section>
+<section id="mape" class="level3">
+<h3 class="anchored" data-anchor-id="mape">MAPE</h3>
+<p>适合相对误差，但目标值接近零时可能失真。</p>
+</section>
+</section>
+<section id="分类模型指标" class="level2">
+<h2 class="anchored" data-anchor-id="分类模型指标">11.2 分类模型指标</h2>
+<section id="accuracy" class="level3">
+<h3 class="anchored" data-anchor-id="accuracy">Accuracy</h3>
+<p>整体预测正确率。</p>
+<p>类别不平衡时不能单独使用。</p>
+</section>
+<section id="precision" class="level3">
+<h3 class="anchored" data-anchor-id="precision">Precision</h3>
+<p>被预测为正类的样本中，有多少是真的正类。</p>
+<p>适合误判成本较高的场景。</p>
+</section>
+<section id="recall" class="level3">
+<h3 class="anchored" data-anchor-id="recall">Recall</h3>
+<p>真实正类中，有多少被模型识别。</p>
+<p>适合漏判成本较高的场景。</p>
+</section>
+<section id="f1-score" class="level3">
+<h3 class="anchored" data-anchor-id="f1-score">F1 Score</h3>
+<p>Precision和Recall的综合指标。</p>
+</section>
+<section id="roc-auc" class="level3">
+<h3 class="anchored" data-anchor-id="roc-auc">ROC-AUC</h3>
+<p>评价模型区分正负类别的整体能力。</p>
+</section>
+<section id="pr-auc" class="level3">
+<h3 class="anchored" data-anchor-id="pr-auc">PR-AUC</h3>
+<p>在严重类别不平衡时通常更有意义。</p>
+</section>
+</section>
+<section id="混淆矩阵" class="level2">
+<h2 class="anchored" data-anchor-id="混淆矩阵">11.3 混淆矩阵</h2>
+<p>必须解释：</p>
+<ul>
+<li>True Positive；</li>
+<li>False Positive；</li>
+<li>True Negative；</li>
+<li>False Negative。</li>
+</ul>
+<p>并说明不同错误的业务成本。</p>
+</section>
+<section id="阈值选择" class="level2">
+<h2 class="anchored" data-anchor-id="阈值选择">11.4 阈值选择</h2>
+<p>分类模型默认阈值0.5未必最优。</p>
+<p>应根据：</p>
+<ul>
+<li>业务成本；</li>
+<li>Precision要求；</li>
+<li>Recall要求；</li>
+<li>预算限制；</li>
+<li>可联系客户数量；</li>
+<li>风险承受能力；</li>
+</ul>
+<p>选择合适阈值。</p>
+</section>
+<section id="模型稳定性" class="level2">
+<h2 class="anchored" data-anchor-id="模型稳定性">11.5 模型稳定性</h2>
+<p>检查模型在不同群体中的表现：</p>
+<ul>
+<li>不同地区；</li>
+<li>不同性别；</li>
+<li>不同客户类型；</li>
+<li>不同时间段；</li>
+<li>不同收入水平；</li>
+<li>不同产品类别。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="十二阶段十二模型解释" class="level1">
+<h1>十二、阶段十二：模型解释</h1>
+<p>模型不仅需要准确，也需要能够解释。</p>
+<section id="全局解释" class="level2">
+<h2 class="anchored" data-anchor-id="全局解释">12.1 全局解释</h2>
+<p>回答：</p>
+<ul>
+<li>哪些变量最重要；</li>
+<li>变量总体如何影响结果；</li>
+<li>模型使用了什么规律；</li>
+<li>是否符合业务逻辑。</li>
+</ul>
+<p>常用方法：</p>
+<ul>
+<li>回归系数；</li>
+<li>特征重要性；</li>
+<li>Permutation Importance；</li>
+<li>Partial Dependence Plot；</li>
+<li>SHAP Summary Plot。</li>
+</ul>
+</section>
+<section id="局部解释" class="level2">
+<h2 class="anchored" data-anchor-id="局部解释">12.2 局部解释</h2>
+<p>回答：</p>
+<ul>
+<li>为什么某一个客户被预测为高风险；</li>
+<li>为什么某一笔订单预测值很高；</li>
+<li>哪些变量推动了该次预测。</li>
+</ul>
+<p>常用方法：</p>
+<ul>
+<li>SHAP；</li>
+<li>LIME；</li>
+<li>决策路径；</li>
+<li>局部敏感性分析。</li>
+</ul>
+</section>
+<section id="因果解释限制" class="level2">
+<h2 class="anchored" data-anchor-id="因果解释限制">12.3 因果解释限制</h2>
+<p>预测模型发现的是关联，不一定是因果关系。</p>
+<p>例如：</p>
+<blockquote class="blockquote">
+<p>高折扣客户更容易流失</p>
+</blockquote>
+<p>并不一定意味着折扣导致流失，也可能是公司对高风险客户提供了更多折扣。</p>
+<p>除非使用实验设计、自然实验或因果推断方法，否则不能直接作出因果结论。</p>
+<hr>
+</section>
+</section>
+<section id="十三阶段十三模型诊断" class="level1">
+<h1>十三、阶段十三：模型诊断</h1>
+<section id="回归诊断" class="level2">
+<h2 class="anchored" data-anchor-id="回归诊断">13.1 回归诊断</h2>
+<p>检查：</p>
+<ul>
+<li>残差分布；</li>
+<li>异方差；</li>
+<li>非线性；</li>
+<li>高影响点；</li>
+<li>多重共线性；</li>
+<li>残差是否随预测值变化；</li>
+<li>残差是否随时间变化。</li>
+</ul>
+</section>
+<section id="分类诊断" class="level2">
+<h2 class="anchored" data-anchor-id="分类诊断">13.2 分类诊断</h2>
+<p>检查：</p>
+<ul>
+<li>混淆矩阵；</li>
+<li>不同阈值表现；</li>
+<li>概率校准；</li>
+<li>类别不平衡；</li>
+<li>各群体错误率；</li>
+<li>高置信度错误预测。</li>
+</ul>
+</section>
+<section id="时间序列诊断" class="level2">
+<h2 class="anchored" data-anchor-id="时间序列诊断">13.3 时间序列诊断</h2>
+<p>检查：</p>
+<ul>
+<li>残差自相关；</li>
+<li>季节性是否充分捕捉；</li>
+<li>结构变化；</li>
+<li>预测区间；</li>
+<li>训练期和测试期分布变化。</li>
+</ul>
+</section>
+<section id="错误分析" class="level2">
+<h2 class="anchored" data-anchor-id="错误分析">13.4 错误分析</h2>
+<p>单独检查预测最差的记录：</p>
+<ul>
+<li>最大误差样本；</li>
+<li>False Positive；</li>
+<li>False Negative；</li>
+<li>异常业务场景；</li>
+<li>稀有类别；</li>
+<li>数据缺失严重样本。</li>
+</ul>
+<p>错误分析通常能帮助发现新的特征和数据问题。</p>
+<hr>
+</section>
+</section>
+<section id="十四阶段十四稳健性与敏感性分析" class="level1">
+<h1>十四、阶段十四：稳健性与敏感性分析</h1>
+<p>不能只报告单一模型结果。</p>
+<section id="更换模型" class="level2">
+<h2 class="anchored" data-anchor-id="更换模型">14.1 更换模型</h2>
+<p>比较不同模型是否得到相似结论。</p>
+</section>
+<section id="更换变量" class="level2">
+<h2 class="anchored" data-anchor-id="更换变量">14.2 更换变量</h2>
+<p>检查删除或加入关键变量后，结果是否明显变化。</p>
+</section>
+<section id="更换样本" class="level2">
+<h2 class="anchored" data-anchor-id="更换样本">14.3 更换样本</h2>
+<p>检查：</p>
+<ul>
+<li>不同时间段；</li>
+<li>不同地区；</li>
+<li>不同客户群；</li>
+<li>排除异常值后；</li>
+<li>只保留完整数据后。</li>
+</ul>
+</section>
+<section id="更换参数" class="level2">
+<h2 class="anchored" data-anchor-id="更换参数">14.4 更换参数</h2>
+<p>检查：</p>
+<ul>
+<li>分类阈值；</li>
+<li>异常值标准；</li>
+<li>缺失值处理方式；</li>
+<li>时间窗口；</li>
+<li>特征定义；</li>
+<li>正则化强度。</li>
+</ul>
+</section>
+<section id="情景分析" class="level2">
+<h2 class="anchored" data-anchor-id="情景分析">14.5 情景分析</h2>
+<p>建立：</p>
+<ul>
+<li>乐观情景；</li>
+<li>基准情景；</li>
+<li>悲观情景。</li>
+</ul>
+<p>说明关键假设变化会如何影响结果。</p>
+<hr>
+</section>
+</section>
+<section id="十五阶段十五将分析结果转化为商业建议" class="level1">
+<h1>十五、阶段十五：将分析结果转化为商业建议</h1>
+<p>模型结果本身不是最终答案。</p>
+<section id="从结果到洞察" class="level2">
+<h2 class="anchored" data-anchor-id="从结果到洞察">15.1 从结果到洞察</h2>
+<p>完整逻辑应为：</p>
+<blockquote class="blockquote">
+<p>数据发现 → 分析解释 → 商业含义 → 行动建议 → 衡量指标</p>
+</blockquote>
+<p>例如：</p>
+<blockquote class="blockquote">
+<p>数据发现：近90天没有购买行为的客户流失概率明显上升。 分析解释：购买间隔是流失的重要预测因素。 商业含义：客户长期不活跃后再进行干预可能已经过晚。 行动建议：在客户连续45天无购买时启动召回活动。 衡量指标：召回率、复购率、增量收入和营销成本。</p>
+</blockquote>
+</section>
+<section id="建议必须可执行" class="level2">
+<h2 class="anchored" data-anchor-id="建议必须可执行">15.2 建议必须可执行</h2>
+<p>每项建议应包括：</p>
+<ul>
+<li>对象；</li>
+<li>行动；</li>
+<li>时间；</li>
+<li>负责人；</li>
+<li>资源；</li>
+<li>KPI；</li>
+<li>风险；</li>
+<li>验证方式。</li>
+</ul>
+</section>
+<section id="区分预测价值与商业价值" class="level2">
+<h2 class="anchored" data-anchor-id="区分预测价值与商业价值">15.3 区分预测价值与商业价值</h2>
+<p>一个更准确的模型不一定带来更高商业价值。</p>
+<p>必须评估：</p>
+<ul>
+<li>使用成本；</li>
+<li>错误预测成本；</li>
+<li>实施难度；</li>
+<li>数据更新频率；</li>
+<li>业务团队是否能理解；</li>
+<li>是否能将结果转化为行动。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="十六阶段十六可视化与报告" class="level1">
+<h1>十六、阶段十六：可视化与报告</h1>
+<section id="可视化原则" class="level2">
+<h2 class="anchored" data-anchor-id="可视化原则">16.1 可视化原则</h2>
+<p>每张图应回答一个明确问题。</p>
+<p>图表标题应表达结论，而不是只描述变量。</p>
+<p>不推荐：</p>
+<blockquote class="blockquote">
+<p>Sales by Month</p>
+</blockquote>
+<p>推荐：</p>
+<blockquote class="blockquote">
+<p>销售额在第四季度显著提升，但增长主要集中于两个产品类别</p>
+</blockquote>
+</section>
+<section id="推荐图表" class="level2">
+<h2 class="anchored" data-anchor-id="推荐图表">16.2 推荐图表</h2>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>分析目的</th>
+<th>推荐图表</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>分布</td>
+<td>直方图、箱线图</td>
+</tr>
+<tr class="even">
+<td>类别比较</td>
+<td>柱状图</td>
+</tr>
+<tr class="odd">
+<td>时间趋势</td>
+<td>折线图</td>
+</tr>
+<tr class="even">
+<td>两变量关系</td>
+<td>散点图</td>
+</tr>
+<tr class="odd">
+<td>占比</td>
+<td>堆积柱状图</td>
+</tr>
+<tr class="even">
+<td>模型误差</td>
+<td>残差图</td>
+</tr>
+<tr class="odd">
+<td>分类结果</td>
+<td>混淆矩阵、ROC曲线</td>
+</tr>
+<tr class="even">
+<td>特征重要性</td>
+<td>排序条形图</td>
+</tr>
+<tr class="odd">
+<td>客户分群</td>
+<td>聚类散点图</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="报告结构" class="level2">
+<h2 class="anchored" data-anchor-id="报告结构">16.3 报告结构</h2>
+<p>建议使用：</p>
+<ol type="1">
+<li>Executive Summary；</li>
+<li>Business Question；</li>
+<li>Data Description；</li>
+<li>Data Quality；</li>
+<li>Methodology；</li>
+<li>Exploratory Analysis；</li>
+<li>Feature Engineering；</li>
+<li>Model Development；</li>
+<li>Model Evaluation；</li>
+<li>Key Findings；</li>
+<li>Business Recommendations；</li>
+<li>Limitations；</li>
+<li>Appendix。</li>
+</ol>
+</section>
+<section id="报告必须说明" class="level2">
+<h2 class="anchored" data-anchor-id="报告必须说明">16.4 报告必须说明</h2>
+<ul>
+<li>数据来源；</li>
+<li>数据时间范围；</li>
+<li>样本量；</li>
+<li>目标变量；</li>
+<li>数据清洗规则；</li>
+<li>模型选择原因；</li>
+<li>评价指标；</li>
+<li>模型结果；</li>
+<li>局限性；</li>
+<li>商业建议。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="十七阶段十七代码与结果复核" class="level1">
+<h1>十七、阶段十七：代码与结果复核</h1>
+<section id="可重复运行" class="level2">
+<h2 class="anchored" data-anchor-id="可重复运行">17.1 可重复运行</h2>
+<p>项目代码应做到：</p>
+<ul>
+<li>从原始数据开始运行；</li>
+<li>不依赖手工修改；</li>
+<li>文件路径清晰；</li>
+<li>随机种子固定；</li>
+<li>软件包版本记录；</li>
+<li>结果能够重复生成。</li>
+</ul>
+</section>
+<section id="代码结构" class="level2">
+<h2 class="anchored" data-anchor-id="代码结构">17.2 代码结构</h2>
+<p>推荐：</p>
+<pre class="text"><code>project/
+├── data/
+│   ├── raw/
+│   ├── interim/
+│   └── processed/
+├── notebooks/
+├── src/
+│   ├── data_cleaning
+│   ├── feature_engineering
+│   ├── modeling
+│   └── evaluation
+├── output/
+│   ├── figures
+│   ├── tables
+│   └── models
+├── report/
+└── README</code></pre>
+</section>
+<section id="结果复核" class="level2">
+<h2 class="anchored" data-anchor-id="结果复核">17.3 结果复核</h2>
+<p>必须检查：</p>
+<ul>
+<li>样本量是否正确；</li>
+<li>数据拆分是否正确；</li>
+<li>是否存在数据泄漏；</li>
+<li>模型指标是否计算正确；</li>
+<li>表格与代码结果是否一致；</li>
+<li>图表与表格是否一致；</li>
+<li>报告数字是否一致；</li>
+<li>结论是否超出数据支持范围。</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="十八阶段十八最终质量检查" class="level1">
+<h1>十八、阶段十八：最终质量检查</h1>
+<section id="数据检查" class="level2">
+<h2 class="anchored" data-anchor-id="数据检查">数据检查</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">原始数据已保留；</label></li>
+<li><label><input type="checkbox">分析单位明确；</label></li>
+<li><label><input type="checkbox">数据类型正确；</label></li>
+<li><label><input type="checkbox">缺失值已检查；</label></li>
+<li><label><input type="checkbox">重复值已检查；</label></li>
+<li><label><input type="checkbox">异常值已检查；</label></li>
+<li><label><input type="checkbox">数据合并结果已核验；</label></li>
+<li><label><input type="checkbox">数据时间范围明确。</label></li>
+</ul>
+</section>
+<section id="建模检查" class="level2">
+<h2 class="anchored" data-anchor-id="建模检查">建模检查</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">目标变量明确；</label></li>
+<li><label><input type="checkbox">训练集和测试集已正确划分；</label></li>
+<li><label><input type="checkbox">数据预处理仅使用训练集信息；</label></li>
+<li><label><input type="checkbox">已建立基线模型；</label></li>
+<li><label><input type="checkbox">已比较多个模型；</label></li>
+<li><label><input type="checkbox">评价指标与业务目标一致；</label></li>
+<li><label><input type="checkbox">未使用测试集进行调参；</label></li>
+<li><label><input type="checkbox">已检查过拟合；</label></li>
+<li><label><input type="checkbox">已检查数据泄漏。</label></li>
+</ul>
+</section>
+<section id="分析检查" class="level2">
+<h2 class="anchored" data-anchor-id="分析检查">分析检查</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">关键发现有数据支持；</label></li>
+<li><label><input type="checkbox">相关性没有被错误解释为因果；</label></li>
+<li><label><input type="checkbox">已进行错误分析；</label></li>
+<li><label><input type="checkbox">已进行稳健性分析；</label></li>
+<li><label><input type="checkbox">已说明模型限制；</label></li>
+<li><label><input type="checkbox">已解释关键变量。</label></li>
+</ul>
+</section>
+<section id="交付检查" class="level2">
+<h2 class="anchored" data-anchor-id="交付检查">交付检查</h2>
+<ul class="task-list">
+<li><label><input type="checkbox">图表标题表达结论；</label></li>
+<li><label><input type="checkbox">图表单位正确；</label></li>
+<li><label><input type="checkbox">数字前后一致；</label></li>
+<li><label><input type="checkbox">报告回答了商业问题；</label></li>
+<li><label><input type="checkbox">建议具体可执行；</label></li>
+<li><label><input type="checkbox">文件命名正确；</label></li>
+<li><label><input type="checkbox">代码可以重新运行；</label></li>
+<li><label><input type="checkbox">最终结果已独立复核。</label></li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="十九标准流程图" class="level1">
+<h1>十九、标准流程图</h1>
+<pre class="text"><code>1. 明确商业问题
+        ↓
+2. 定义目标变量与分析单位
+        ↓
+3. 检查原始数据形态
+        ↓
+4. 数据质量检查
+        ↓
+5. 数据清洗与合并
+        ↓
+6. 探索性数据分析
+        ↓
+7. 特征工程
+        ↓
+8. 划分训练集、验证集和测试集
+        ↓
+9. 建立基线模型
+        ↓
+10. 训练多个候选模型
+        ↓
+11. 交叉验证与参数调整
+        ↓
+12. 模型评估与比较
+        ↓
+13. 模型解释与错误分析
+        ↓
+14. 稳健性和敏感性分析
+        ↓
+15. 转化为商业洞察和建议
+        ↓
+16. 可视化、报告和演示
+        ↓
+17. 代码复核与结果验证
+        ↓
+18. 最终交付与归档</code></pre>
+</section>
+<section id="二十项目执行原则" class="level1">
+<h1>二十、项目执行原则</h1>
+<ol type="1">
+<li><strong>先理解数据，再建模。</strong></li>
+<li><strong>先建立基线，再使用复杂算法。</strong></li>
+<li><strong>先划分数据，再做会学习参数的预处理。</strong></li>
+<li><strong>测试集只用于最终评估。</strong></li>
+<li><strong>所有特征必须在实际预测时可获得。</strong></li>
+<li><strong>模型指标必须与商业目标一致。</strong></li>
+<li><strong>预测关系不能自动解释为因果关系。</strong></li>
+<li><strong>所有数字和结论必须能够追溯到数据与代码。</strong></li>
+<li><strong>复杂模型必须提供足够的增量价值。</strong></li>
+<li><strong>最终输出必须从模型结果转化为可执行决策。</strong></li>
+</ol>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    // Ensure there is a toggle, if there isn't float one in the top right
+    if (window.document.querySelector('.quarto-color-scheme-toggle') === null) {
+      const a = window.document.createElement('a');
+      a.classList.add('top-right');
+      a.classList.add('quarto-color-scheme-toggle');
+      a.href = "";
+      a.onclick = function() { try { window.quartoToggleColorScheme(); } catch {} return false; };
+      const i = window.document.createElement("i");
+      i.classList.add('bi');
+      a.appendChild(i);
+      window.document.body.appendChild(a);
+    }
+    setColorSchemeToggle(hasAlternateSentinel())
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copied!");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copied!");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp('/' + window.location.host + '/');
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>© 2026 Lele Liao · Portfolio</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>

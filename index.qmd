@@ -12,7 +12,7 @@ Welcome to my website!
 ::: {.grid}
 
 ::: {.g-col-12 .g-col-md-4}
-<a href="./projects/ABTest/hw1_questions.html" class="feature-card-link">
+<a href="./projects/ABTest/ABTest.html" class="feature-card-link">
 <div class="feature-card">
 <h3>🧸 A/B Testing with Chiikawa</h3>
 <p>

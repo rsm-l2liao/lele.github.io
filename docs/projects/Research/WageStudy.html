@@ -6,8 +6,10 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
+<meta name="author" content="Lele Liao">
+<meta name="dcterms.date" content="2026-07-30">
 
-<title>My Projects – Lele Liao | Data Analyst</title>
+<title>Replication of Card and Krueger (1994) – Lele Liao | Data Analyst</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -23,30 +25,28 @@ ul.task-list li input[type="checkbox"] {
 </style>
 
 
-<script src="site_libs/quarto-nav/quarto-nav.js"></script>
-<script src="site_libs/quarto-nav/headroom.min.js"></script>
-<script src="site_libs/clipboard/clipboard.min.js"></script>
-<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
-<script src="site_libs/quarto-search/fuse.min.js"></script>
-<script src="site_libs/quarto-search/quarto-search.js"></script>
-<meta name="quarto:offset" content="./">
-<script src="site_libs/quarto-listing/list.min.js"></script>
-<script src="site_libs/quarto-listing/quarto-listing.js"></script>
-<script src="site_libs/quarto-html/quarto.js" type="module"></script>
-<script src="site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
-<script src="site_libs/quarto-html/axe/axe-check.js" type="module"></script>
-<script src="site_libs/quarto-html/popper.min.js"></script>
-<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
-<script src="site_libs/quarto-html/anchor.min.js"></script>
-<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark-ea00d30dd9b950c7ecb6e17bc6ca0835.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
-<script src="site_libs/bootstrap/bootstrap.min.js"></script>
-<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap-3b988793beeeeab0265599ed392226a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
-<link href="site_libs/bootstrap/bootstrap-dark-3b2d492bae908366fb1621f3f5d11d0a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
-<link href="site_libs/bootstrap/bootstrap-3b988793beeeeab0265599ed392226a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../../site_libs/quarto-html/axe/axe-check.js" type="module"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" class="quarto-color-scheme" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-dark-ea00d30dd9b950c7ecb6e17bc6ca0835.css" rel="stylesheet" class="quarto-color-scheme quarto-color-alternate" id="quarto-text-highlighting-styles">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-ac077c1e730dfeb5e42400639d17284e.css" rel="stylesheet" class="quarto-color-scheme-extra" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-3b988793beeeeab0265599ed392226a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme" id="quarto-bootstrap" data-mode="light">
+<link href="../../site_libs/bootstrap/bootstrap-dark-3b2d492bae908366fb1621f3f5d11d0a.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme quarto-color-alternate" id="quarto-bootstrap" data-mode="dark">
+<link href="../../site_libs/bootstrap/bootstrap-3b988793beeeeab0265599ed392226a2.min.css" rel="stylesheet" append-hash="true" class="quarto-color-scheme-extra" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "navbar",
   "copy-button": false,
@@ -74,68 +74,10 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-date','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 <style>html{ scroll-behavior: smooth; }</style>
 
-  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
-  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
 
-<script type="text/javascript">
-const typesetMath = (el) => {
-  if (window.MathJax) {
-    // MathJax Typeset
-    window.MathJax.typeset([el]);
-  } else if (window.katex) {
-    // KaTeX Render
-    var mathElements = el.getElementsByClassName("math");
-    var macros = [];
-    for (var i = 0; i < mathElements.length; i++) {
-      var texText = mathElements[i].firstChild;
-      if (mathElements[i].tagName == "SPAN" && texText && texText.data) {
-        window.katex.render(texText.data, mathElements[i], {
-          displayMode: mathElements[i].classList.contains('display'),
-          throwOnError: false,
-          macros: macros,
-          fleqn: false
-        });
-      }
-    }
-  }
-}
-window.Quarto = {
-  typesetMath
-};
-</script>
-
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="../../styles.css">
 </head>
 
 <body class="nav-fixed fullcontent quarto-light"><script id="quarto-html-before-body" type="application/javascript">
@@ -307,7 +249,7 @@ window.Quarto = {
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
-    <a class="navbar-brand" href="./index.html">
+    <a class="navbar-brand" href="../../index.html">
     <span class="navbar-title">Lele Liao | Data Analyst</span>
     </a>
   </div>
@@ -318,19 +260,19 @@ window.Quarto = {
           <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav navbar-nav-scroll me-auto">
   <li class="nav-item">
-    <a class="nav-link" href="./index.html"> 
+    <a class="nav-link" href="../../index.html"> 
 <span class="menu-text">About</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="./projects.html" aria-current="page"> 
+    <a class="nav-link" href="../../projects.html"> 
 <span class="menu-text">Projects</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./presentation.html"> 
+    <a class="nav-link" href="../../presentation.html"> 
 <span class="menu-text">Presentations</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link" href="./resume.html"> 
+    <a class="nav-link" href="../../resume.html"> 
 <span class="menu-text">Resume</span></a>
   </li>  
 </ul>
@@ -369,14 +311,27 @@ window.Quarto = {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">My Projects</h1>
+<h1 class="title">Replication of Card and Krueger (1994)</h1>
+<p class="subtitle lead">Minimum Wages, Fast-Food Jobs, and a Simple Difference-in-Differences Story</p>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Lele Liao </p>
+          </div>
+  </div>
     
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">July 30, 2026</p>
+    </div>
+  </div>
   
     
   </div>
@@ -386,141 +341,171 @@ window.Quarto = {
 </header>
 
 
+<section id="introduction" class="level2">
+<h2 class="anchored" data-anchor-id="introduction">Introduction</h2>
+<p>For homework 2, I chose <strong>Card and Krueger (1994)</strong>.</p>
+<p>This is one of the most famous papers in labor economics. The paper studies a very simple question:</p>
+<p><strong>If the minimum wage goes up, will firms cut jobs?</strong></p>
+<p>This question matters because the usual textbook story is clear. If labor becomes more expensive, firms should want fewer workers. So many people expect employment to fall after a minimum wage increase.</p>
+<p>But Card and Krueger show that real life is not always that simple.</p>
+<p>They study fast-food restaurants in two nearby states in 1992:</p>
+<ul>
+<li>New Jersey raised its minimum wage from <strong>$4.25</strong> to <strong>$5.05</strong>.</li>
+<li>Pennsylvania did <strong>not</strong> raise its minimum wage at that time.</li>
+</ul>
+<p>This gives the authors a good comparison. They can look at restaurants in New Jersey before and after the policy change, and compare that change to restaurants in Pennsylvania over the same period.</p>
+<p>In this post, I do three things:</p>
+<ol type="1">
+<li>I explain what the paper is studying and why the question is important.</li>
+<li>I replicate the paper’s main statistical finding about employment.</li>
+<li>I do one extra thing by discussing wages, prices, and why the difference-in-differences method helps the authors make a causal argument.</li>
+</ol>
+</section>
+<section id="what-the-authors-study" class="level2">
+<h2 class="anchored" data-anchor-id="what-the-authors-study">What The Authors Study</h2>
+<p>The paper looks at fast-food restaurants such as Burger King, KFC, Roy Rogers, and Wendy’s. These stores employ many low-wage workers, so they are a natural place to study minimum wage policy.</p>
+<p>The data come from surveys of restaurants in both states. The stores were contacted before the New Jersey policy change and again after the policy change. This means the authors can track how employment changed over time.</p>
+<p>The main outcome in the paper is <strong>employment</strong>, measured as <strong>full-time equivalent employment (FTE)</strong>. This is a useful measure because restaurants use both full-time and part-time workers.</p>
+<p>The FTE measure is:</p>
+<ul>
+<li><code>FTE = full-time workers + 0.5 x part-time workers</code></li>
+</ul>
+<p>This is not perfect, but it gives a simple way to put full-time and part-time labor on one scale.</p>
+<p>What makes the paper interesting is that the authors are not just asking whether New Jersey restaurants had more or fewer workers than Pennsylvania restaurants. That would be too simple, because the two states may already be different. Instead, they ask:</p>
+<p><strong>Did employment change differently in New Jersey than in Pennsylvania after the wage increase?</strong></p>
+<p>That is the key idea behind the method they use.</p>
+</section>
+<section id="replicating-the-main-finding" class="level2">
+<h2 class="anchored" data-anchor-id="replicating-the-main-finding">Replicating The Main Finding</h2>
+<p>The main method in the paper is <strong>difference-in-differences (DID)</strong>.</p>
+<p>The logic is easy to explain.</p>
+<p>First, calculate the employment change in New Jersey. Then, calculate the employment change in Pennsylvania. Finally, subtract the second change from the first one.</p>
+<p>Using the paper’s fast-food employment setup, I replicate the main result:</p>
+<ul>
+<li>New Jersey employment change: <strong>+0.51</strong> FTE workers</li>
+<li>Pennsylvania employment change: <strong>-2.41</strong> FTE workers</li>
+<li>Difference-in-differences estimate: <strong>+2.91</strong> FTE workers</li>
+</ul>
+<p><img src="../../images/Research1.png" class="img-fluid"></p>
+<p>This figure shows the same story in a visual way. Employment goes up a little in New Jersey, but it goes down in Pennsylvania. When we compare those two changes, the estimated effect of the New Jersey policy is positive.</p>
+<p>I also checked the result with a simple regression version of DID. The estimated coefficient is about <strong>2.94</strong>, which is almost the same as the hand-calculated DID number. That is a good sign because it shows the result is internally consistent.</p>
+</section>
+<section id="why-this-result-matters" class="level2">
+<h2 class="anchored" data-anchor-id="why-this-result-matters">Why This Result Matters</h2>
+<p>This result matters because it goes against the very basic prediction many people expect.</p>
+<p>A common argument is:</p>
+<ul>
+<li>higher minimum wage</li>
+<li>higher labor cost</li>
+<li>fewer workers hired</li>
+</ul>
+<p>But that is <strong>not</strong> what this paper finds in this case.</p>
+<p>Instead, the data suggest that employment in New Jersey fast-food restaurants did <strong>not</strong> fall relative to Pennsylvania after the wage increase. If anything, the estimate is slightly positive.</p>
+<p>That does <strong>not</strong> mean minimum wages always increase employment. It also does <strong>not</strong> mean theory is useless. It just means that in this setting, with this policy change, and in this industry, the simple negative-employment story does not fit the data very well.</p>
+<p>I think this is one reason the paper became so famous. It challenged a strong and widely repeated belief with real evidence.</p>
+</section>
+<section id="one-extra-finding-wages-really-did-increase" class="level2">
+<h2 class="anchored" data-anchor-id="one-extra-finding-wages-really-did-increase">One Extra Finding: Wages Really Did Increase</h2>
+<p>A good replication should do more than report one number. So I also look at one extra part of the story.</p>
+<p>If the minimum wage law really mattered, then wages should actually go up in New Jersey after the policy change. If wages did not move, then the employment result would be less convincing.</p>
+<p>The paper’s data show that wages did rise.</p>
+<p>For low-wage stores:</p>
+<ul>
+<li>average wages increased by about <strong>0.81 dollars</strong>, or about <strong>10%</strong></li>
+</ul>
+<p>For higher-wage stores:</p>
+<ul>
+<li>wage changes were much smaller</li>
+</ul>
+<p>This is important because it shows the policy was real, not just a law written on paper.</p>
+<p>In other words, the treatment actually happened.</p>
+</section>
+<section id="one-extra-finding-prices-changed-too" class="level2">
+<h2 class="anchored" data-anchor-id="one-extra-finding-prices-changed-too">One Extra Finding: Prices Changed Too</h2>
+<p>I also look at prices.</p>
+<p>This part is interesting because it helps us think about <strong>why</strong> employment may not have fallen.</p>
+<p>If wages go up, firms do not have only one response. They do not always need to fire workers. They may also:</p>
+<ul>
+<li>raise prices a little</li>
+<li>accept lower profit margins</li>
+<li>change scheduling</li>
+<li>improve productivity</li>
+</ul>
+<p>In this dataset, prices moved like this:</p>
+<ul>
+<li>New Jersey prices increased by about <strong>2.60%</strong></li>
+<li>Pennsylvania prices decreased by about <strong>0.44%</strong></li>
+</ul>
+<p>This suggests that some of the higher labor cost may have been passed on to customers.</p>
+<p>That is a useful reminder that firms have several margins of adjustment. Employment is only one of them.</p>
+</section>
+<section id="a-visual-check-the-wage-distribution" class="level2">
+<h2 class="anchored" data-anchor-id="a-visual-check-the-wage-distribution">A Visual Check: The Wage Distribution</h2>
+<p>The wage distribution also helps tell the story.</p>
+<p><img src="../../images/Research2.png" class="img-fluid"></p>
+<p>Before the policy change, wages were spread out more widely. After the policy change, many wages are packed close to <strong>$5.05</strong>.</p>
+<p>This is exactly what we would expect if the new minimum wage became binding for many stores. It gives extra support to the idea that the policy really changed the labor market environment.</p>
+</section>
+<section id="why-difference-in-differences-helps" class="level2">
+<h2 class="anchored" data-anchor-id="why-difference-in-differences-helps">Why Difference-in-Differences Helps</h2>
+<p>I think the DID method is one of the best parts of this paper because it is easy to understand and very useful.</p>
+<p>The method compares:</p>
+<ul>
+<li>a <strong>treatment group</strong>: New Jersey</li>
+<li>a <strong>control group</strong>: Pennsylvania</li>
+<li>a <strong>before period</strong></li>
+<li>an <strong>after period</strong></li>
+</ul>
+<p>This helps remove two simple problems.</p>
+<p>First, New Jersey and Pennsylvania may be different even before the policy. Maybe wages, restaurant size, or local demand are not exactly the same. DID differences out those fixed cross-state gaps.</p>
+<p>Second, the whole fast-food industry may change over time for reasons unrelated to minimum wage policy. DID also removes common time changes that affect both states.</p>
+<p>So the key DID comparison is not just “New Jersey versus Pennsylvania.” It is:</p>
+<p><strong>How much did New Jersey change, compared with how much Pennsylvania changed?</strong></p>
+<p>That is why the method gives a stronger causal argument than a simple before-and-after comparison in one state.</p>
+<p>Of course, DID still needs an assumption. The big one is the <strong>parallel trends assumption</strong>. This means that without the policy change, New Jersey and Pennsylvania would have moved in a similar way over time.</p>
+<p>We can never prove that assumption perfectly, but in this case it feels more believable because:</p>
+<ul>
+<li>the states are geographically close</li>
+<li>the restaurants are in the same industry</li>
+<li>the policy timing creates a natural comparison</li>
+</ul>
+<p>So while this is not a lab experiment, it is a strong research design.</p>
+</section>
+<section id="what-changed-from-the-naive-story" class="level2">
+<h2 class="anchored" data-anchor-id="what-changed-from-the-naive-story">What Changed From The Naive Story</h2>
+<p>A useful way to think about this paper is to compare two stories.</p>
+<p>The naive story says:</p>
+<ul>
+<li>labor became more expensive</li>
+<li>therefore employment should fall</li>
+</ul>
+<p>The empirical story in the paper says:</p>
+<ul>
+<li>wages went up</li>
+<li>prices also moved</li>
+<li>employment did not fall relative to the comparison group</li>
+</ul>
+<p>That is a big difference.</p>
+<p>The paper shows why careful empirical work matters. If we only trusted a simple theory or only looked at one state before and after the law, we could easily reach the wrong conclusion.</p>
+</section>
+<section id="conclusion" class="level2">
+<h2 class="anchored" data-anchor-id="conclusion">Conclusion</h2>
+<p>My replication supports the main result of Card and Krueger (1994).</p>
+<p>The central finding is clear:</p>
+<ul>
+<li>New Jersey employment changed by <strong>+0.51</strong> FTE</li>
+<li>Pennsylvania employment changed by <strong>-2.41</strong> FTE</li>
+<li>the DID estimate is about <strong>+2.91</strong> FTE</li>
+</ul>
+<p>So in this case, the minimum wage increase did <strong>not</strong> reduce fast-food employment.</p>
+<p>The extra evidence on wages and prices also helps the story make sense. Wages clearly rose, and prices moved too, which suggests that firms adjusted in more than one way.</p>
+<p>What I like most about this paper is that it is simple but powerful. The question is easy to understand. The method is easy to explain. But the result is important because it changed how many people think about minimum wage policy.</p>
+<p>If I continued this project, I would want to look more closely at sample choices, store closures, and alternative employment measures. But even this simple replication already shows why this paper is still so influential.</p>
 
 
+</section>
 
-
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-date-sort="1785394800000" data-listing-file-modified-sort="1783647633631" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="255">
-<a href="./projects/ABTest/ABTest.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="images/ABTest0.png" alt="A/B Testing Overview" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Chiikawa Explains A/B Testing a Call to Action
-</h5>
-<div class="card-text listing-description delink">
- <em>This diagram shows the full idea of the A/B test and the main statistical concepts we will explore.</em>
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Lele Liao
-</div>
-<div class="listing-date">
-Jul 30, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1783647633631" data-listing-reading-time-sort="2" data-listing-word-count-sort="333">
-<a href="./projects/HousingMarketPlotly/plotly.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Housing Dashboard (Plotly)
-</h5>
-<div class="card-text listing-description delink">
-<p>Interactive dashboard for exploring housing prices across major U.S. cities.</p>
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1783647633631" data-listing-reading-time-sort="1" data-listing-word-count-sort="180">
-<a href="./projects/HousingMarket/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Housing Market Dashboard
-</h5>
-<div class="card-text listing-description delink">
-This project investigates how income levels influence both housing prices and rental prices across U.S. regions, aiming to identify patterns, correlations, and regional…
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="3" data-listing-date-sort="1785394800000" data-listing-file-modified-sort="1783647633631" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="27" data-listing-word-count-sort="5331">
-<a href="./projects/MaxDiffMNL/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="projects/MaxDiffMNL/index_files/figure-html/counts-chart-output-1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-MaxDiff Analysis of MSBA Class Preferences
-</h5>
-<div class="card-text listing-description delink">
-MaxDiff, also called <strong>Best-Worst Scaling</strong>, is a survey method for measuring relative preference. On each screen, a respondent sees a small set of items and chooses the one…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Lele Liao
-</div>
-<div class="listing-date">
-Jul 30, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="4" data-listing-date-sort="1785394800000" data-listing-file-modified-sort="1783647633631" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="15" data-listing-word-count-sort="2855">
-<a href="./projects/BlueprintyPoisson/index.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="projects/BlueprintyPoisson/index_files/figure-html/patents-by-customer-output-2.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Poisson Regression and MLE for Blueprinty
-</h5>
-<div class="card-text listing-description delink">
-Blueprinty sells software that helps engineering firms prepare blueprint documents for patent applications. The marketing team wants to say something simple and attractive…
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Lele Liao
-</div>
-<div class="listing-date">
-Jul 30, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-<div class="g-col-1" data-index="5" data-listing-date-sort="1785394800000" data-listing-file-modified-sort="1783647633635" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="7" data-listing-word-count-sort="1393">
-<a href="./projects/Research/WageStudy.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top"><img src="images/Research1.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Replication of Card and Krueger (1994)
-</h5>
-<div class="card-text listing-description delink">
-For homework 2, I chose <strong>Card and Krueger (1994)</strong>.
-</div>
-<div class="card-attribution card-text-small justify">
-<div class="listing-author">
-Lele Liao
-</div>
-<div class="listing-date">
-Jul 30, 2026
-</div>
-</div>
-</div>
-</div></a>
-</div>
-</div>
-<div class="listing-no-matching d-none">No matching items</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
   window.document.addEventListener("DOMContentLoaded", function (event) {
     // Ensure there is a toggle, if there isn't float one in the top right
@@ -957,5 +942,5 @@ Jul 30, 2026
 
 
 
-<script src="site_libs/quarto-html/zenscroll-min.js"></script>
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
 </body></html>

@@ -2,18 +2,25 @@
   {
     "listing": "/projects.html",
     "items": [
-      "/projects/ABTest/hw1_questions.html",
+      "/projects/ABTest/ABTest.html",
       "/projects/HousingMarketPlotly/plotly.html",
       "/projects/HousingMarket/index.html",
       "/projects/MaxDiffMNL/index.html",
       "/projects/BlueprintyPoisson/index.html",
-      "/projects/Research/hw2_questions.html"
+      "/projects/Research/WageStudy.html"
     ]
   },
   {
     "listing": "/presentation.html",
     "items": [
       "/presentation/Liao_Lele-deploying_dashboard.html"
+    ]
+  },
+  {
+    "listing": "/SOP.html",
+    "items": [
+      "/SOP/SOP-SQL/SQL.html",
+      "/SOP/SOP-DataAnalyst/Data.html"
     ]
   }
 ]
