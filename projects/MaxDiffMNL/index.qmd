@@ -2,7 +2,7 @@
 title: "MaxDiff Analysis of MSBA Class Preferences"
 subtitle: "Counts, MLE, and Bayesian estimation of the MNL model"
 author: "Lele Liao"
-date: today
+date: May 15, 2026
 jupyter: python3
 format:
   html:

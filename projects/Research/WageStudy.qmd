@@ -2,7 +2,7 @@
 title: "Replication of Card and Krueger (1994)"
 subtitle: "Minimum Wages, Fast-Food Jobs, and a Simple Difference-in-Differences Story"
 author: "Lele Liao"
-date: today
+date: Jun 2, 2026
 ---
 
 ## Introduction

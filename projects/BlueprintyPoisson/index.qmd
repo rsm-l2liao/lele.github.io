@@ -2,7 +2,7 @@
 title: "Poisson Regression and MLE for Blueprinty"
 subtitle: "Does Blueprinty's software help firms win more patents?"
 author: "Lele Liao"
-date: today
+date: May 5, 2026
 jupyter: python3
 format:
   html:
